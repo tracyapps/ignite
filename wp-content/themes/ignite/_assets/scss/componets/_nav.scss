@@ -1,0 +1,572 @@
+/**
+ * main nav
+ *
+*/
+
+.mobile_menu_only {
+	display: none;
+
+	@include tablet-down {
+		display: initial;
+	}
+}
+
+// utility nav
+
+#site_utility_bar {
+	align-items: center;
+	justify-content: flex-end;
+	z-index: 999;
+	position: relative;
+	padding-right: 10px;
+	backdrop-filter: blur(8px);
+
+	@include themify($themes) {
+		background-image: linear-gradient( to right, transparent 50%, themed( 'utilityNavBGColor' ) 90% );
+	}
+
+	.smaller & {
+		@include themify($themes) {
+
+			background: rgba( themed( 'utilityNavBGColor' ), 0.8);
+		}
+	}
+
+	a,
+	a:visited {
+		text-decoration: none;
+		@include themify($themes) {
+			color: themed( 'utilityNavLinkColor' );
+		}
+
+		&:hover,
+		&:focus {
+			@include themify($themes) {
+				color: themed( 'utilityNavLinkHoverColor' );
+				//text-shadow: none;
+			}
+		}
+	}
+
+
+	nav#utility_navigation {
+
+		font-size: $font-size-xs;
+		padding: 2px 1em;
+
+		ul, li {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+		}
+
+		ul {
+			display: flex;
+			align-items: center;
+		}
+
+		a {
+			padding: 0.24em 1em;
+		}
+
+		.current-menu-item {
+			a,
+			a:visited {
+				@include themify($themes) {
+					color: themed( 'mainNavLinkHoverColor' );
+				}
+			}
+		}
+
+		.donate-button {
+
+			a,
+			a:visited {
+				padding: 1.5em 1.5em 1.2em 1.5em;
+				margin: -0.75em 1em -0.45em 1em;
+				background: $red;
+				color: $white;
+				border-radius: 8px;
+				font-weight: 800;
+				box-shadow: $subtle_shadow_dark;
+
+				&:hover,
+				&:target,
+				&:focus {
+					background: $yellow;
+					color: $black;
+				}
+			}
+
+		}
+	}
+}
+
+header.site_main_header {
+	.header_center {
+		position: relative;
+		z-index: 99999;
+
+		// nav layout
+
+		nav {
+			margin: 0;
+			width: 100%;
+
+			ul,
+			li {
+				list-style: none;
+				margin: 0;
+				padding: 0;
+			}
+			ul {
+				display: flex;
+				justify-content: space-evenly;
+
+			}
+		}
+
+		// nav item styles
+		a,
+		a:visited {
+			border-radius: 4px;
+			font-weight: 700;
+			padding: 0.4em 0.8em;
+			text-decoration: none;
+			text-transform: uppercase;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			height: 100%;
+			min-height: 2.8em;
+			font-size: $font-size-sm;
+
+			@include themify($themes) {
+				color: themed( 'mainNavLinkColor' );
+				background: themed( 'mainNavItemBGColor' );
+			}
+
+			&:hover,
+			&:focus,
+			&:target {
+				@include themify($themes) {
+					color: themed( 'mainNavLinkHoverColor' );
+					background: themed( 'mainNavItemBGHoverColor' );
+					text-shadow: 0 1px 0 rgba( themed('textHighlightAbove'), 0.75 );
+				}
+			}
+		}
+
+		li.menu-item-has-children {
+			&:hover,
+			&:focus,
+			&:target {
+				@include themify($themes) {
+					background: rgba( themed( 'mainNavItemBGHoverColor' ), 0.15 );
+				}
+			}
+		}
+
+	}
+	.current-menu-ancestor {
+		> a,
+		> a:visited {
+			@include themify($themes) {
+				background: rgba( themed( 'mainNavItemBGHoverColor' ), 0.15 );
+			}
+		}
+	}
+	.current-menu-item {
+		> a,
+		> a:visited {
+			@include themify($themes) {
+				text-shadow: 0 1px 0 rgba( themed('textShadowBelow'), 0.75 );
+				color: themed( 'mainNavLinkHoverColor' );
+				background: themed( 'mainNavItemBGHoverColor' );
+			}
+		}
+	}
+
+
+
+	// desktop (tablet up) styles of main nav
+	@include tablet-up {
+		nav.main_nav_container {
+			text-align: center;
+			font-size: $font-size-base;
+			line-height: 1.1;
+			width: 100%;
+
+
+			ul, li {
+				list-style: none;
+				margin: 0;
+				padding: 0;
+			}
+
+			> ul {
+
+				padding-left: 20px;
+				width: 100%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+
+				> li {
+					margin: 0 4px;
+					display: flex;
+					flex: auto;
+					border-radius: 4px;
+					border: 1px solid transparent;
+					// box-shadow: $text_shadow_dark;
+
+
+					> a {
+						padding: 0.5em;
+						flex: 1;
+					}
+				}
+			}
+
+			a,
+			a:visited {
+
+
+			}
+			.menu-item-has-children {
+				position: relative;
+				display: flex;
+				flex-wrap: wrap;
+				align-items: stretch;
+				justify-content: center;
+
+				> a {
+					flex: 1;
+				}
+
+				.dropdown_icon {
+					display: inline-block;
+					padding: 0 0 0 0.75em;
+				}
+				&:focus-within,
+				&:active,
+				&:target {
+					.sub-menu {
+						display: block;
+						opacity: 1;
+					}
+				}
+				&:hover {
+					.sub-menu {
+						display: block;
+						opacity: 1;
+					}
+				}
+
+			}
+
+			.sub-menu {
+				position: absolute;
+				top: 100%;
+				right: 0;
+				display: none;
+				overflow: hidden;
+				font-size: $font-size-base;
+				min-width: 20ch;
+				width: 100%;
+				backdrop-filter: blur(8px);
+				border-radius: 4px;
+				opacity: 0;
+				transition: opacity 200ms ease-in-out;
+				@include themify($themes) {
+					background: rgba(themed('backgroundColor'), 0.87);
+					box-shadow: themed('normalShadow');
+				}
+
+				li {
+					text-align: left;
+					width: 100%;
+
+					a {
+						display: block;
+						padding: 0.65em 1em;
+					}
+				}
+			}
+		}
+	}
+
+
+	// mobile (tablet down) styles of main nav
+	@include tablet-down {
+		.header_center {
+			position: absolute;
+			top: 0;
+			right: 0;
+			height: calc( 100vh - 90px );
+			width: 60vw;
+			min-width: min(390px, 95%);
+			z-index: 9999;
+			display: flex;
+			flex-direction: column;
+			margin: 82px 0 0 0;
+			padding: 0 60px 85px 0;
+			overflow-y: auto;
+		//	transform: translateX( 150% );
+			transition: transform 300ms ease-in-out;
+			display: none;
+			@include themify($themes) {
+				background: themed('backgroundColor');
+				box-shadow: themed('activeShadow');
+			}
+
+			@include phone-landscape {
+				margin-top: 55px;
+				height: calc( 100vh - 55px );
+			}
+			.main_nav_is_open & {
+				transform: translateX( 0% );
+
+			}
+
+
+
+			nav {
+				flex: 1;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				transition: all 350ms ease-in-out;
+				margin: 0;
+
+				ul, li {
+					margin: 0;
+					padding: 0;
+					list-style: none;
+					display: block;
+				}
+
+
+				> ul {
+
+					flex-direction: column;
+					flex: 1;
+
+					> li {
+						flex: 1;
+					}
+
+					a,
+					a:visited {
+						padding: 2em 1em;
+						text-decoration: none;
+						display: block;
+						line-height: 1.1;
+
+						@include themify($themes) {
+							border-top: 1px solid themed('backgroundColor');
+							border-bottom: 1px solid rgba( themed('textColor'), 0.14 );
+							color: themed('mainNavLinkColor');
+						}
+
+
+					}
+
+					.menu-item-has-children {
+						display: flex;
+						width: 100%;
+						flex-wrap: wrap;
+
+						a {
+							flex: 1;
+
+							@include themify($themes) {
+								border-right: 1px solid rgba( themed('textColor'), 0.24 );
+							}
+
+
+						}
+						.dropdown_icon {
+							display: inline-block;
+							padding: 0 0 0 1.75em;
+						}
+						&:focus-within,
+						&:active,
+						&:target {
+							.sub-menu {
+								display: flex;
+								flex-direction: column;
+								opacity: 1;
+
+								a {
+									display: block;
+								}
+							}
+						}
+
+						&.menu_is_open {
+							@include themify($themes) {
+								background: darken( themed('backgroundColor'), 5 );
+							}
+						}
+					}
+
+					.sub-menu {
+						display: none;
+						width: 100%;
+						max-width: 100%;
+						margin-left: 12px;
+
+						@include themify($themes) {
+							border-left: 4px solid themed('mainNavItemBGHoverColor');
+							box-shadow: -12px 0 0 themed('backgroundColor');
+						}
+
+					}
+				}
+			}
+
+		}
+	}
+}
+
+
+
+// breadcrumb nav
+
+nav.breadcrumb_navigation {
+	font-size: $font-size-sm;
+	margin-bottom: 3em;
+
+	body.page &,
+	body.page-homepage &,
+	body.page-browse-content &,
+	body.single-glossary & {
+		display: none;
+	}
+
+	ul {
+		margin: 3em 0 -3em 0;
+		padding: 0;
+		list-style: none;
+		display: flex;
+
+		li {
+
+			transform: skewX(-26deg);
+
+				@include themify($themes) {
+
+					border-right: 2px solid rgba( themed('linkColor'), 0.25);
+				}
+
+
+			&:last-child {
+				border-right: none;
+			}
+
+			a,
+			span {
+				display: inline-block;
+				padding: 0.2em 1.1em;
+				transform: skewX( 26deg);
+			}
+		}
+	}
+}
+
+.nav-links {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+
+
+
+	> * {
+		//flex: 1;
+		width: 50%;
+
+		@include themify($themes) {
+			border-left: 1px solid themed( 'backgroundColor' ) ;
+		}
+
+		&:first-child {
+			border-left: none;
+		}
+
+		a {
+			display: block;
+			font-weight: 200;
+			padding: 1em 2em;
+
+			&:hover,
+			&:focus,
+			&:target {
+				@include themify($themes) {
+					background: rgba(themed('footerLinkHoverColor'), 0.1);
+				}
+			}
+
+			em {
+				font-style: normal;
+				font-weight: 500;
+			}
+		}
+	}
+
+	.nav-next {
+		margin-left: auto;
+		text-align: right;
+	}
+	.nav-previous {
+		margin-right: auto;
+	}
+}
+
+// post pagination
+nav.pagination {
+
+	margin: 3em 2em;
+
+	.nav-links {
+		justify-content: center;
+	}
+
+	.page-numbers {
+		text-align: center;
+		padding: 0.5em 1em;
+		margin: 0 0.25em;
+		border-radius: 2px;
+		width: auto;
+		text-decoration: none;
+
+		@include themify($themes) {
+			background: rgba(darken( themed('backgroundColor'), 10 ), 0.25);
+			border: 1px solid rgba( themed('linkColor'), 0.25);
+			box-shadow: themed( 'normalShadow' );
+		}
+
+		&:hover {
+			@include themify($themes) {
+				background:  themed('linkColor');
+				color: themed( 'backgroundColor' );
+				border: 1px solid rgba( themed('linkColor'), 0.5);
+			}
+		}
+
+		&.current {
+			@include themify($themes) {
+				border: 1px solid rgba( themed('textColor'), 0.15);
+			}
+
+			&:hover {
+			@include themify($themes) {
+				background: rgba(darken( themed('backgroundColor'), 10 ), 0.25);
+				color: themed( 'textColor' );
+				border: 1px solid rgba( themed('textColor'), 0.15);
+			}
+		}
+		}
+	}
+}

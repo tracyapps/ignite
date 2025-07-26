@@ -1,0 +1,53 @@
+{
+    "key": "group_68829e9679208",
+    "title": "Page Header Options",
+    "fields": [
+        {
+            "key": "field_68829e96d7178",
+            "label": "Override default header?",
+            "name": "override_default_header",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "Turn on to remove the default page header, which displays the featured image and the Page Title text. This is particularly helpful if you want to put a custom hero block at the top of the page.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "allow_in_bindings": 1,
+            "ui_on_text": "Yes",
+            "ui_off_text": "No",
+            "ui": 1
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "page"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "side",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "acfe_display_title": "Page Header",
+    "acfe_autosync": [
+        "json"
+    ],
+    "acfe_form": 0,
+    "acfe_meta": "",
+    "acfe_note": "",
+    "modified": 1753391221
+}

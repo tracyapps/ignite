@@ -1,0 +1,21 @@
+{
+	"name": "ITS/hero",
+	"title": "Hero",
+	"description": "Hero block for the page header",
+	"style": [ "file:./hero.css" ],
+	"category": "ITS",
+	"keywords": ["hero", "header", "ITS"],
+	"acf": {
+		"mode": "edit",
+		"renderTemplate": "hero.php"
+	},
+	"align": "full",
+    "align_text": "",
+    "align_content": "top",
+	"supports": {
+		"anchor": true,
+		"multiple": false,
+		"align_content": "matrix",
+		"align": [ "full" ]
+	}
+}

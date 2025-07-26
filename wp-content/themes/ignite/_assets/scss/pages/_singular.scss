@@ -1,0 +1,54 @@
+// page header, default
+
+div.featured_image {
+	width: 100%;
+	margin: -3em 0 3em 0;
+
+	img {
+		display: block;
+		width: 100%;
+		min-height: 36vh;
+		max-height: 45vh;
+		object-fit: cover;
+		object-position: 50% 40%;
+	}
+
+	h1.page_title {
+		position: relative;
+		margin-top: -1.75em;
+		z-index: 99;
+		@include themify($themes) {
+			text-shadow:
+					0 0 50px themed( 'backgroundColor' ),
+					0 0 70px themed( 'backgroundColor' ),
+					1px 1px 20px themed( 'backgroundColor' ),
+					-1px -1px 20px themed( 'backgroundColor' );
+
+			border-bottom: 1px solid rgba( themed( 'textColor' ), 0.5  );
+
+		}
+	}
+}
+
+div.no_featured_image {
+	padding-top: 15vh;
+	@include themify($themes) {
+		background-image: linear-gradient( themed( 'subtleBackgroundColor' ) 58%, transparent 90%);
+	}
+	h1.page_title {
+		margin: 1px auto 1em auto;
+		@include themify($themes) {
+			text-shadow:
+					0 0 50px themed( 'backgroundColor' ),
+					0 0 70px themed( 'backgroundColor' ),
+					1px 1px 20px themed( 'backgroundColor' ),
+					-1px -1px 20px themed( 'backgroundColor' );
+
+			border-bottom: 1px solid rgba( themed( 'textColor' ), 0.5  );
+
+		}
+	}
+}
+
+// page header, override (spacer instead of default header
+

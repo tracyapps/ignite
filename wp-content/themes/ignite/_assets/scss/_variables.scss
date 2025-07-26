@@ -1,0 +1,243 @@
+/*
+ *
+ *	Variabiles
+ *
+ */
+
+
+// Define colors
+$red: #E82D2A;
+$yellow: #FEED45;
+$red-dark: #980200;
+$red-light: #FFCBCB;
+$blue: #2E5D86;
+
+$gold: #A3824D;
+$gold-light: #BDA881;
+
+$white: #ffffff;
+$light: #f3f2f2;
+$dark: #171717;
+$black: #000000;
+
+$grey-light: #C3C3C3;
+$grey-medium: #343434;
+
+
+
+
+// Define measurements
+$body_text_width: 90vw;
+$max_body_text_width: 910px;
+$max_wide_page_width: 1600px;
+$basefont_size: 16px;
+
+
+// Define fonts
+$font-header: "Open Sans", sans-serif;
+$font-body: "Open Sans", sans-serif;
+
+// Define font size options
+$font-size-xs: clamp(1.02rem, 0.07vi + 1rem, 1.13rem);
+$font-size-sm: clamp(1.28rem, 0.15vi + 1.22rem, 1.5rem);
+$font-size-base: clamp(1.6rem, 0.27vi + 1.49rem, 2rem);
+$font-size-md: clamp(2rem, 0.44vi + 1.82rem, 2.67rem);
+$font-size-lg: clamp(2.5rem, 0.7vi + 2.22rem, 3.55rem);
+$font-size-xl: clamp(3.13rem, 1.07vi + 2.7rem, 4.74rem);
+$font-size-xxl: clamp(3.91rem, 1.61vi + 3.26rem, 6.31rem);
+$font-size-huge: clamp(4.88rem, 2.36vi + 3.94rem, 8.42rem);
+
+$font-size-blog-title: clamp(3.39rem, 3.68vw + 1.55rem, 8.54rem);
+
+// Shadow options
+
+$subtle_shadow_light: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset,
+rgba(50, 50, 93, 0.12) 0px 50px 100px -20px,
+rgba(0, 0, 0, 0.23) 0px 30px 60px -30px;
+$subtle_shadow_dark: rgba(26, 26, 50, 0.36) 0px 50px 100px -20px,
+rgba(0, 0, 0, 0.414) 0px 30px 60px -30px;
+$heavy_shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+rgba(0, 0, 0, 0.12) 0px -12px 30px,
+rgba(0, 0, 0, 0.12) 0px 4px 6px,
+rgba(0, 0, 0, 0.17) 0px 12px 13px,
+rgba(0, 0, 0, 0.09) 0px -3px 5px;
+
+
+$subtle_inset_light: rgba(0, 0, 0, 0.019) 2px 2px 6px 0px inset,
+rgba(0, 0, 0, 0.09) -1px -1px 6px 1px inset,
+rgba(0, 0, 0, 0.45) 0 -1px 1px;
+$subtle_inset_dark: rgba(0, 0, 0, 0.19) 2px 2px 8px 0px inset,
+rgba(0, 0, 0, 0.25) -1px -1px 6px 1px inset,
+rgba(0, 0, 0, 0.75) 0 -1px 3px;
+
+$active_shadow_light: rgba(0, 0, 0, 0.15) 0 0 15px,
+rgba(0, 0, 0, 0.08) 0 -2px 6px,
+rgba(0, 0, 0, 0.18) 0px 3px 8px,
+rgba(0, 0, 0, 0.17) 0px 7px 15px,
+rgba(0, 0, 0, 0.59) 0 1px 1px;
+$active_shadow_dark: rgba(0, 0, 0, 0.25) 0 0 15px,
+rgba(0, 0, 0, 0.18) 0 -2px 6px,
+rgba(0, 0, 0, 0.28) 0px 3px 8px,
+rgba(0, 0, 0, 0.19) 0px 7px 15px,
+rgba(0, 0, 0, 0.62) 0 1px 1px;
+
+
+$text_shadow_dark: 0 1px 0 rgba( 0, 0, 0, 0.85 ),
+			1px 1px 0 rgba( 0, 0, 0, 0.5 ),
+			0 0 20px rgba( 0, 0, 0, 0.12 );
+
+$text_shadow_light: 0 1px 0 rgba( 255, 255, 255, 0.65 ),
+			1px 0 0 rgba( 255, 255, 255, 0.25 ),
+			0 0 20px rgba( 255, 255, 2550, 0.42 );
+
+
+// Define animation speeds
+$transition_speed: 250ms;
+
+$video_aspect_ratio:  315 / 560 315 / 560;
+// Define breakpoints
+$breakpoint-small: 600px;
+$breakpoint-medium: 900px;
+$breakpoint-large: 1200px;
+$breakpoint-x-large: 1800px;
+
+
+/*
+ * Theme definitions
+ *
+ * usage:
+ *		[[SELECTOR]] {
+ *			@include themify($themes) {
+ *				[[PROPERTY]]]: themed('nameFromThemeDecloration');
+ *			}
+ *		}
+ */
+
+$themes: (
+		light: (
+			// body & core styles
+				backgroundColor: $white,
+				textColor: $dark,
+				linkColor: $red,
+				linkHoverColor: $dark,
+				subtleBackgroundColor: $light,
+
+			// primary button
+				primaryButtonBGColor: $yellow,
+				primaryButtonTextColor: $black,
+				primaryButtonBGHoverColor: $red-dark,
+				primaryButtonTextHoverColor: $white,
+				primaryButtonBorder: 2px solid transparent,
+				primaryButtonHoverBorder: 2px solid $grey-light,
+
+			// secondary button
+				secondaryButtonBGColor: transparent,
+				secondaryButtonTextColor: $dark,
+				secondaryButtonBGHoverColor: $dark,
+				secondaryButtonTextHoverColor: $white,
+				secondaryButtonBorder: 2px solid $dark,
+				secondaryButtonHoverBorder: 2px solid $white,
+
+			// forms
+				inputBGColor: $grey-light,
+				inputBorderColor: $grey-medium,
+				inputTextColor: $dark,
+				inputPlaceholderColor: $grey-medium,
+				labelTextColor: $dark,
+
+			// main navigation
+				mainNavBGColor: transparent,
+				mainNavLinkColor: $white,
+				mainNavItemBGColor: transparent,
+				mainNavLinkHoverColor: $white,
+				mainNavItemBGHoverColor: rgba( $dark, 0.9 ),
+
+			// utility navigation
+				utilityNavBGColor: $dark,
+				utilityNavBGHoverColor: $black,
+				utilityNavLinkColor: $white,
+				utilityNavLinkHoverColor: $yellow,
+
+			// box shadow options
+				subtleShadow: $subtle_shadow_light,
+				normalShadow: 1px 1px 4px rgba(0, 0, 0, 0.35),
+				largeShadow: $heavy_shadow,
+				activeShadow: $active_shadow_light,
+				insetShadow: $subtle_inset_light,
+
+			// text shadow options
+				textShadow: $text_shadow_light,
+				textBackgroundBlurShadow: $white,
+				textShadowBelow: $black,
+				textHighlightAbove: $white,
+
+			// footer
+				footerBGColor: $dark,
+				footerTextColor: $light,
+				footerLinkColor: $yellow,
+				footerLinkHoverColor: $white,
+		),
+		dark: (
+			// body & core styles
+				backgroundColor: $dark,
+				textColor: $white,
+				linkColor: $red-light,
+				linkHoverColor: $white,
+				subtleBackgroundColor: $black,
+
+			// primary button
+				primaryButtonBGColor: $yellow,
+				primaryButtonTextColor: $black,
+				primaryButtonBGHoverColor: $red-dark,
+				primaryButtonTextHoverColor: $white,
+				primaryButtonBorder: 2px solid transparent,
+				primaryButtonHoverBorder: 2px solid $grey-light,
+
+			// secondary button
+				secondaryButtonBGColor: transparent,
+				secondaryButtonTextColor: $white,
+				secondaryButtonBGHoverColor: $white,
+				secondaryButtonTextHoverColor: $dark,
+				secondaryButtonBorder: 2px solid $white,
+				secondaryButtonHoverBorder: 2px solid $dark,
+
+			// forms
+				inputBGColor: $black,
+				inputBorderColor: $grey-light,
+				inputTextColor: $white,
+				inputPlaceholderColor: $grey-light,
+				labelTextColor: $white,
+
+			// main navigation
+				mainNavBGColor: transparent,
+				mainNavLinkColor: $white,
+				mainNavItemBGColor: transparent,
+				mainNavLinkHoverColor: $white,
+				mainNavItemBGHoverColor: rgba( $dark, 0.9 ),
+
+			// utility navigation
+				utilityNavBGColor: $dark,
+				utilityNavBGHoverColor: $black,
+				utilityNavLinkColor: $white,
+				utilityNavLinkHoverColor: $yellow,
+
+			// box shadow options
+				subtleShadow: $subtle_shadow_light,
+				normalShadow: 1px 1px 4px rgba(0, 0, 0, 0.35),
+				largeShadow: $heavy_shadow,
+				activeShadow: $active_shadow_light,
+				insetShadow: $subtle_inset_light,
+
+			// text shadow options
+				textShadow: $text_shadow_dark,
+				textBackgroundBlurShadow: $dark,
+				textShadowBelow: $light,
+				textHighlightAbove: $grey-medium,
+
+			// footer
+				footerBGColor: $grey-medium,
+				footerTextColor: $white,
+				footerLinkColor: $white,
+				footerLinkHoverColor: $yellow,
+		),
+);

@@ -1,0 +1,266 @@
+/*
+* general styles
+*
+*	1. core elements, html, body
+*	2. reusable styles, a11y, etc.
+*	2. links & buttons
+*	3. base body text & headings
+*	4. SVG line things
+*	5. SVG masks
+*
+*/
+
+// =============================================	1. core elements, html, body
+
+*, *::before, *::after {
+	box-sizing: border-box;
+}
+html {
+	font-size: 62.5%;
+
+	@include tablet-down {
+		max-width: 100vw;
+	}
+
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: $font-body;
+	font-optical-sizing: auto;
+	font-weight: 200;
+	font-style: normal;
+	font-variation-settings: "wdth" 100;
+	font-size: $basefont_size;
+	max-width: 100vw;
+	overflow-x: hidden;
+	transition: all 250ms ease-in-out;
+
+	@include tablet-down {
+		max-width: 100vw;
+		overflow-x: hidden;
+	}
+
+	@include init($themes) {
+		background: themed('backgroundColor');
+		color: themed('textColor');
+	}
+
+	::-moz-selection {
+		background: rgba( 255, 244, 0, 0.8 );
+		color: $dark;
+	}
+	::-webkit-selection {
+		background: rgba( 255, 244, 0, 0.8 );
+		color: $dark;
+	}
+	::selection {
+		background: rgba( 255, 244, 0, 0.8 );
+		color: $dark;
+	}
+}
+
+// =============================================	2. reusable styles, a11y, etc.
+
+.frm_screen_reader,
+.hide-this {
+	height: 0;
+	width: 0;
+	overflow: hidden;
+	padding: 0;
+	display: none;
+}
+
+.mobile_only {
+	@include tablet-up {
+		display: none;
+	}
+}
+
+.sr-only {
+	position: absolute;
+	height: 0;
+	overflow: hidden;
+	opacity: 0;
+}
+
+.alignleft {
+	float: left;
+	margin-right: 10px;
+}
+.alignright {
+	float: right;
+	margin-left: 10px;
+}
+
+.aligncenter,
+.centered_button {
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	text-align: center;
+	align-self: center;
+}
+
+/* ---------------------------------------------------------------- dynamic color backgrounds --- */
+/*
+
+.background-dynamic_purple {
+	@include themify($themes) {
+		background-color: themed('purpleBG');
+		text-shadow: themed('textShadow');
+	}
+	a,
+	a:visited,
+	a &,
+	a:visited & {
+		@include themify($themes) {
+			color: themed('textColor');
+
+		}
+	}
+}
+*/
+
+
+// =============================================	3. links & buttons
+a,
+a:visited {
+	font-weight: 500;
+	transition: all ease-in-out $transition_speed;
+	@include themify($themes) {
+		color: themed('linkColor');
+		text-decoration-color: rgba( themed('linkColor'), 0.5 );
+	}
+
+	&:hover,
+	&:target,
+	&:focus {
+		@include themify($themes) {
+			color: themed('linkHoverColor');
+			text-decoration-color: themed('linkColor');
+		}
+	}
+}
+input[type="submit"],
+.wp-element-button,
+.wp-element-button:visited,
+.wp-block-button__link,
+.wp-block-button__link:visited,
+a.primary_button,
+a.primary_button:visited {
+	display: inline-block;
+	border-radius: 3px;
+	position: relative;
+	padding: 0.48em 1.7em;
+	margin-left: .5em;
+	z-index: 9;
+	text-decoration: none;
+	text-shadow: $subtle_inset_light;
+
+	@include themify($themes) {
+		color: themed('primaryButtonTextColor');
+		background-color: themed('primaryButtonBGColor');
+		border: themed('primaryButtonBorder');
+		box-shadow: themed( 'subtleShadow' );
+	}
+
+
+	&:hover,
+	&:focus {
+		@include themify($themes) {
+			color: themed('primaryButtonTextHoverColor');
+			background-color: themed('primaryButtonBGHoverColor');
+			border: themed('primaryButtonHoverBorder');
+			box-shadow: themed( 'normalShadow' );
+		}
+	}
+}
+
+.secondary_button,
+a.secondary_button,
+a.secondary_button:visited,
+.fake_secondary_button {
+
+	padding: 0.5em 1.5em;
+	border-radius: 30px;
+
+	@include themify($themes) {
+		background-color: themed('secondaryButtonBGColor');
+		color: themed('secondaryButtonTextColor');
+		border: themed('secondaryButtonBorder');
+	}
+
+	&:hover,
+	&:focus {
+		@include themify($themes) {
+			background-color: themed('secondaryButtonBGHoverColor');
+			color: themed('secondaryButtonTextHoverColor');
+			border: themed('secondaryButtonHoverBorder');
+		}
+	}
+}
+
+
+
+// =============================================	3. base body text & headings
+p, blockquote {
+	width: $body_text_width;
+	max-width: $max_body_text_width;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: $font-header;
+	font-weight: 900;
+	text-transform: uppercase;
+	line-height: 1;
+	letter-spacing: 0.05em;
+	width: $body_text_width;
+	max-width: $max_body_text_width;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+h1 {
+	font-size: $font_size_huge;
+	line-height: 1.08;
+	margin-top: 0;
+	margin-bottom: 0;
+
+}
+h2 {
+	font-size: $font_size_xl;
+
+}
+h3 {
+	font-size: $font_size_lg;
+
+}
+
+h4 {
+	font-size: $font_size_md;
+
+}
+h5 {
+	font-size: $font_size_base;
+
+}
+h6 {
+	font-size: $font_size_sm;
+
+}
+
+
+
+// =============================================	4. SVG styles
+
+
+
+// =============================================	5. SVG masks
+
+.fade-bottom {
+	mask-image: linear-gradient(#000 75%, transparent 95%);
+}
