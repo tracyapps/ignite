@@ -30,7 +30,7 @@ if( has_post_thumbnail() ) :
 		<div class="post_date">
 			<?php echo get_the_date('M d, Y'); ?>
 		</div>
-		
+
 	</header>
 	<main class="post_main">
 		<?php the_content(); ?>

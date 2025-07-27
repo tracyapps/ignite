@@ -1,29 +1,28 @@
 {
-    "name": "page-hero-block",
-    "title": "Hero",
+    "name": "page-section",
+    "title": "Section",
     "active": true,
     "description": "",
     "category": "ITS",
-    "icon": "acf-blocks\/_block-assets\/icon-page-hero.svg",
-    "keywords": [
-        "header, its"
-    ],
+    "icon": "\/wp-content\/themes\/ignite\/acf-blocks\/_block-assets\/icon-section.svg",
+    "keywords": [],
     "post_types": [
+        "post",
         "page"
     ],
     "mode": "auto",
     "align": "full",
     "align_text": "",
     "align_content": "top",
-    "render_template": "acf-blocks\/page-hero-block\/hero.php",
+    "render_template": "acf-blocks\/page-section\/section.php",
     "render_callback": "",
     "enqueue_style": "",
     "enqueue_script": "",
     "enqueue_assets": "",
     "supports": {
-        "anchor": false,
-        "align": false,
-        "align_text": true,
+        "anchor": true,
+        "align": true,
+        "align_text": false,
         "align_content": "matrix",
         "full_height": true,
         "mode": true,
@@ -34,5 +33,5 @@
     "acfe_autosync": [
         "json"
     ],
-    "modified": 1753464360
+    "modified": 1753578523
 }
