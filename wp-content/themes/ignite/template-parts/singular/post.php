@@ -25,7 +25,6 @@ if( has_post_thumbnail() ) :
 
 <article id="post-<?php the_ID(); ?>">
 	<header class="post_header">
-		<
 		<?php the_title( '<h1 class="post_title">', '</h1>' ); ?>
 		<div class="post_date">
 			<?php echo get_the_date('M d, Y'); ?>

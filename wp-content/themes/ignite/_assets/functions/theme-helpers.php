@@ -53,30 +53,77 @@ function the_breadcrumb() {
 
 add_post_type_support( 'page', 'excerpt' );
 
-function my_cptui_add_post_types_to_archives( $query ) {
-	// We do not want unintended consequences.
-	if ( is_admin() || ! $query->is_main_query() ) {
-		return;
+
+function ITS_display_heroes_by_calendar_year( $year_term_id = null, $exclude_post_id = null ) {
+	if ( !$year_term_id ) {
+		$year_terms = get_the_terms( get_the_ID(), 'calendar-year' );
+		if ( empty( $year_terms ) || is_wp_error( $year_terms ) ) {
+			return;
+		}
+		$year_name = $year_terms[0]->name;
+		$year_term_id = $year_terms[0]->term_id;
 	}
 
-	/****
-	 * not used, but saving in case we expand to more post types that we want included in archives
-
-	if ( is_category() || is_tag() && empty( $query->query_vars['suppress_filters'] ) ) {
-
-		// Replace these slugs with the post types you want to include.
-		 $ITS_post_types = array( 'video' );
-
-		$query->set(
-	  		'post_type',
-			array_merge(
-				array( 'post' ),
-				$ITS_post_types
-			)
-		);
+	if ( !$exclude_post_id ) {
+		$exclude_post_id = get_the_ID();
 	}
 
-	*****/
+	// Step 1: Get all hero posts from that year
+	$heroes = get_posts([
+		'post_type' => 'hero',
+		'posts_per_page' => -1,
+		'post__not_in' => [$exclude_post_id],
+		'tax_query' => [
+			[
+				'taxonomy' => 'calendar-year',
+				'field' => 'term_id',
+				'terms' => $year_term_id,
+			]
+		],
+	]);
+
+	if ( empty( $heroes ) ) return;
+
+	// Step 2: Attach calendar-month term and its ACF order to each hero
+	$sorted_heroes = [];
+	foreach ( $heroes as $hero ) {
+		$month_terms = get_the_terms( $hero->ID, 'calendar-month' );
+		if ( empty( $month_terms ) || is_wp_error( $month_terms ) ) continue;
+
+		$month = $month_terms[0];
+		$order = get_term_meta( $month->term_id, 'order', true );
+		$order = is_numeric( $order ) ? intval( $order ) : 999;
+
+		$sorted_heroes[] = [
+			'post'       => $hero,
+			'month'      => $month,
+			'order'      => $order,
+			'abbr'       => get_term_meta( $month->term_id, 'abbreviation', true ),
+		];
+	}
+
+	// Step 3: Sort the array by the ACF order
+	usort( $sorted_heroes, fn($a, $b) => $a['order'] <=> $b['order'] );
+
+	// Step 4: Output
+	echo '<section class="other-heroes"><h2>Additional Heroes of ' . esc_html( $year_name ) . '</h2>';
+	echo '<section class="hom_archive grid_container">';
+	foreach ( $sorted_heroes as $item ) {
+		$hero = $item['post'];
+		setup_postdata( $hero );
+		?>
+		<article id="content_ID-<?php echo esc_attr( $hero->ID ); ?>" <?php post_class( 'hom_list', $hero->ID ); ?>>
+			<div class="hom_thumbnail_image">
+				<a href="<?php echo get_permalink( $hero ); ?>">
+					<?php echo get_the_post_thumbnail( $hero, 'full' ); ?>
+				</a>
+				<div class="month_abbr"><span><?php echo esc_html( $item['abbr'] ); ?></span></div>
+			</div>
+		</article>
+		<?php
+	}
+
+	echo '</section></section>';
+
+	wp_reset_postdata();
 }
-add_filter( 'pre_get_posts', 'my_cptui_add_post_types_to_archives' );
-

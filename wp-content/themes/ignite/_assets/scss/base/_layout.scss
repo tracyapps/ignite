@@ -129,6 +129,9 @@ $columns: 3;
 }
 
 main#main {
+	overflow-x: hidden;
+	max-width: 100vw;
+
 	> p {
 		margin-left: auto;
 		margin-right: auto;

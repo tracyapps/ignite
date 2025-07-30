@@ -26,7 +26,7 @@ if( false === $override_header ) {
 		echo '</div>';
 	endif;
 } else {
-	echo '<div class="no-header"></div>';
+	echo '<div class="no_header"></div>';
 }
 
 ?>

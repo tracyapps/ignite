@@ -19,7 +19,7 @@
 	z-index: 999;
 	position: relative;
 	padding-right: 10px;
-	backdrop-filter: blur(8px);
+
 
 	@include themify($themes) {
 		background-image: linear-gradient( to right, transparent 50%, themed( 'utilityNavBGColor' ) 90% );
@@ -29,6 +29,7 @@
 		@include themify($themes) {
 
 			background: rgba( themed( 'utilityNavBGColor' ), 0.8);
+			backdrop-filter: blur(8px);
 		}
 	}
 

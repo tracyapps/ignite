@@ -30,8 +30,11 @@ div.featured_image {
 	}
 }
 
+div.no_header {
+	padding-top: calc(0.102 * 100cqw);
+}
 div.no_featured_image {
-	padding-top: 15vh;
+	padding-top: calc(0.16 * 100cqw);
 	@include themify($themes) {
 		background-image: linear-gradient( themed( 'subtleBackgroundColor' ) 58%, transparent 90%);
 	}
