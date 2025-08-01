@@ -1,6 +1,6 @@
 {
     "key": "group_688322797dc6a",
-    "title": "Page Hero Block",
+    "title": "Block : Page Hero",
     "fields": [
         {
             "key": "field_6883227959c9b",
@@ -64,7 +64,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/hero-block"
+                "value": "acf\/page-hero-block"
             }
         ]
     ],
@@ -78,11 +78,12 @@
     "description": "",
     "show_in_rest": 0,
     "acfe_autosync": [
+        "php",
         "json"
     ],
     "acfe_form": 0,
     "acfe_display_title": "",
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1753427124
+    "modified": 1753994464
 }

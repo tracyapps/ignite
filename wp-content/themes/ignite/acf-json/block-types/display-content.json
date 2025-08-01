@@ -1,0 +1,46 @@
+{
+    "name": "display-content",
+    "title": "Display Content",
+    "active": true,
+    "description": "Display a grid, list, or individual posts.",
+    "category": "ITS",
+    "icon": "\/wp-content\/themes\/ignite\/acf-blocks\/_block-assets\/icon-icon-display-content.svg",
+    "keywords": [
+        "content",
+        "custom post",
+        "board members",
+        "memorial",
+        "ITS"
+    ],
+    "post_types": [
+        "post",
+        "page"
+    ],
+    "mode": "auto",
+    "align": "wide",
+    "align_text": "",
+    "align_content": "top",
+    "render_template": "acf-blocks\/display-content\/display-content.php",
+    "render_callback": "",
+    "enqueue_style": "",
+    "enqueue_script": "",
+    "enqueue_assets": "",
+    "supports": {
+        "anchor": true,
+        "align": [
+            "wide",
+            "full"
+        ],
+        "align_text": false,
+        "align_content": false,
+        "full_height": false,
+        "mode": true,
+        "multiple": true,
+        "example": [],
+        "jsx": false
+    },
+    "acfe_autosync": [
+        "json"
+    ],
+    "modified": 1753938066
+}

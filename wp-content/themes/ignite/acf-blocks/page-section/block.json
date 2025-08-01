@@ -1,21 +1,38 @@
 {
-	"name": "ITS/section",
+	"name": "ITS/page-section",
 	"title": "Section",
 	"description": "A section or grouping with it's own design element(s)",
 	"style": [ "file:./section.css" ],
-	"category": "ITS",
-	"keywords": ["section", "banner", "group", "accent", "box", "grouping", "ITS"],
-	"acf": {
-		"mode": "auto",
-		"renderTemplate": "section.php"
-	},
-	"align": "full",
-    "align_text": "",
-    "align_content": "top",
-	"supports": {
-		"anchor": true,
-		"multiple": false,
-		"align_content": "matrix",
-		"align": [ "full" ]
-	}
+  "category": "ITS",
+  "icon": "/wp-content/themes/ignite/acf-blocks/_block-assets/icon-section.svg",
+  "keywords": [],
+  "post_types": [
+	"post",
+	"page"
+  ],
+  "mode": "auto",
+  "align": "full",
+  "align_text": "",
+  "align_content": "top",
+  "render_template": "acf-blocks\/page-section\/section.php",
+  "render_callback": "",
+  "enqueue_style": "",
+  "enqueue_script": "",
+  "enqueue_assets": "",
+  "supports": {
+	"anchor": true,
+	"align": true,
+	"align_text": false,
+	"align_content": "matrix",
+	"full_height": true,
+	"mode": true,
+	"multiple": true,
+	"example": [],
+	"jsx": false
+  },
+  "acfe_autosync": [
+	"php",
+	"json"
+  ],
+  "modified": 1753930956
 }

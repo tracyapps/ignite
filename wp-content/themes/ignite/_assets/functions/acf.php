@@ -45,65 +45,131 @@ function ITS_initialize_acf_blocks() {
 
   if( function_exists('acf_register_block_type') ) {
 
-	/*acf_register_block_type(array(
-		'name' 				 => 'hero-framed',
-		'title' 			 => 'Framed Hero',
-		'active' 			 => true,
-		'description' 		 => 'Hero block (new) with main column, and secondary column options',
-		'category' 			 => 'ITS',
-		'icon' 				 => file_get_contents( get_template_directory() . '/acf-blocks/_block-assets/icon-framed-hero.svg' ),
-		'keywords' 			 => array(
-				'hero, ITS,',
-			),
-		'post_types' 		 => array(
-				'post',
-				'page',
-				'glossary',
-			),
-		'mode'				 => 'auto',
-		'align' 			 => 'full',
-		'align_text' 		 => '',
-		'align_content' 	 => 'top',
-		'render_template' 	 => 'acf-blocks/framed-hero-block/framed-hero.php',
-		'render_callback' 	 => '',
-		'enqueue_style' 	 => '',
-		'enqueue_script' 	 => '',
-		'enqueue_assets' 	 => '',
-		'supports' 			 => array(
-			'anchor' 			 => true,
-			'align' 			 => ['full'],
-			'align_text' 		 => false,
-			'align_content' 	 => false,
-			'full_height'  		 => true,
-			'mode' 				 => true,
-			'multiple' 			 => true,
-			'example' 			 => array(),
-			'jsx' 				 => false,
-		),
-	));*/
+	  // page section block
+	  acf_register_block_type(array(
+		  'name' => 'page-section',
+		  'title' => 'Page Section',
+		  'active' => true,
+		  'description' => 'A section or grouping with it\'s own design element(s)',
+		  'category' => 'ITS',
+		  'icon' => file_get_contents( get_template_directory() . '/acf-blocks/_block-assets/icon-section.svg' ),
+		  'keywords' => array(),
+		  'post_types' => array(
+			  'post',
+			  'page',
+		  ),
+		  'mode' => 'auto',
+		  'align' => '',
+		  'align_text' => '',
+		  'align_content' => 'top',
+		  'render_template' => get_template_directory() . '/acf-blocks/page-section/section.php',
+		  'render_callback' => '',
+		  'enqueue_style' => '',
+		  'enqueue_script' => '',
+		  'enqueue_assets' => '',
+		  'supports' => array(
+			  'anchor' => false,
+			  'align' => true,
+			  'align_text' => false,
+			  'align_content' => false,
+			  'full_height' => false,
+			  'mode' => true,
+			  'multiple' => true,
+			  'example' => array(),
+			  'jsx' => false,
+		  ),
+		  'acfe_autosync' => array(
+			  'json',
+		  ),
+	  ));
 
 
+	  // display content block
+	  acf_register_block_type(array(
+		  'name' => 'display-content',
+		  'title' => 'Display Content',
+		  'active' => true,
+		  'description' => 'Display a grid, list, or individual posts.',
+		  'category' => 'ITS',
+		  'icon' => file_get_contents( get_template_directory() . '/acf-blocks/_block-assets/icon-display-content.svg' ),
+		  'keywords' => array(
+			  'content',
+			  'custom post',
+			  'board members',
+			  'memorial',
+			  'ITS',
+		  ),
+		  'post_types' => array(
+			  'post',
+			  'page',
+		  ),
+		  'mode' => 'auto',
+		  'align' => 'wide',
+		  'align_text' => '',
+		  'align_content' => 'top',
+		  'render_template' => get_template_directory() . '/acf-blocks/display-content/display-content.php',
+		  'render_callback' => '',
+		  'enqueue_style' => '',
+		  'enqueue_script' => '',
+		  'enqueue_assets' => '',
+		  'supports' => array(
+			  'anchor' => true,
+			  'align' => array(
+				  'wide',
+				  'full',
+			  ),
+			  'align_text' => false,
+			  'align_content' => false,
+			  'full_height' => false,
+			  'mode' => true,
+			  'multiple' => true,
+			  'example' => array(),
+			  'jsx' => false,
+		  ),
+		  'acfe_autosync' => array(
+			  'json',
+		  ),
+	  ));
 
+	  // page hero block
 
-	// page link block
-	acf_register_block_type(array(
-		'name' 				=> 'page-link-block',
-		'title' 			=> __('Page Link'),
-		'description'		=> __('Similar to media/text box, with more options'),
-		'render_template'  	=> get_template_directory() . '/acf-blocks/page-link-block/page-link.php',
-		'icon'				=> file_get_contents( get_template_directory() . '/acf-blocks/_block-assets/icon-page-link.svg' ),
-		'category' 			=> 'ITS',
-		'mode' 				 => 'auto',
-		'align' 			 => 'full',
-		'example'  			=> array(
-			'attributes' 	=> array(
-				'mode' 		=> 'preview',
-				'data' 		=> array(
-					'is_preview'    => true
-				)
-			)
-		)
-	));
+	  acf_register_block_type(array(
+		  'name' => 'page-hero-block',
+		  'title' => 'Hero',
+		  'active' => true,
+		  'description' => '',
+		  'category' => 'ITS',
+		  'icon' => file_get_contents( get_template_directory() . '/acf-blocks/_block-assets/icon-page-hero.svg' ),
+		  'keywords' => array(
+			  'header, its',
+		  ),
+		  'post_types' => array(
+			  'page',
+		  ),
+		  'mode' => 'auto',
+		  'align' => 'full',
+		  'align_text' => '',
+		  'align_content' => 'top',
+		  'render_template' => get_template_directory() . '/acf-blocks/page-hero-block/hero.php',
+		  'render_callback' => '',
+		  'enqueue_style' => '',
+		  'enqueue_script' => '',
+		  'enqueue_assets' => '',
+		  'supports' => array(
+			  'anchor' => false,
+			  'align' => false,
+			  'align_text' => true,
+			  'align_content' => 'matrix',
+			  'full_height' => true,
+			  'mode' => true,
+			  'multiple' => true,
+			  'example' => array(),
+			  'jsx' => false,
+		  ),
+		  'acfe_autosync' => array(
+			  'json',
+		  ),
+	  ));
 
 
 

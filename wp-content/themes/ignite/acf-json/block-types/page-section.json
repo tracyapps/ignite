@@ -1,8 +1,8 @@
 {
     "name": "page-section",
-    "title": "Section",
+    "title": "Page Section",
     "active": true,
-    "description": "",
+    "description": "A section or grouping with it's own design element(s)",
     "category": "ITS",
     "icon": "\/wp-content\/themes\/ignite\/acf-blocks\/_block-assets\/icon-section.svg",
     "keywords": [],
@@ -11,7 +11,7 @@
         "page"
     ],
     "mode": "auto",
-    "align": "full",
+    "align": "",
     "align_text": "",
     "align_content": "top",
     "render_template": "acf-blocks\/page-section\/section.php",
@@ -20,11 +20,11 @@
     "enqueue_script": "",
     "enqueue_assets": "",
     "supports": {
-        "anchor": true,
+        "anchor": false,
         "align": true,
         "align_text": false,
-        "align_content": "matrix",
-        "full_height": true,
+        "align_content": false,
+        "full_height": false,
         "mode": true,
         "multiple": true,
         "example": [],
@@ -33,5 +33,5 @@
     "acfe_autosync": [
         "json"
     ],
-    "modified": 1753607668
+    "modified": 1753937246
 }

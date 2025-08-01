@@ -1,4 +1,5 @@
 // Grab our gulp packages
+const gulp = require('gulp');
 const { src, dest, watch, series } = require('gulp');
 const sass = require('gulp-sass')(require('sass'));
 const terser = require('gulp-terser');
@@ -28,6 +29,12 @@ function stylesTask() {
 	return src(files.scssPath) // set source and turn on sourcemaps
 		.pipe(sass().on('error', sass.logError))
 		.pipe(dest('_assets/css'));
+}
+function editorStyles() {
+	return gulp.src('_assets/scss/editor-styles.scss')
+		.pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
+		.pipe(rename('editor-style.css'))
+		.pipe(gulp.dest('_assets/css'));
 }
 
 
@@ -85,6 +92,7 @@ function browsersyncReload(cb){
 
 exports.default = series(
   stylesTask,
+	editorStyles,
   scriptsTask,
   svgsTask,
  // browsersyncServe,
@@ -97,12 +105,13 @@ function watchTask(){
 	watch(
 		[files.scssPath, files.jsPath, files.imgPath, files.svgPath, files.phpPath, files.nestedPhpPath],
 		{ interval: 1000, usePolling: true }, //Makes docker work
-		series(stylesTask, scriptsTask, svgsTask, browsersyncReload)
+		series(stylesTask, editorStyles, scriptsTask, svgsTask, browsersyncReload)
 	);
  }
 
 exports.watch = series(
   stylesTask,
+	editorStyles,
   scriptsTask,
   svgsTask,
   browsersyncServe,
