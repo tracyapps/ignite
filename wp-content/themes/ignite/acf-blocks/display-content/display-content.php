@@ -102,7 +102,7 @@ $display_overrides = get_field( 'display_options' );
 	<heading class="section_heading"><h2><?php esc_html_e( $section_title ); ?></h2></heading>
 	<div class="
 		section_inner_content
-		content_<?php //esc_html_e( $section_layout ); ?>_container
+		content_<?php esc_html_e( $section_layout ); ?>_container
 		content_type_<?php esc_html_e( $content_type ); ?>
 	">
 		<?php
@@ -122,7 +122,6 @@ $display_overrides = get_field( 'display_options' );
 			$display_email_address = $display_overrides['email_address'];
 			$display_page_link = $display_overrides['page_link'];
 
-		//	var_dump( $display_overrides );
 
 			foreach( $board_members_array as $member ) {
 
@@ -168,23 +167,6 @@ $display_overrides = get_field( 'display_options' );
 
 					echo '</div><!--/board_member_details-->';
 				echo '</div><!--/card-->';
-
-			/*	printf(
-						'<div class="item board_member card">
-						<div class="headshot">
-						 	<img src="%s" />
-						 </div> 
-						 <div class="board_member_details">
-						 	<h4 class="board_member_name">%s</h4>
-						 	<div class="bio">
-						 		%s 
-						 	</div>
-						 </div> 
-					</div>',
-					'url',
-					esc_html( $member->post_name ),
-					'bio'
-				);*/
 			}
 
 

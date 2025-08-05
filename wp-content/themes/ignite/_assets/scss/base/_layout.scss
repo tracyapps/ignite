@@ -113,14 +113,15 @@ $columns: 3;
 
 .content_grid_container {
 	display: grid;
-	grid-template-columns: repeat($columns, 1fr);
+	grid-template-columns: repeat($columns, 33%);
+	grid-gap: 10px;
 
 	@include large-desktop {
-			grid-template-columns: repeat(4, 1fr);
+			grid-template-columns: repeat(4, 25%);
 		}
 
 	@include tablet-down {
-		grid-template-columns: repeat(2, 1fr);
+		grid-template-columns: repeat(2, 50%);
 	}
 
 	@include phone-only {

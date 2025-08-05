@@ -103,6 +103,17 @@ body {
 	align-self: center;
 }
 
+.card {
+	padding: 1em;
+	border-radius: 5px;
+
+	@include themify($themes) {
+		background-color: rgba( themed( 'backgroundColor' ), 0.92 );
+		color: themed( 'textColor' );
+		box-shadow: themed( 'subtleShadow' );
+	}
+}
+
 /* ---------------------------------------------------------------- dynamic color backgrounds --- */
 /*
 
@@ -206,7 +217,7 @@ a.secondary_button:visited,
 
 // =============================================	3. base body text & headings
 p, blockquote {
-	width: $body_text_width;
+//	width: $body_text_width;
 	max-width: $max_body_text_width;
 	margin-left: auto;
 	margin-right: auto;
@@ -218,8 +229,8 @@ h1, h2, h3, h4, h5, h6 {
 	text-transform: uppercase;
 	line-height: 1;
 	letter-spacing: 0.05em;
-	width: $body_text_width;
-	max-width: $max_body_text_width;
+
+//	max-width: $max_body_text_width;
 	margin-left: auto;
 	margin-right: auto;
 }

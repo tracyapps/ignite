@@ -1,7 +1,5 @@
 .content_block {
 	padding: 2em;
-	border: 6px solid #0f0;
-
 
 	.section_heading {
 		text-align: center;
@@ -11,6 +9,19 @@
 			margin: 0 auto;
 			padding: 0;
 			text-align: center;
+		}
+	}
+
+	.headshot {
+		img {
+			width: 100%;
+			@include themify($themes) {
+				border-bottom: 1px solid rgba( themed( 'textColor' ), 0.45 );
+				border-right: 1px solid rgba( themed( 'textColor' ), 0.3 );
+				border-top: 1px solid rgba( themed( 'backgroundColor' ), 0.6 );
+				border-left: 1px solid rgba( themed( 'backgroundColor' ), 0.3 );
+				box-shadow: themed( 'subtleShadow' );
+			}
 		}
 	}
 }
