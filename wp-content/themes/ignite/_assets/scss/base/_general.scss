@@ -85,54 +85,7 @@ body {
 	opacity: 0;
 }
 
-.alignleft {
-	float: left;
-	margin-right: 10px;
-}
-.alignright {
-	float: right;
-	margin-left: 10px;
-}
 
-.aligncenter,
-.centered_button {
-	margin-left: auto;
-	margin-right: auto;
-	display: block;
-	text-align: center;
-	align-self: center;
-}
-
-.card {
-	padding: 1em;
-	border-radius: 5px;
-
-	@include themify($themes) {
-		background-color: rgba( themed( 'backgroundColor' ), 0.92 );
-		color: themed( 'textColor' );
-		box-shadow: themed( 'subtleShadow' );
-	}
-}
-
-/* ---------------------------------------------------------------- dynamic color backgrounds --- */
-/*
-
-.background-dynamic_purple {
-	@include themify($themes) {
-		background-color: themed('purpleBG');
-		text-shadow: themed('textShadow');
-	}
-	a,
-	a:visited,
-	a &,
-	a:visited & {
-		@include themify($themes) {
-			color: themed('textColor');
-
-		}
-	}
-}
-*/
 
 
 // =============================================	3. links & buttons
@@ -217,8 +170,6 @@ a.secondary_button:visited,
 
 // =============================================	3. base body text & headings
 p, blockquote {
-//	width: $body_text_width;
-	max-width: $max_body_text_width;
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -230,7 +181,6 @@ h1, h2, h3, h4, h5, h6 {
 	line-height: 1;
 	letter-spacing: 0.05em;
 
-//	max-width: $max_body_text_width;
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -277,5 +227,5 @@ h6 {
 // =============================================	5. SVG masks
 
 .fade-bottom {
-	mask-image: linear-gradient(#000 75%, transparent 95%);
+	mask-image: linear-gradient(#000 75%, transparent 98%);
 }

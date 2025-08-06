@@ -15,7 +15,7 @@ if( get_field( 'override_default_header', get_the_ID() ) ) {
 if( false === $override_header ) {
 	if( has_post_thumbnail() ) :
 		$featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'full');
-		echo '<div class="featured_image">';
+		echo '<div class="page_featured_image">';
 		echo '<img class="fade-bottom" src="' . esc_url( $featured_img_url ) . '" />';
 		echo '<h1 class="page_title">' . wp_kses_post( get_the_title() ) . '</h1>';
 		echo '</div>';

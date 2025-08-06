@@ -26,12 +26,21 @@ $subhead_text = ! empty( get_field( 'top_banner_text', get_the_ID() ) ) ? esc_ht
 	<main class="post_main">
 		<?php the_content(); ?>
 	</main>
-	<footer class="post_footer">
-		<div class="list_of_all_tags">
-			<?php the_tags( '', ' | ', '' ); ?>
-		</div>
 
-	</footer>
+		<?php
+		$photo_gallery = get_field( 'photos' );
+
+		if( $photo_gallery ) {
+			echo '<footer class="hom_photo_gallery"><ul class="flex-row js-gallery" role="list">';
+
+			foreach( $photo_gallery as $photo ) {
+				echo '<li class="gallery_image"><button aria-expanded="false"><img src="' . esc_url( $photo ) . '"  /></button></li>';
+			}
+
+			echo '</div></footer>';
+		}
+		?>
+
 
 
 	<?php ITS_display_heroes_by_calendar_year(); ?>

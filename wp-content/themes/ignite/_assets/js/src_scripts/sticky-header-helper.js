@@ -3,27 +3,33 @@
  */
 
 
-jQuery(document).ready( function($) {
+jQuery(document).ready(function($) {
+
+	const threshold = 100;
+	const buffer = 12;
+	const header = $('header.site_main_header');
 
 	function checkScroll() {
-		if ($(window).scrollTop() > 120) {
-			$('header.site_main_header').addClass('smaller');
-		} else {
-			$('header.site_main_header').removeClass('smaller');
+		const scrollTop = $(window).scrollTop();
+
+		if (scrollTop > threshold + buffer && !header.hasClass('smaller')) {
+			header.addClass('smaller');
+		} else if (scrollTop < threshold - buffer && header.hasClass('smaller')) {
+			header.removeClass('smaller');
 		}
 	}
 
-	// Check scroll position on page load
+	// On page load
 	checkScroll();
 
-	// Check scroll position on scroll event
+	// Scroll event (debounced)
+	let scrollTimeout;
 	$(window).scroll(function() {
-		checkScroll();
+		if (scrollTimeout) clearTimeout(scrollTimeout);
+		scrollTimeout = setTimeout(checkScroll, 10);
 	});
 
-	// Check scroll position if page loaded already scrolled
-	$(window).on('load', function() {
-		checkScroll();
-	});
+	// Also run on full page load
+	$(window).on('load', checkScroll);
 
 });

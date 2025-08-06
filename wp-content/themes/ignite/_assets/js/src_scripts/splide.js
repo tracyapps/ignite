@@ -2,37 +2,28 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 	Splide.defaults = {
-		perPage: 5,
+		perPage: 1,
 		perMove: 1,
-		gap: '2rem',
-	//height: 'auto',
+		gap: '0',
+		//height: '70vh',
+		fixedWidth: '100vw',
 		autoHeight: true,
-		drag: 'free',
+		drag: true,
+		snap: true,
 		noDrag: 'input, textarea, .no-drag',
 		dragMinThreshold: {
 			mouse: 0,
 			touch: 10,
 		},
 		keyboard: true,
-		wheel: true,
+		wheel: false,
+		waitForTransition: true,
+		wheelSleep: '1000',
 		releaseWheel: true,
 		trimSpace: false,
 		cover: true,
+		type: 'loop',
 
-		breakpoints: {
-			900: {
-				perPage: 4,
-				height: '150px',
-			},
-			640: {
-				perPage: 3,
-				height: '125px',
-			},
-			480: {
-				perPage: 2,
-				height: '100px',
-			},
-		},
 	}
 
 	var elms = document.getElementsByClassName( 'splide' );

@@ -104,7 +104,7 @@ function ITS_initialize_acf_blocks() {
 			  'page',
 		  ),
 		  'mode' => 'auto',
-		  'align' => 'wide',
+		  'align' => 'full',
 		  'align_text' => '',
 		  'align_content' => 'top',
 		  'render_template' => get_template_directory() . '/acf-blocks/display-content/display-content.php',
@@ -131,17 +131,21 @@ function ITS_initialize_acf_blocks() {
 		  ),
 	  ));
 
-	  // page hero block
+	  // slider block
 
 	  acf_register_block_type(array(
-		  'name' => 'page-hero-block',
-		  'title' => 'Hero',
+		  'name' => 'slider-block',
+		  'title' => 'Slider',
 		  'active' => true,
 		  'description' => '',
 		  'category' => 'ITS',
 		  'icon' => file_get_contents( get_template_directory() . '/acf-blocks/_block-assets/icon-page-hero.svg' ),
 		  'keywords' => array(
-			  'header, its',
+			  'header',
+			  'content',
+			  'slider',
+			  'carousel',
+			  'ITS',
 		  ),
 		  'post_types' => array(
 			  'page',
@@ -150,21 +154,23 @@ function ITS_initialize_acf_blocks() {
 		  'align' => 'full',
 		  'align_text' => '',
 		  'align_content' => 'top',
-		  'render_template' => get_template_directory() . '/acf-blocks/page-hero-block/hero.php',
+		  'render_template' => get_template_directory() . '/acf-blocks/slider-block/slider.php',
 		  'render_callback' => '',
 		  'enqueue_style' => '',
 		  'enqueue_script' => '',
 		  'enqueue_assets' => '',
 		  'supports' => array(
-			  'anchor' => false,
-			  'align' => false,
-			  'align_text' => true,
+			  'anchor' => true,
+			  'align' => array(
+				  'full',
+				  ),
+			  'align_text' => false,
 			  'align_content' => 'matrix',
 			  'full_height' => true,
 			  'mode' => true,
 			  'multiple' => true,
 			  'example' => array(),
-			  'jsx' => false,
+			  'jsx' => true,
 		  ),
 		  'acfe_autosync' => array(
 			  'json',

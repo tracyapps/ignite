@@ -29,7 +29,7 @@ $grey-medium: #343434;
 // Define measurements
 $body_text_width: 90vw;
 $max_body_text_width: 910px;
-$max_wide_page_width: 1600px;
+$max_wide_page_width: 1500px;
 $basefont_size: 16px;
 
 
@@ -53,15 +53,17 @@ $font-size-blog-title: clamp(3.39rem, 3.68vw + 1.55rem, 8.54rem);
 
 // Shadow options
 
-$subtle_shadow_light: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset,
-rgba(50, 50, 93, 0.12) 0px 40px 60px -10px,
-rgba(0, 0, 0, 0.23) 0px 10px 40px -20px;
-$subtle_shadow_dark: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
-$heavy_shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px,
-rgba(0, 0, 0, 0.09) 0px 4px 2px,
-rgba(0, 0, 0, 0.09) 0px 8px 4px,
-rgba(0, 0, 0, 0.09) 0px 16px 8px,
-rgba(0, 0, 0, 0.09) 0px 32px 16px;
+$subtle_shadow_light: rgba(255, 255, 255, 0.91) 1px 1px 1px 0px inset,
+rgba(0, 0, 0, 0.25) 0px 30px 50px -20px,
+rgba(0, 0, 0, 0.43) 0px 10px 40px -20px;
+$subtle_shadow_dark: rgba(100, 100, 100, 0.21) -1px -1px 1px 0px inset,
+rgba(0, 0, 0, 0.42) 0px 30px 50px -10px,
+rgba(0, 0, 0, 0.63) 0px 10px 40px -20px;
+$heavy_shadow: rgba(0, 0, 0, 0.35) 0px 2px 30px -50px,
+rgba(0, 0, 0, 0.39) 0px 4px 2px -7px,
+rgba(0, 0, 0, 0.39) 0px 8px 4px -3px,
+rgba(0, 0, 0, 0.19) 0px 16px 8px -6px,
+rgba(0, 0, 0, 0.19) 0px 32px 16px -3px;
 
 
 $subtle_inset_light: rgba(0, 0, 0, 0.019) 2px 2px 6px 0px inset,

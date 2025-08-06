@@ -1,14 +1,31 @@
 // page header, default
 
-div.featured_image {
+h1.page_title,
+h1.post_title{
+	width: 90vw;
+	margin: 1px auto 1em auto;
+	@include themify($themes) {
+		text-shadow:
+			0 0 50px themed( 'backgroundColor' ),
+			0 0 70px themed( 'backgroundColor' ),
+			1px 1px 20px themed( 'backgroundColor' ),
+			-1px -1px 20px themed( 'backgroundColor' );
+
+		border-bottom: 1px solid rgba( themed( 'textColor' ), 0.5  );
+
+	}
+}
+
+
+div.page_featured_image {
 	width: 100%;
 	margin: -3em 0 3em 0;
 
 	img {
 		display: block;
 		width: 100%;
-		min-height: 36vh;
-		max-height: 45vh;
+		max-height: 59vh;
+		min-height: 39cqw;
 		object-fit: cover;
 		object-position: 50% 40%;
 	}
@@ -17,40 +34,19 @@ div.featured_image {
 		position: relative;
 		margin-top: -1.75em;
 		z-index: 99;
-		@include themify($themes) {
-			text-shadow:
-					0 0 50px themed( 'backgroundColor' ),
-					0 0 70px themed( 'backgroundColor' ),
-					1px 1px 20px themed( 'backgroundColor' ),
-					-1px -1px 20px themed( 'backgroundColor' );
 
-			border-bottom: 1px solid rgba( themed( 'textColor' ), 0.5  );
-
-		}
 	}
 }
 
 div.no_header {
-	padding-top: calc(0.102 * 100cqw);
+	padding-top: calc(0.18 * 100cqw);
 }
 div.no_featured_image {
 	padding-top: calc(0.16 * 100cqw);
 	@include themify($themes) {
 		background-image: linear-gradient( themed( 'subtleBackgroundColor' ) 58%, transparent 90%);
 	}
-	h1.page_title {
-		margin: 1px auto 1em auto;
-		@include themify($themes) {
-			text-shadow:
-					0 0 50px themed( 'backgroundColor' ),
-					0 0 70px themed( 'backgroundColor' ),
-					1px 1px 20px themed( 'backgroundColor' ),
-					-1px -1px 20px themed( 'backgroundColor' );
 
-			border-bottom: 1px solid rgba( themed( 'textColor' ), 0.5  );
-
-		}
-	}
 }
 
 // page header, override (spacer instead of default header

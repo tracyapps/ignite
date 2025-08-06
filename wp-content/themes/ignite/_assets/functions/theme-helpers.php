@@ -107,7 +107,7 @@ function ITS_display_heroes_by_calendar_year( $year_term_id = null, $exclude_pos
 
 	// Step 4: Output
 	echo '<section class="other-heroes"><h2>Additional Heroes of ' . esc_html( $year_name ) . '</h2>';
-	echo '<section class="hom_archive grid_container">';
+	echo '<section class="hom_archive hom_grid">';
 	foreach ( $sorted_heroes as $item ) {
 		$hero = $item['post'];
 		setup_postdata( $hero );

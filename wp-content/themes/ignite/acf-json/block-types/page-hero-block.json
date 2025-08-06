@@ -22,17 +22,19 @@
     "enqueue_assets": "",
     "supports": {
         "anchor": false,
-        "align": false,
-        "align_text": true,
+        "align": [
+            "full"
+        ],
+        "align_text": false,
         "align_content": "matrix",
         "full_height": true,
         "mode": true,
         "multiple": true,
         "example": [],
-        "jsx": false
+        "jsx": true
     },
     "acfe_autosync": [
         "json"
     ],
-    "modified": 1753464360
+    "modified": 1754397607
 }

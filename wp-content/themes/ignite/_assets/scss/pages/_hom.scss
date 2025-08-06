@@ -14,12 +14,124 @@ article.hom_single {
 }
 
 .hom_header {
-	margin-top: calc(0.09 * 100cqw);
+	margin-top: calc(0.06 * 100cqw);
 }
 
+.hom_single {
+	main.post_main {
+		margin-left: 8vw;
+	}
+}
+
+:root {
+	--gap: 4px;
+	--duration-shrink: 200ms;
+	--duration-expand: 350ms;
+	--no-duration: 0s;
+}
+.hom_photo_gallery {
+	margin: 6em 0;
+	padding: 2em;
+	width: 100%;
+	@include themify($themes) {
+		background: rgba( themed('textColor'), 0.1 );
+		box-shadow: themed( 'subtleShadow');
+	}
+
+	ul,
+	li {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	.flex-row {
+		justify-content: space-evenly;
+
+		li {
+			max-width: 50%;
+			margin-bottom: -4em;
+			transform: rotate(-1deg);
+
+			&:nth-child( 2n -1 ) {
+				transform: rotate(2deg);
+			}
+
+			&:nth-child( 3n - 1 ) {
+				transform: rotate(-2deg);
+			}
+		}
+	}
+	.gallery_image {
+		display: block;
+		max-width: 100%;
+		max-height: 300px;
+		margin: -4em auto;
+		padding: 7px;
+		background: $white;
+		cursor: pointer;
+		width: auto;
+		aspect-ratio: 2.2/3;
+		border-radius: 5px;
+
+		@include themify($themes) {
+			box-shadow: 2px -2px 60px -10px rgba( 0, 0, 0, 0.95 ), themed('largeShadow');
+		}
+
+		button,
+		img {
+			aspect-ratio: 2.2/3;
+			height: 100%;
+			width: 100%;
+			object-fit: cover;
+			margin: 0;
+			padding: 0;
+		}
+	}
+}
+
+:root {
+	--duration-expand: 0.3s;
+}
+
+.gallery_image {
+	transition: transform var(--duration-expand) ease, z-index 0s linear var(--duration-expand);
+	transform-origin: center center;
+}
+
+.js-gallery.is-zoomed {
+	position: relative;
+	z-index: 5;
+
+	&::before {
+		content: '';
+		position: fixed;
+		inset: 0;
+		background: rgba(0, 0, 0, 0.65);
+		z-index: 1;
+		pointer-events: none;
+	}
+}
+
+.gallery_image.is-zoomed {
+	position: relative;
+	z-index: 10;
+}
+
+.other-heroes {
+	h2 {
+		margin-left: 8vw;
+	}
+}
 
 // loop
 
+.hom_grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+	justify-items: center;
+	margin: 1em 3em 5em 3em;
+}
 .hom_thumbnail_image {
 	width: 200px;
 	height: 200px;
@@ -27,7 +139,9 @@ article.hom_single {
 	position: relative;
 	transition: all 200ms ease-in-out;
 	margin-bottom: 2em;
-	box-shadow: $subtle_shadow_dark;
+	@include themify($themes) {
+		box-shadow: themed('largeShadow');
+	}
 
 	&:before {
 		content: '';
@@ -70,7 +184,7 @@ article.hom_single {
 	&:hover,
 	&:target,
 	&:focus {
-		box-shadow: $heavy_shadow;
+
 		&:before{
 			@include themify($themes) {
 				border: 3px solid rgba( themed( 'linkHoverColor' ), 0.8 );

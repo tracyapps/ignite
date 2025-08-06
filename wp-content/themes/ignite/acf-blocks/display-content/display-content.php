@@ -107,10 +107,43 @@ $display_overrides = get_field( 'display_options' );
 	">
 		<?php
 		// --------- START content loop: posts
-		if( 'post' === $content_type ) {
+		if( 'posts' === $content_type ) {
 			$posts_array = get_field( 'items_posts' );
+			$display_featured_image = $display_overrides['featured_image'];
+			$display_excerpt = $display_overrides['excerpt'];
+
+			foreach( $posts_array as $single_post ) {
+
+				echo '<div class="item single_post card">';
+
+				$content_overrides = $single_post['overrides'];
+				$post_object = $single_post['post_object'];
+				$permalink = esc_url( get_the_permalink( $post_object->ID ) );
 
 
+				if( $display_featured_image ) {
+					$default_featured_img_url = get_the_post_thumbnail_url( $post_object->ID, 'full');
+					$featured_image = in_array( 'override_image', $content_overrides ) ? esc_url( $single_post['new_image'] ) : esc_url( $default_featured_img_url ) ;
+					echo '<div class="featured_image">';
+					echo '<a href="' . $permalink . '"><img src="' . $featured_image . '" class="single_post_image framed" /></a>';
+					echo '</div>';
+				}
+
+					echo '<div class="single_post_excerpt">';
+
+					// title and excerpt
+					$title = in_array( 'override_title', $content_overrides ) ? esc_html( $single_post['new_title'] ) :  esc_html( $post_object->post_title ) ;
+					echo '<a href="' . $permalink . '"><h3 class="single_post_title">' . $title . '</h3></a>';
+
+					if( $display_excerpt ) {
+						$excerpt = in_array( 'override_excerpt', $content_overrides ) ? wp_kses_post( $single_post['new_excerpt'] ) : wp_kses_post( $post_object->post_content );
+						echo '<p>' . $excerpt . '</p>';
+					}
+
+					echo '</div><!--/single_post_excerpt-->';
+				echo '</div><!--/card-->';
+
+			}
 
 		// --------- END content loop: posts
 		}
@@ -141,7 +174,7 @@ $display_overrides = get_field( 'display_options' );
 					$featured_img_url = get_the_post_thumbnail_url( $post_object->ID, 'full');
 					$headshot_url = in_array( 'override_image', $content_overrides ) ? esc_url( $member['new_image'] ) : esc_url( $featured_img_url ) ;
 					echo '<div class="headshot">';
-					echo $page_link_start . '<img src="' . $headshot_url . '" class="board_member_headshot>' . $page_link_end;
+					echo $page_link_start . '<img src="' . $headshot_url . '" class="board_member_headshot framed" />' . $page_link_end;
 					echo '</div>';
 				}
 				echo '<div class="board_member_details">';
@@ -163,20 +196,53 @@ $display_overrides = get_field( 'display_options' );
 						echo '<div class="bio">' . $bio . '</div>';
 					}
 
-
-
 					echo '</div><!--/board_member_details-->';
 				echo '</div><!--/card-->';
 			}
-
 
 		// -------- END content loop: board members
 		}
 		// -------- START content loop: memorial
 		elseif( 'memorial' === $content_type ) {
 			$memorials_array = get_field( 'items_memorial' );
+			$display_featured_image = $display_overrides['featured_image'];
+			$display_page_link = $display_overrides['page_link'];
 
+			foreach( $memorials_array as $memorial ) {
 
+				echo '<div class="item memorial card">';
+
+				$content_overrides = $memorial[ 'overrides' ];
+				$post_object = $memorial[ 'post_object' ];
+
+				$page_link_start = '';
+				$page_link_end = '';
+				if( $display_page_link ) {
+					$page_link_start = '<a href="' . esc_url( get_the_permalink( $post_object->ID ) ) . '">';
+					$page_link_end = '</a>';
+				}
+
+				if( $display_featured_image ) {
+					$featured_img_url = get_the_post_thumbnail_url( $post_object->ID, 'full');
+					$headshot_url = in_array( 'override_image', $content_overrides ) ? esc_url( $memorial['new_image'] ) : esc_url( $featured_img_url ) ;
+					echo '<div class="headshot">';
+					echo $page_link_start . '<img src="' . $headshot_url . '" class="memorial_headshot framed" />' . $page_link_end;
+					echo '</div>';
+				}
+
+				echo '<div class="memorial_details">';
+
+					// name and bio
+					$name = in_array( 'override_title', $content_overrides ) ? esc_html( $memorial['new_title'] ) :  esc_html( $post_object->post_title ) ;
+					$bio = in_array( 'override_excerpt', $content_overrides ) ? wp_kses_post( $memorial['new_excerpt'] ) : wp_kses_post( $post_object->post_content );
+
+					echo $page_link_start . '<h4 class="memorial_name">' . $name . '</h4>' . $page_link_end;
+					echo '<div class="bio">' . $bio . '</div>';
+
+					echo '</div><!--/memorial_details-->';
+
+				echo '</div><!--/card-->';
+			}
 
 		// -------- END content loop: memorial
 		}

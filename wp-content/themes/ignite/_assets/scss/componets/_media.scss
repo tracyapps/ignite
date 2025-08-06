@@ -1,62 +1,48 @@
 img {
 	max-width: 100%;
+
+	&.framed {
+		padding: 13px;
+		@include themify($themes) {
+			border: 1px solid rgba( themed('textColor'), 0.5 );
+			background: themed('backgroundColor');
+			box-shadow: themed( 'subtleShadow');
+		}
+
+		a &,
+		a:visited & {
+			transition: all 200ms ease-in-out;
+
+			&:hover,
+			&:target,
+			&:focus,
+			&:active {
+				transform: scale(1.05);
+				@include themify($themes) {
+				//	border: 1px solid rgba( themed('textColor'), 0.5 );
+					border: 3px solid themed('linkColor');
+					box-shadow: themed( 'largeShadow');
+					padding: 11px;
+				}
+			}
+		}
+	}
 }
 video,
 iframe {
 	max-width: 100% !important;
 	max-height: 90vh;
 
-	margin: 1em auto;
-	padding: 6px;
-
-	@include themify($themes) {
-		border: 1px solid rgba( themed('textColor'), 0.5 );
-		background: themed('backgroundColor');
-		box-shadow: themed( 'subtleShadow');
-	}
-}
-
-.single_video_page {
-	padding-bottom: 5em;
-
-	.video_container {
-		margin: 0 auto;
-		text-align: center;
-
-	}
-	video,
-	iframe {
-		width: 90vw;
-		height: calc( 90vw * 0.62 );
-
-	}
-
-	.video_title{
+	&.framed {
 
 		margin: 1em auto;
-		padding: 0 1em;
-	}
-}
+		padding: 6px;
 
-.wp-block-embed__wrapper {
-	margin-bottom: 4em;
-}
-
-
-// "offset" gallery block. used for the 'meet the team' page
-.wp-block-coblocks-gallery-offset {
-	.coblocks-gallery--item {
-		min-width: 375px;
-	}
-
-	.has-huge-gutter,
-	.has-large-gutter,
-	.has-medium-gutter,
-	.has-small-gutter {
-		figure {
-			@include phone-only {
-				padding-bottom:2em;
-			}
+		@include themify($themes) {
+			border: 1px solid rgba( themed('textColor'), 0.5 );
+			background: themed('backgroundColor');
+			box-shadow: themed( 'subtleShadow');
 		}
 	}
+
 }
