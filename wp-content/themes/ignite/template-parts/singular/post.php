@@ -40,6 +40,6 @@ if( has_post_thumbnail() ) :
 		</div>
 
 	</footer>
-	
+
 </article>
 

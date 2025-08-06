@@ -1,17 +1,18 @@
 {
-	"name": "ITS/hero",
-	"title": "Hero",
-	"description": "Hero block for the page header",
-	"style": [ "file:./hero.css" ],
+	"name": "ITS/slider",
+	"title": "Slider",
+	"description": "Slider block for the page header",
+	"style": [ "file:./slider.css" ],
 	"category": "ITS",
-	"keywords": ["hero", "header", "ITS"],
+	"keywords": ["slider", "carousel", "header", "ITS"],
 	"acf": {
-		"mode": "edit",
-		"renderTemplate": "hero.php"
+		"mode": "auto",
+		"renderTemplate": "slider.php"
 	},
 	"align": "full",
     "align_text": "",
     "align_content": "top",
+  "editorScript": "editor-splide-script",
 	"supports": {
 		"anchor": true,
 		"multiple": false,

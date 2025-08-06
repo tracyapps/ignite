@@ -157,7 +157,7 @@ function ITS_initialize_acf_blocks() {
 		  'render_template' => get_template_directory() . '/acf-blocks/slider-block/slider.php',
 		  'render_callback' => '',
 		  'enqueue_style' => '',
-		  'enqueue_script' => '',
+		  'enqueue_script' =>  get_template_directory_uri() . '/_assets/js/src_scripts/splide.js',
 		  'enqueue_assets' => '',
 		  'supports' => array(
 			  'anchor' => true,
