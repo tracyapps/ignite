@@ -62,6 +62,10 @@ function ITS_display_heroes_by_calendar_year( $year_term_id = null, $exclude_pos
 		}
 		$year_name = $year_terms[0]->name;
 		$year_term_id = $year_terms[0]->term_id;
+	} else {
+
+		$year_terms = get_term_by('term_id', $year_term_id, 'calendar-year');
+		$year_name = $year_terms->name;
 	}
 
 	if ( !$exclude_post_id ) {
@@ -106,7 +110,7 @@ function ITS_display_heroes_by_calendar_year( $year_term_id = null, $exclude_pos
 	usort( $sorted_heroes, fn($a, $b) => $a['order'] <=> $b['order'] );
 
 	// Step 4: Output
-	echo '<section class="other-heroes"><h2>Additional Heroes of ' . esc_html( $year_name ) . '</h2>';
+	echo '<section class="other-heroes"><h2>Heroes of ' . esc_html( $year_name ) . '</h2>';
 	echo '<section class="hom_archive hom_grid">';
 	foreach ( $sorted_heroes as $item ) {
 		$hero = $item['post'];

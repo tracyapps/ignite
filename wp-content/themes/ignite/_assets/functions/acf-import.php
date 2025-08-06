@@ -5046,4 +5046,69 @@ if( function_exists('acf_add_local_field_group') ):
 		'acfe_note' => '',
 	) );
 
+	//***************************************	BLOCK: DISPLAY HEROS
+	acf_add_local_field_group( array(
+		'key' => 'group_6892caa14d129',
+		'title' => 'Block : Display Heros',
+		'fields' => array(
+			array(
+				'key' => 'field_6892caa196b3d',
+				'label' => 'Select Year to Display',
+				'name' => 'year_to_display',
+				'aria-label' => '',
+				'type' => 'taxonomy',
+				'instructions' => '',
+				'required' => 0,
+				'conditional_logic' => 0,
+				'wrapper' => array(
+					'width' => '',
+					'class' => '',
+					'id' => '',
+				),
+				'taxonomy' => 'calendar-year',
+				'add_term' => 0,
+				'save_terms' => 0,
+				'load_terms' => 1,
+				'return_format' => 'id',
+				'field_type' => 'select',
+				'allow_null' => 0,
+				'acfe_bidirectional' => array(
+					'acfe_bidirectional_enabled' => '0',
+				),
+				'allow_in_bindings' => 0,
+				'bidirectional' => 0,
+				'multiple' => 0,
+				'bidirectional_target' => array(
+				),
+				'min' => '',
+				'max' => '',
+			),
+		),
+		'location' => array(
+			array(
+				array(
+					'param' => 'block',
+					'operator' => '==',
+					'value' => 'acf/display-heros',
+				),
+			),
+		),
+		'menu_order' => 0,
+		'position' => 'normal',
+		'style' => 'default',
+		'label_placement' => 'top',
+		'instruction_placement' => 'label',
+		'hide_on_screen' => '',
+		'active' => true,
+		'description' => '',
+		'show_in_rest' => 0,
+		'acfe_autosync' => array(
+			0 => 'json',
+		),
+		'acfe_form' => 0,
+		'acfe_display_title' => '',
+		'acfe_meta' => '',
+		'acfe_note' => '',
+	) );
+
 endif;

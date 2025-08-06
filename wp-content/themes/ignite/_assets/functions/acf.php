@@ -177,7 +177,53 @@ function ITS_initialize_acf_blocks() {
 		  ),
 	  ));
 
-
+	  // display heros block
+	  acf_register_block_type(array(
+		  'name' => 'display-heros',
+		  'title' => 'Display Heros',
+		  'active' => true,
+		  'description' => 'Display a grid of heros of the month, by year',
+		  'category' => 'ITS',
+		  'icon' => file_get_contents( get_template_directory() . '/acf-blocks/_block-assets/icon-display-heros.svg' ),
+		  'keywords' => array(
+			  'content',
+			  'custom post',
+			  'hom',
+			  'heros',
+			  'heros of the month',
+			  'ITS',
+		  ),
+		  'post_types' => array(
+			  'post',
+			  'page',
+		  ),
+		  'mode' => 'auto',
+		  'align' => 'full',
+		  'align_text' => '',
+		  'align_content' => 'top',
+		  'render_template' => get_template_directory() . '/acf-blocks/display-heros/display-heros.php',
+		  'render_callback' => '',
+		  'enqueue_style' => '',
+		  'enqueue_script' => '',
+		  'enqueue_assets' => '',
+		  'supports' => array(
+			  'anchor' => true,
+			  'align' => array(
+				  'wide',
+				  'full',
+			  ),
+			  'align_text' => false,
+			  'align_content' => false,
+			  'full_height' => false,
+			  'mode' => true,
+			  'multiple' => true,
+			  'example' => array(),
+			  'jsx' => false,
+		  ),
+		  'acfe_autosync' => array(
+			  'json',
+		  ),
+	  ));
 
   }
 }
