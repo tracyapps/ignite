@@ -19,7 +19,7 @@ add_action('pre_get_posts', function($query) {
 ?>
 
 	<section id="primary">
-		<main id="main">
+		<main id="main" class="hom_archive">
 			<header class="hom_header post_header">
 				<h1 class="page_title">Heros of the Month</h1>
 			</header>

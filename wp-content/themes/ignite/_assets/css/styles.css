@@ -937,7 +937,8 @@ div.no_featured_image {
   justify-items: center;
   margin: 1em auto;
 }
-article.hom_single {
+article.hom_single,
+.hom_archive {
   padding-top: 9cqw;
 }
 
