@@ -27,8 +27,32 @@ $all_slides  = get_field( 'slides' );
 
 if( $all_slides ) :
 // template start
+
+// grab settings
+$splide_transition = '"type":"' . get_field( 'transition' ) . '"'; // string: slide, loop, fade
+$splide_option_width = get_field( 'full_width_slides' ); // true/false for full width
+$splide_option_height = '"height":"' . get_field( 'max_height' ) .'vh"'; // number value
+// $splide_option_thumbnails = get_field( 'show_thumbnails' ); // true/false (not yet)
+
+
+if( true ===$splide_option_width ) {
+	$splide_width = '"fixedWidth":"98vw"';
+} else {
+	$splide_width = '"fixedWidth":"88vw","padding":{"left":"7vw"}';
+}
+
+$data_splide = esc_attr( $splide_transition ) . ',' . esc_attr( $splide_width ) . ',' . esc_attr( $splide_option_height );
+	/**
+	 * data-splide='{"type":"loop","perPage":3}'
+	 * In this example, the value is enclosed by single quotes to use double quotes in JSON string,
+	 * or you need to escape them with &quot;.
+	 */
+
+
 ?>
-<section <?php echo esc_attr( $anchor ); ?> class="splide slider_block" >
+<section <?php echo esc_attr( $anchor ); ?> class="splide slider_block"
+											data-splide='{<?php echo $data_splide; ?>}'
+>
 	<div class="splide__track">
 		<ul class="splide__list">
 			<?php

@@ -93,6 +93,50 @@
             "placeholder": "",
             "prepend": "",
             "append": ""
+        },
+        {
+            "key": "field_689e6a4a36c72",
+            "label": "Max height",
+            "name": "max_height",
+            "aria-label": "",
+            "type": "range",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 75,
+            "min": 40,
+            "max": 90,
+            "allow_in_bindings": 0,
+            "step": "",
+            "prepend": "",
+            "append": "% of viewport height"
+        },
+        {
+            "key": "field_689e6c4b36c73",
+            "label": "Full width slides",
+            "name": "full_width_slides",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "style": "rounded",
+            "allow_in_bindings": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
         }
     ],
     "location": [
@@ -121,5 +165,5 @@
     "acfe_display_title": "",
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1754416950
+    "modified": 1755226314
 }

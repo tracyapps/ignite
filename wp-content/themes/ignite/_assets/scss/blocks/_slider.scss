@@ -41,17 +41,18 @@ div.no_header + main.singular_page > section.slider_block {
 
 	li.splide__slide {
 		margin: 0;
-		min-width: 100vw;
+		width: 100%;
 		//aspect-ratio: 5.5/3.2;
 		position: relative;
-		flex: 1;
+		//flex: 1;
 
 		div.splide__slide__container {
-			height: auto;
-			min-height: 100%;
-			min-width: 100%;
-			position: relative;
-			overflow: hidden;
+			width: 100%;
+			//height: auto;
+			//min-height: 100%;
+			//min-width: 100%;
+			//position: relative;
+			//overflow: hidden;
 
 			video {
 				height: 100%;
