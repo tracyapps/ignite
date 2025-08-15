@@ -15,6 +15,32 @@ article.hom_single {
 
 .hom_header {
 	margin-top: calc(0.06 * 100cqw);
+	margin-bottom: 2em;
+	margin-left: auto;
+	margin-right: auto;
+	width: 90vw;
+
+	h1.hom_name {
+		@include themify($themes) {
+			text-shadow:
+					0 0 50px themed( 'backgroundColor' ),
+					0 0 70px themed( 'backgroundColor' ),
+					1px 1px 20px themed( 'backgroundColor' ),
+					-1px -1px 20px themed( 'backgroundColor' );
+
+			border-bottom: 1px solid rgba( themed( 'textColor' ), 0.5  );
+
+		}
+	}
+
+	.hom_title {
+		font-weight: 800;
+		font-size: 1.3em;
+
+		@include themify($themes) {
+			color: themed( 'linkColor' );
+		}
+	}
 }
 
 .hom_single {

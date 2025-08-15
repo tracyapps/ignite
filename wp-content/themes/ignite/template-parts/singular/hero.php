@@ -17,10 +17,11 @@ $subhead_text = ! empty( get_field( 'top_banner_text', get_the_ID() ) ) ? esc_ht
 	?>
 
 	<header class="hom_header">
-		<h1 class="post_title">
+		<h1 class="hom_name">
 			<span class="subhead"><?php echo $subhead_text; ?></span>
 			<?php the_title(); ?>
 		</h1>
+		<span class="hom_title"><?php the_field('title') ?></span>
 	</header>
 
 	<main class="post_main">

@@ -953,6 +953,28 @@ article.hom_single {
 
 .hom_header {
   margin-top: 6cqw;
+  margin-bottom: 2em;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90vw;
+}
+.theme-light .hom_header h1.hom_name {
+  text-shadow: 0 0 50px #ffffff, 0 0 70px #ffffff, 1px 1px 20px #ffffff, -1px -1px 20px #ffffff;
+  border-bottom: 1px solid rgba(23, 23, 23, 0.5);
+}
+.theme-dark .hom_header h1.hom_name {
+  text-shadow: 0 0 50px #171717, 0 0 70px #171717, 1px 1px 20px #171717, -1px -1px 20px #171717;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+}
+.hom_header .hom_title {
+  font-weight: 800;
+  font-size: 1.3em;
+}
+.theme-light .hom_header .hom_title {
+  color: #E82D2A;
+}
+.theme-dark .hom_header .hom_title {
+  color: #FEED45;
 }
 
 .hom_single main.post_main {
