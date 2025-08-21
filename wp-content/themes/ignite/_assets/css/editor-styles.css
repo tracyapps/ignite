@@ -124,12 +124,17 @@ body .full_width {
   width: 100%;
   max-width: 100vw;
 }
+body .is-root-container,
+body .wp-block-post-content {
+  container-type: inline-size;
+}
+body .block-editor-block-list__layout.is-root-container .alignwide,
 body .alignwide,
 body .wide_width {
-  width: 86vw;
+  width: 85cqw;
   max-width: 1500px;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 5cqw !important;
+  margin-right: 5cqw !important;
 }
 body #main main.singular_page > p,
 body #main main.singular_page > blockquote,
