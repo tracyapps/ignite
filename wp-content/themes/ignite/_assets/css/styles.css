@@ -147,6 +147,8 @@ a:visited {
 }
 
 input[type=submit],
+.button_primary,
+.wp_block_button,
 .wp-element-button,
 .wp-element-button:visited,
 .wp-block-button__link,
@@ -163,6 +165,8 @@ a.primary_button:visited {
   text-shadow: rgba(0, 0, 0, 0.019) 2px 2px 6px 0px inset, rgba(0, 0, 0, 0.09) -1px -1px 6px 1px inset, rgba(0, 0, 0, 0.45) 0 -1px 1px;
 }
 .theme-light input[type=submit],
+.theme-light .button_primary,
+.theme-light .wp_block_button,
 .theme-light .wp-element-button,
 .theme-light .wp-element-button:visited,
 .theme-light .wp-block-button__link,
@@ -175,6 +179,8 @@ a.primary_button:visited {
   box-shadow: rgba(255, 255, 255, 0.91) 1px 1px 1px 0px inset, rgba(0, 0, 0, 0.25) 0px 30px 50px -20px, rgba(0, 0, 0, 0.43) 0px 10px 40px -20px;
 }
 .theme-dark input[type=submit],
+.theme-dark .button_primary,
+.theme-dark .wp_block_button,
 .theme-dark .wp-element-button,
 .theme-dark .wp-element-button:visited,
 .theme-dark .wp-block-button__link,
@@ -187,6 +193,10 @@ a.primary_button:visited {
   box-shadow: rgba(100, 100, 100, 0.21) -1px -1px 1px 0px inset, rgba(0, 0, 0, 0.42) 0px 30px 50px -10px, rgba(0, 0, 0, 0.63) 0px 10px 40px -20px;
 }
 .theme-light input[type=submit]:hover, .theme-light input[type=submit]:focus,
+.theme-light .button_primary:hover,
+.theme-light .button_primary:focus,
+.theme-light .wp_block_button:hover,
+.theme-light .wp_block_button:focus,
 .theme-light .wp-element-button:hover,
 .theme-light .wp-element-button:focus,
 .theme-light .wp-element-button:visited:hover,
@@ -205,6 +215,10 @@ a.primary_button:visited {
   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.35);
 }
 .theme-dark input[type=submit]:hover, .theme-dark input[type=submit]:focus,
+.theme-dark .button_primary:hover,
+.theme-dark .button_primary:focus,
+.theme-dark .wp_block_button:hover,
+.theme-dark .wp_block_button:focus,
 .theme-dark .wp-element-button:hover,
 .theme-dark .wp-element-button:focus,
 .theme-dark .wp-element-button:visited:hover,
