@@ -294,6 +294,8 @@ h1, h2, h3, h4, h5, h6 {
   text-transform: uppercase;
   line-height: 1;
   letter-spacing: 0.05em;
+  margin-top: 1.5em;
+  margin-bottom: 0;
   margin-left: auto;
   margin-right: auto;
 }
@@ -2431,7 +2433,7 @@ input[type=text], input[type=tel], input[type=number], input[type=password], inp
 .theme-light input[type=text], .theme-light input[type=tel], .theme-light input[type=number], .theme-light input[type=password], .theme-light input[type=url], .theme-light input[type=email], .theme-light input[type=search] {
   color: #171717;
   border: 1px solid rgba(255, 255, 255, 0.95);
-  background: rgba(195, 195, 195, 0.7);
+  background: rgba(243, 242, 242, 0.7);
   box-shadow: rgba(0, 0, 0, 0.019) 2px 2px 6px 0px inset, rgba(0, 0, 0, 0.09) -1px -1px 6px 1px inset, rgba(0, 0, 0, 0.45) 0 -1px 1px;
 }
 .theme-dark input[type=text], .theme-dark input[type=tel], .theme-dark input[type=number], .theme-dark input[type=password], .theme-dark input[type=url], .theme-dark input[type=email], .theme-dark input[type=search] {
@@ -2442,7 +2444,7 @@ input[type=text], input[type=tel], input[type=number], input[type=password], inp
 }
 .theme-light input[type=text]:hover, .theme-light input[type=text]:target, .theme-light input[type=text]:active, .theme-light input[type=tel]:hover, .theme-light input[type=tel]:target, .theme-light input[type=tel]:active, .theme-light input[type=number]:hover, .theme-light input[type=number]:target, .theme-light input[type=number]:active, .theme-light input[type=password]:hover, .theme-light input[type=password]:target, .theme-light input[type=password]:active, .theme-light input[type=url]:hover, .theme-light input[type=url]:target, .theme-light input[type=url]:active, .theme-light input[type=email]:hover, .theme-light input[type=email]:target, .theme-light input[type=email]:active, .theme-light input[type=search]:hover, .theme-light input[type=search]:target, .theme-light input[type=search]:active {
   border: 1px solid rgba(52, 52, 52, 0.95);
-  background: #c3c3c3;
+  background: #f3f2f2;
 }
 .theme-dark input[type=text]:hover, .theme-dark input[type=text]:target, .theme-dark input[type=text]:active, .theme-dark input[type=tel]:hover, .theme-dark input[type=tel]:target, .theme-dark input[type=tel]:active, .theme-dark input[type=number]:hover, .theme-dark input[type=number]:target, .theme-dark input[type=number]:active, .theme-dark input[type=password]:hover, .theme-dark input[type=password]:target, .theme-dark input[type=password]:active, .theme-dark input[type=url]:hover, .theme-dark input[type=url]:target, .theme-dark input[type=url]:active, .theme-dark input[type=email]:hover, .theme-dark input[type=email]:target, .theme-dark input[type=email]:active, .theme-dark input[type=search]:hover, .theme-dark input[type=search]:target, .theme-dark input[type=search]:active {
   border: 1px solid rgba(195, 195, 195, 0.95);
@@ -2470,7 +2472,7 @@ select {
 .theme-light select {
   color: #171717;
   border: 1px solid rgba(255, 255, 255, 0.95);
-  background: rgba(195, 195, 195, 0.7);
+  background: rgba(243, 242, 242, 0.7);
   box-shadow: rgba(0, 0, 0, 0.019) 2px 2px 6px 0px inset, rgba(0, 0, 0, 0.09) -1px -1px 6px 1px inset, rgba(0, 0, 0, 0.45) 0 -1px 1px;
 }
 .theme-dark select {
@@ -2495,7 +2497,7 @@ textarea {
 .theme-light textarea {
   color: #171717;
   border: 1px solid rgba(255, 255, 255, 0.95);
-  background: rgba(195, 195, 195, 0.7);
+  background: rgba(243, 242, 242, 0.7);
   box-shadow: rgba(0, 0, 0, 0.019) 2px 2px 6px 0px inset, rgba(0, 0, 0, 0.09) -1px -1px 6px 1px inset, rgba(0, 0, 0, 0.45) 0 -1px 1px;
 }
 .theme-dark textarea {
@@ -2662,6 +2664,67 @@ button {
 .frm_forms .frm_form_fields .frm_form_field.frm_four_col .frm_radio,
 .frm_forms .frm_form_fields .frm_form_field.frm_four_col .frm_checkbox {
   grid-column-end: span 1;
+}
+.theme-light #main .frm_forms .frm_form_fields .frm_slider,
+.theme-light .frm_forms .frm_form_fields .frm_slider {
+  background-color: rgba(23, 23, 23, 0.58);
+}
+.theme-dark #main .frm_forms .frm_form_fields .frm_slider,
+.theme-dark .frm_forms .frm_form_fields .frm_slider {
+  background-color: rgba(255, 255, 255, 0.58);
+}
+#main .frm_forms .frm_form_fields .frm_slider:before,
+.frm_forms .frm_form_fields .frm_slider:before {
+  border-radius: 50%;
+  position: absolute;
+  content: "";
+  height: 23px;
+  width: 23px;
+  left: 1px;
+  bottom: 1px;
+  transition: 0.4s;
+  box-shadow: 0 2px 6px rgba(41, 58, 82, 0.31);
+}
+.theme-light #main .frm_forms .frm_form_fields .frm_slider:before,
+.theme-light .frm_forms .frm_form_fields .frm_slider:before {
+  background-color: #ffffff;
+}
+.theme-dark #main .frm_forms .frm_form_fields .frm_slider:before,
+.theme-dark .frm_forms .frm_form_fields .frm_slider:before {
+  background-color: #171717;
+}
+.theme-light #main .frm_forms .frm_form_fields input:checked + .frm_switch .frm_slider,
+.theme-light .frm_forms .frm_form_fields input:checked + .frm_switch .frm_slider {
+  background-color: #E82D2A;
+}
+.theme-dark #main .frm_forms .frm_form_fields input:checked + .frm_switch .frm_slider,
+.theme-dark .frm_forms .frm_form_fields input:checked + .frm_switch .frm_slider {
+  background-color: #FEED45;
+}
+.theme-light #main .frm_forms .frm_form_fields input:focus + .frm_switch .frm_slider,
+.theme-light .frm_forms .frm_form_fields input:focus + .frm_switch .frm_slider {
+  box-shadow: 0 0 1px #E82D2A;
+}
+.theme-dark #main .frm_forms .frm_form_fields input:focus + .frm_switch .frm_slider,
+.theme-dark .frm_forms .frm_form_fields input:focus + .frm_switch .frm_slider {
+  box-shadow: 0 0 1px #FEED45;
+}
+#main .frm_forms .frm_form_fields input:checked + .frm_switch .frm_slider:before,
+.frm_forms .frm_form_fields input:checked + .frm_switch .frm_slider:before {
+  transform: translateX(15px);
+}
+#main .frm_forms .frm_form_fields .frm_rtl .frm_switch_opt,
+.frm_forms .frm_form_fields .frm_rtl .frm_switch_opt {
+  padding: 0 8px;
+}
+#main .frm_forms .frm_form_fields .frm_rtl .frm_slider:before,
+.frm_forms .frm_form_fields .frm_rtl .frm_slider:before {
+  left: 16px;
+}
+#main .frm_forms .frm_form_fields .frm_rtl input:checked + .frm_switch .frm_slider:before,
+.frm_forms .frm_form_fields .frm_rtl input:checked + .frm_switch .frm_slider:before {
+  transform: none !important;
+  left: 1px;
 }
 #main .frm_forms .frm_display_format_buttons .frm_radio label,
 #main .frm_forms .frm_display_format_buttons .frm_checkbox label,
