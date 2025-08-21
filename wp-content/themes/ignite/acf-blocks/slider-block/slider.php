@@ -178,7 +178,7 @@ $data_splide = esc_attr( $splide_transition ) . ',' . esc_attr( $splide_width ) 
 						$inline_padding_styles = 'style="' . $padding_top . $padding_right . $padding_bottom . $padding_left . '"';
 					}
 				?>
-					<div class="slide_content_container <?php echo $alignment_classes; ?>" <?php echo $inline_padding_styles; ?> >
+					<div class="slide_inner_content_container <?php echo $alignment_classes; ?>" <?php echo $inline_padding_styles; ?> >
 						<div class="slide_inner_content">
 							<?php
 							echo ( true === $slide[ 'display_title' ] ) ? '<h2 class="slide_title">' . esc_html( $slide_title ) . '</h2>' : '';

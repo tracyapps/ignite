@@ -910,6 +910,7 @@ body {
 	.splide__track {
 		-webkit-mask: linear-gradient(to right, transparent 0%, red 5%, red 95%, transparent 100%);
 		mask: linear-gradient(to right, transparent 0%, red 5%, red 95%, transparent 100%);
+		max-width: 100%;
 	}
 
 	.splide__arrow {
@@ -1000,6 +1001,15 @@ body {
 		margin: 0;
 		padding: 0;
 		list-style: none;
+	}
+	.slider_block ul {
+		li {
+			display: none;
+
+			&:first-child {
+				display:block;
+			}
+		}
 	}
 	.slider_block li.splide__slide {
 		margin: 0;

@@ -1,5 +1,5 @@
 div.no_header + main.singular_page > section.slider_block {
-	margin-top: -17cqw;
+	margin-top: calc(0.047 * -100cqw);
 
 	.slide_content_container {
 		margin-top: 18cqw;
@@ -40,19 +40,15 @@ div.no_header + main.singular_page > section.slider_block {
 	}
 
 	li.splide__slide {
+		padding-top: calc(0.047 * 100cqw);
 		margin: 0;
 		width: 100%;
 		//aspect-ratio: 5.5/3.2;
 		position: relative;
-		//flex: 1;
+
 
 		div.splide__slide__container {
 			width: 100%;
-			//height: auto;
-			//min-height: 100%;
-			//min-width: 100%;
-			//position: relative;
-			//overflow: hidden;
 
 			video {
 				height: 100%;

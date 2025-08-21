@@ -920,6 +920,9 @@ div.page_featured_image h1.page_title {
 div.no_header {
   padding-top: 18cqw;
 }
+.home.page-home div.no_header {
+  padding-top: 15cqw;
+}
 
 div.no_featured_image {
   padding-top: 16cqw;
@@ -2950,7 +2953,7 @@ body .has-ITS-pink-background-color,
 }
 
 div.no_header + main.singular_page > section.slider_block {
-  margin-top: -17cqw;
+  margin-top: -4.7cqw;
 }
 div.no_header + main.singular_page > section.slider_block .slide_content_container {
   margin-top: 18cqw;
@@ -2983,6 +2986,7 @@ div.no_header + main.singular_page > section.slider_block .slide_content_contain
   list-style: none;
 }
 .slider_block li.splide__slide {
+  padding-top: 4.7cqw;
   margin: 0;
   width: 100%;
   position: relative;

@@ -5,9 +5,9 @@ document.addEventListener('DOMContentLoaded', function () {
 		perPage: 1,
 		perMove: 1,
 		gap: '0',
-		//height: '70vh',
-		fixedWidth: '100vw',
-		autoHeight: true,
+		//height: '70vh', (these are defined with ACF settings)
+		//fixedWidth: '100vw',
+		//autoHeight: true,
 		drag: true,
 		snap: true,
 		noDrag: 'input, textarea, .no-drag',
@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		releaseWheel: true,
 		trimSpace: false,
 		cover: true,
-		type: 'loop',
+		// type: 'loop',
 
 	}
 

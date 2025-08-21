@@ -817,6 +817,7 @@ body button:focus {
 body .splide__track {
   -webkit-mask: linear-gradient(to right, transparent 0%, red 5%, red 95%, transparent 100%);
   mask: linear-gradient(to right, transparent 0%, red 5%, red 95%, transparent 100%);
+  max-width: 100%;
 }
 body .splide__arrow {
   transform: translateY(0) scale(1.5);
@@ -894,6 +895,12 @@ body .slider_block li {
   margin: 0;
   padding: 0;
   list-style: none;
+}
+body .slider_block ul li {
+  display: none;
+}
+body .slider_block ul li:first-child {
+  display: block;
 }
 body .slider_block li.splide__slide {
   margin: 0;

@@ -40,6 +40,10 @@ div.page_featured_image {
 
 div.no_header {
 	padding-top: calc(0.18 * 100cqw);
+
+	.home.page-home & {
+		padding-top: calc(0.15 * 100cqw);
+	}
 }
 div.no_featured_image {
 	padding-top: calc(0.16 * 100cqw);

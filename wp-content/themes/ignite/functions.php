@@ -103,7 +103,7 @@ function ITS_add_editor_scripts() {
 	wp_enqueue_script('editor-a11y-slider', '//cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js', array(), null, true);
 	wp_enqueue_script(
 		'editor-splide-script', // Handle matching 'editorScript' in block.json
-		get_template_directory_uri() . '/_assets/js/src_scripts/splide.js',
+		get_template_directory_uri() . '/_assets/js/block_scripts/splide.js',
 		array(),
 		null,
 		true
