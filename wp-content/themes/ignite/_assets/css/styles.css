@@ -3029,31 +3029,54 @@ body .has-ITS-pink-background-color,
   padding: 2em 8%;
 }
 
-div.no_header + main.singular_page > section.slider_block {
-  margin-top: -4.7cqw;
-}
-div.no_header + main.singular_page > section.slider_block .slide_content_container {
-  margin-top: 18cqw;
+section.slider_block .slide_inner_content_container {
   margin-right: calc(3% + 2.5em);
   margin-left: calc(3% + 2.5em);
+  display: flex;
+  height: 100%;
 }
-div.no_header + main.singular_page > section.slider_block .slide_content_container.full_width {
+section.slider_block .slide_inner_content_container.full_width {
   max-width: calc(93% - 5em);
   width: auto;
 }
-div.no_header + main.singular_page > section.slider_block .slide_content_container.align_center {
+section.slider_block .slide_inner_content_container.align_center {
   max-width: 60%;
   margin-right: auto;
   margin-left: auto;
+  text-align: center;
 }
-div.no_header + main.singular_page > section.slider_block .slide_content_container.align_right {
+section.slider_block .slide_inner_content_container.align_right {
   text-align: right;
   max-width: 60%;
   margin-left: auto;
 }
-div.no_header + main.singular_page > section.slider_block .slide_content_container.align_left {
+section.slider_block .slide_inner_content_container.align_left {
   max-width: 60%;
   margin-right: auto;
+}
+section.slider_block .slide_inner_content_container.align_middle .slide_inner_content {
+  flex: 1;
+  align-self: center;
+}
+section.slider_block .slide_inner_content_container.align_bottom .slide_inner_content {
+  flex: 1;
+  align-self: flex-end;
+}
+section.slider_block .slide_inner_content_container.align_top .slide_inner_content {
+  flex: 1;
+  align-self: flex-start;
+}
+
+/*
+*   for when the slider is the first block, w/ no header image
+*	this moves the slider "up" under the header, and adds additional
+*	padding on the slide content as to not be covered up by the header
+*/
+div.no_header + main.singular_page > section.slider_block {
+  margin-top: -4.7cqw;
+}
+div.no_header + main.singular_page > section.slider_block .splide__slide__container {
+  padding-top: 5cqw;
 }
 
 .slider_block ul,
@@ -3063,7 +3086,6 @@ div.no_header + main.singular_page > section.slider_block .slide_content_contain
   list-style: none;
 }
 .slider_block li.splide__slide {
-  padding-top: 4.7cqw;
   margin: 0;
   width: 100%;
   position: relative;
