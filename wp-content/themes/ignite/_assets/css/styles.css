@@ -1099,6 +1099,14 @@ article.hom_single,
 .other-heroes h2 {
   margin-left: 8vw;
 }
+.other-heroes > div:not(:empty) {
+  margin-left: 8vw;
+  font-size: clamp(2rem, 0.44vi + 1.82rem, 2.67rem);
+}
+
+.year-heading {
+  margin-left: 8vw;
+}
 
 .hom_grid {
   display: grid;

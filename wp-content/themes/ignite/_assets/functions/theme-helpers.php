@@ -54,7 +54,7 @@ function the_breadcrumb() {
 add_post_type_support( 'page', 'excerpt' );
 
 
-function ITS_display_heroes_by_calendar_year( $year_term_id = null, $exclude_post_id = null ) {
+function ITS_display_heroes_by_calendar_year( $year_term_id = null, $exclude_post_id = null, $title_override = null, $paragraph_text = null ) {
 	if ( !$year_term_id ) {
 		$year_terms = get_the_terms( get_the_ID(), 'calendar-year' );
 		if ( empty( $year_terms ) || is_wp_error( $year_terms ) ) {
@@ -70,6 +70,19 @@ function ITS_display_heroes_by_calendar_year( $year_term_id = null, $exclude_pos
 
 	if ( !$exclude_post_id ) {
 		$exclude_post_id = get_the_ID();
+	}
+
+	// default heading text, paragraph text
+	$heading_text = '<h2>Heroes of ' . esc_html( $year_name ) . '</h2>';
+	$added_paragraph_text = '';
+
+	// if overrides exist...
+	if( $title_override ) {
+		$heading_text = '<h2>' . $title_override . '</h2>';
+	}
+
+	if( $paragraph_text ) {
+		$added_paragraph_text =  '<div>' . wpautop( $paragraph_text ) . '</div>';
 	}
 
 	// Step 1: Get all hero posts from that year
@@ -110,8 +123,8 @@ function ITS_display_heroes_by_calendar_year( $year_term_id = null, $exclude_pos
 	usort( $sorted_heroes, fn($a, $b) => $a['order'] <=> $b['order'] );
 
 	// Step 4: Output
-	echo '<section class="other-heroes"><h2>Heroes of ' . esc_html( $year_name ) . '</h2>';
-	echo '<section class="hom_archive hom_grid">';
+	echo '<section class="other-heroes">' . $heading_text . $added_paragraph_text;
+	echo '<section class="hom_grid">';
 	foreach ( $sorted_heroes as $item ) {
 		$hero = $item['post'];
 		setup_postdata( $hero );

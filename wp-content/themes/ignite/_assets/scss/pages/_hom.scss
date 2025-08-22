@@ -149,6 +149,13 @@ article.hom_single,
 	h2 {
 		margin-left: 8vw;
 	}
+	> div:not(:empty) {
+		margin-left: 8vw;
+		font-size: $font-size-md;
+	}
+}
+.year-heading {
+	margin-left: 8vw;
 }
 
 // loop

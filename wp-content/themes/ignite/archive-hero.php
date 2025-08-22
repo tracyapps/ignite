@@ -21,7 +21,7 @@ add_action('pre_get_posts', function($query) {
 	<section id="primary">
 		<main id="main" class="hom_archive">
 			<header class="hom_header post_header">
-				<h1 class="page_title">Heros of the Month</h1>
+				<h1 class="page_title">Heroes of the Month</h1>
 			</header>
 
 			<?php
@@ -36,7 +36,7 @@ add_action('pre_get_posts', function($query) {
 
 			foreach ($years as $year) :
 				echo '<h2 class="year-heading">' . esc_html($year->name) . '</h2>';
-				echo '<section class="hom_archive grid_container">';
+				echo '<section class="hom_grid">';
 
 				// Get calendar-month terms ordered by ACF "order" field
 				$months = get_terms([
