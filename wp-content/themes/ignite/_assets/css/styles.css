@@ -2866,6 +2866,23 @@ button {
   padding-top: 0;
 }
 
+.add_to_cart_button {
+  font-size: clamp(2rem, 0.44vi + 1.82rem, 2.67rem);
+  padding: 1.2em;
+  cursor: pointer;
+  transition: all 250ms ease-in-out;
+  border-radius: 8px;
+  font-weight: 800;
+  display: inline-block;
+  margin: 2em auto;
+}
+.theme-light .add_to_cart_button {
+  box-shadow: rgba(255, 255, 255, 0.91) 1px 1px 1px 0px inset, rgba(0, 0, 0, 0.25) 0px 30px 50px -20px, rgba(0, 0, 0, 0.43) 0px 10px 40px -20px;
+}
+.theme-dark .add_to_cart_button {
+  box-shadow: rgba(100, 100, 100, 0.21) -1px -1px 1px 0px inset, rgba(0, 0, 0, 0.42) 0px 30px 50px -10px, rgba(0, 0, 0, 0.63) 0px 10px 40px -20px;
+}
+
 /**
  *	styles for looped content
  *

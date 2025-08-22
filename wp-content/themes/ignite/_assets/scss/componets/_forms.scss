@@ -358,3 +358,21 @@ button {
 	}
 }
 
+
+// custom paypal button styles. class `add_to_cart_button` can be added to any button, input type="submit" or a
+
+.add_to_cart_button {
+	font-size: $font-size-md;
+	padding: 1.2em;
+	cursor: pointer;
+	transition: all 250ms ease-in-out;
+	border-radius: 8px;
+	font-weight: 800;
+	display: inline-block;
+	margin: 2em auto;
+
+	@include themify($themes) {
+		box-shadow: themed( 'subtleShadow');
+	}
+
+}
