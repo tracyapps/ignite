@@ -91,7 +91,7 @@ body {
 // =============================================	3. links & buttons
 a,
 a:visited {
-	font-weight: 500;
+	//font-weight: 500;
 	transition: all ease-in-out $transition_speed;
 	@include themify($themes) {
 		color: themed('linkColor');
@@ -178,11 +178,11 @@ p, blockquote {
 
 h1, h2, h3, h4, h5, h6 {
 	font-family: $font-header;
-	font-weight: 900;
+	font-weight: 800;
 	text-transform: uppercase;
 	line-height: 1;
 	letter-spacing: 0.05em;
-	margin-top: 1.5em;
+	margin-top: 0.5em;
 	margin-bottom: 0;
 
 	margin-left: auto;

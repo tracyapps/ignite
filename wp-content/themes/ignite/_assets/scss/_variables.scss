@@ -18,6 +18,7 @@ $gold-light: #BDA881;
 $white: #ffffff;
 $light: #f3f2f2;
 $dark: #171717;
+$darker: #0e0e0e;
 $black: #000000;
 
 $grey-light: #C3C3C3;
@@ -104,6 +105,8 @@ $breakpoint-medium: 900px;
 $breakpoint-large: 1200px;
 $breakpoint-x-large: 1800px;
 
+// golden ratio
+$golden-large:	63.8%;
 
 /*
  * Theme definitions
@@ -163,7 +166,7 @@ $themes: (
 
 			// box shadow options
 				subtleShadow: $subtle_shadow_light,
-				normalShadow: 1px 1px 4px rgba(0, 0, 0, 0.35),
+				normalShadow: 1px 1px 4px rgba(0, 0, 0, 0.15),
 				largeShadow: $heavy_shadow,
 				activeShadow: $active_shadow_light,
 				insetShadow: $subtle_inset_light,
@@ -186,7 +189,7 @@ $themes: (
 				textColor: $white,
 				linkColor: $yellow,
 				linkHoverColor: $white,
-				subtleBackgroundColor: $black,
+				subtleBackgroundColor: $darker,
 
 			// primary button
 				primaryButtonBGColor: $yellow,
@@ -226,7 +229,7 @@ $themes: (
 
 			// box shadow options
 				subtleShadow: $subtle_shadow_dark,
-				normalShadow: 1px 1px 4px rgba(0, 0, 0, 0.35),
+				normalShadow: 1px 1px 4px rgba(0, 0, 0, 0.55),
 				largeShadow: $heavy_shadow,
 				activeShadow: $active_shadow_light,
 				insetShadow: $subtle_inset_light,

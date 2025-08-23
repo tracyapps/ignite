@@ -1,4 +1,33 @@
+/**
+* home, or page for posts
+* displaying news/posts and events in 2 columns
+ */
+
 body.home.page-home {
 
 
+}
+
+.news-events-grid {
+	display: flex;
+	justify-content: space-between;
+	padding-bottom: 5em;
+
+	.news-col {
+		width: $golden-large;
+		padding: 6em 1em 6em 2em;
+		margin: -5em auto -5em 0;
+		@include themify($themes) {
+			box-shadow: themed( 'subtleShadow');
+		}
+	}
+
+	.events-col {
+		width: calc( 100% - #{$golden-large} - 1.5em );
+		padding: 1em 3em 1em 2em;
+
+		> h2 {
+			margin-top: -0.5em;
+		}
+	}
 }

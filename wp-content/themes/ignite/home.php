@@ -2,10 +2,7 @@
 /**
  * The template for default post page (blog)
  *
- * This is the template that displays all pages by default.
- * Please note that this is the WordPress construct of pages
- * and that other 'pages' on your WordPress site may use a
- * different template.
+ * also shows upcoming events in the secondary column.
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -18,45 +15,34 @@ get_header();
 		<main id="main">
 			<?php
 
-			global $post;
-			$page_for_posts_id = get_option('page_for_posts');
-			if ( $page_for_posts_id ) :
-				$post = get_page( $page_for_posts_id );
-				setup_postdata( $post );
-				?>
-				<div id="post-<?php the_ID(); ?>">
-					<div>
-						<?php the_content(); ?>
-					</div>
-				</div>
-				<?php
-				rewind_posts();
-			endif; ?>
+			// grab the featured image / header of the posts page
+			$page_id_of_posts_page = get_option( 'page_for_posts' );
+			$override_header = false;
 
-			<section class="blog_posts_container list_container">
-				<?php the_posts_pagination( array(
-					'mid_size'  => 2,
-					'end_size'	=> 2,
-					'prev_text'	=> '&laquo; Previous',
-					'next_text'	=> 'Next &raquo;',
-				)); ?>
-			<?php /* Start the Loop */
-			while ( have_posts() ) :
-				the_post();
+			if( get_field( 'override_default_header', $page_id_of_posts_page ) ) {
+				$override_header = true;
+			}
 
-				get_template_part( 'template-parts/loop/list' );
+			if( false == $override_header ) {
+				if( has_post_thumbnail( $page_id_of_posts_page ) ) :
+					$featured_img_url = get_the_post_thumbnail_url( $page_id_of_posts_page,'full');
+					echo '<div class="page_featured_image">';
+					echo '<img class="fade-bottom" src="' . esc_url( $featured_img_url ) . '" />';
+					echo '<h1 class="page_title">' . wp_kses_post( get_the_title( $page_id_of_posts_page ) ) . '</h1>';
+					echo '</div>';
 
+				else :
+					echo '<div class="no_featured_image">';
+					echo '<h1 class="page_title">' . wp_kses_post( get_the_title( $page_id_of_posts_page ) ) . '</h1>';
+					echo '</div>';
+				endif;
+			} else {
+				echo '<div class="no_header"></div>';
+			}
 
-				endwhile; // End of the loop.
-			?>
-			</section>
+			wp_reset_postdata();
 
-			<?php the_posts_pagination( array(
-				'mid_size'  => 2,
-				'end_size'	=> 2,
-				'prev_text'	=> '&laquo; Previous',
-				'next_text'	=> 'Next &raquo;',
-			)); ?>
+			ITS_render_news_and_events(); ?>
 
 		</main><!-- #main -->
 	</section><!-- #primary -->
