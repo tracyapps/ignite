@@ -2041,7 +2041,7 @@ footer.site_footer #footer-social-links {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: flex-end;
 }
 footer.site_footer #footer-social-links li,
 footer.site_footer #footer-social-links a {
