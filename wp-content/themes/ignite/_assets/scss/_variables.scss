@@ -22,7 +22,7 @@ $darker: #0e0e0e;
 $black: #000000;
 
 $grey-light: #C3C3C3;
-$grey-medium: #343434;
+$grey-medium: #262626;
 
 
 
@@ -178,10 +178,10 @@ $themes: (
 				textHighlightAbove: $white,
 
 			// footer
-				footerBGColor: $dark,
-				footerTextColor: $light,
-				footerLinkColor: $yellow,
-				footerLinkHoverColor: $white,
+				footerBGColor: $light,
+				footerTextColor: $dark,
+				footerLinkColor: $red,
+				footerLinkHoverColor: $dark,
 		),
 		dark: (
 			// body & core styles

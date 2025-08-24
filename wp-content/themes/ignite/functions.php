@@ -53,9 +53,7 @@ if ( ! function_exists( 'ITS_setup' ) ) :
 			array(
 				'utility-nav' => __( 'Utility Navigation', 'ITS'),
 				'main-nav'		=> __( 'Main Nav', 'ITS' ),
-				'footer-nav' => __( 'Footer Menu', 'ITS' ),
-				'social-nav' => __( 'Social Links', 'ITS' ),
-				'legal-nav' => __( 'Legal Nav (bottom)', 'ITS')
+				'footer-nav' => __( 'Footer Menu', 'ITS' )
 			)
 		);
 

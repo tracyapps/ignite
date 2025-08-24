@@ -7,7 +7,7 @@ article.hom_single,
 .hom_featured_image {
 	position: relative;
 	float: right;
-	margin-right: -8%;
+	margin-right: -3%;
 	margin-left: 0.3em;
 	max-height: 100vh;
 	max-width: 47%;
@@ -146,6 +146,7 @@ article.hom_single,
 }
 
 .other-heroes {
+	padding-top: 3em;
 	h2 {
 		margin-left: 8vw;
 	}

@@ -1,12 +1,15 @@
 footer.site_footer {
 	text-align: center;
-	padding: 1em 3em;
+	padding: 0.4em 3em 2em 3em;
 	@include themify($themes) {
 		background: themed('footerBGColor');
+		color: themed('footerTextColor');
+		box-shadow: themed('activeShadow');
 	}
 
 	a,
 	a:visited {
+		font-weight: 700;
 		@include themify($themes) {
 			color: themed('footerLinkColor');
 		}
@@ -21,11 +24,15 @@ footer.site_footer {
 	}
 
 	.footer_info {
-		.container {
-			padding: 1em 3em;
-			margin: 1em auto;
-			max-width: $max_body_text_width;
-			text-wrap: balance;
+		padding: 2em;
+		width: 94vw;
+		margin: 2em auto;
+		font-size: $font-size-sm;
+
+		.footer_text {
+			display: block;
+			width: 100%;
+			opacity: 0.9;
 		}
 	}
 
@@ -80,16 +87,24 @@ footer.site_footer {
 		}
 	}
 
-	nav.footer_legal_nav {
+	.copyright_container {
+		opacity: 0.6;
+	}
+
+	nav.footer_nav {
 		margin: 1em 0;
 
 		ul {
 			list-style: none;
 			margin: 0;
-			padding: 0;
+			padding: 0.8em 1em;
 			display: flex;
 			align-items: center;
 			justify-content: center;
+			@include themify($themes) {
+				border-top: 1px solid rgba( themed('footerTextColor'), 0.2 );
+				box-shadow: themed('subtleShadow');
+			}
 
 			li {
 				margin: 0 1em;

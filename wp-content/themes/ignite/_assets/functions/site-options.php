@@ -120,7 +120,7 @@ add_filter( 'excerpt_length', 'ITS_excerpt_length' );
 function ITS_excerpt_more( $more_text ) {
 	$more_text = __( ' &hellip; ', 'start' );
 	if ( $more_link_text = get_field( 'excerpt_link_text', 'option' ) ) {
-		$more_text .= '<a href="' . esc_attr( get_permalink() ) . '">' . esc_html( $more_link_text ) . '</a>';
+		$more_text .= '<a href="' . esc_attr( get_permalink() ) . '">' . esc_html( $more_link_text ) . ' &raquo;</a>';
 	}
 	return $more_text;
 }
@@ -207,16 +207,24 @@ function ITS_copyright_text() {
 /**
  * Return the contact info text as specified on the Site Options page.
  */
-function ITS_get_contact_info() {
-	return get_field( 'contact_info', 'option' );
+function ITS_options_get_footer_text() {
+	$footer_text = get_field( 'contact_info', 'option' );
+
+	// Replace [year] with the year.
+	$footer_text = str_replace( '[year]', date( 'Y' ), $footer_text );
+	return $footer_text;
 }
 
 /**
- * Output the contact info as specified on the Site Options page.
+ * Output the copyright text as specified on the Site Options page.
  */
-function ITS_contact_info() {
-	// Escape output (ACF takes care of wptexturize-ation, shortcodes, etc).
-	echo wp_kses_post( ITS_get_contact_info() );
+function ITS_options_footer_text() {
+	$footer_text = get_field( 'contact_info', 'option' );
+	if ( $footer_text = '' ) {
+		return;
+	}
+	// Escape output (allowing basic markp) & prettify dashes, apostrophes, etc.
+	echo wp_kses_post( wptexturize( ITS_options_get_footer_text() ) );
 }
 
 
