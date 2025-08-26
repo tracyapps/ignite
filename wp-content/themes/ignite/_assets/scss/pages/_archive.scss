@@ -82,7 +82,7 @@
 	}
 
 	article.event-item {
-		margin: 2em 0;
+		margin: 3em 2em;
 		border-radius: 5px;
 		@include themify($themes) {
 			background-color: rgba( themed( 'subtleBackgroundColor' ), 0.24 );
@@ -90,6 +90,57 @@
 			box-shadow: themed( 'normalShadow' );
 		}
 
+		header {
+			position: relative;
+			display: flex;
+			align-items: center;
+			padding: 5em 1em;
+			justify-content: flex-start;
+
+			.event_featured_image {
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				width: 45%;
+				z-index: -1;
+				mask: linear-gradient(to right,
+						red 65%,
+						transparent 95%);
+
+				img {
+					object-fit: cover;
+					width: 100%;
+					height: 100%;
+				}
+			}
+
+			h3 {
+				margin-left: 1em;
+			}
+
+			.event_featured_image + h3 {
+				margin-left: 30%;
+			}
+
+		}
+		main,
+		footer {
+			display: none; // shown in the aside list, but not the list container on archive-event
+		}
+	}
+}
+
+.aside_list_container {
+	article.event-item {
+
+		margin: 2em 0;
+		border-radius: 5px;
+		@include themify($themes) {
+			background-color: rgba( themed( 'subtleBackgroundColor' ), 0.24 );
+			border: 1px solid themed( 'subtleBackgroundColor' );
+			box-shadow: themed( 'normalShadow' );
+		}
 
 		header {
 			position: relative;
@@ -122,56 +173,8 @@
 				top: -1em;
 				left: 1em;
 				z-index: 99;
-
-				@include themify($themes) {
-					background-color: themed( 'backgroundColor' );
-					box-shadow: themed( 'largeShadow');
-					border: 1px solid rgba( themed( 'textColor' ), 0.4 );
-					border-radius: 3px;
-				}
-
-				time {
-					display: flex;
-					flex-direction: column;
-					align-items: stretch;
-
-					> * {
-						text-align: center;
-					}
-
-					.month {
-						order: 1;
-						font-size: 11px;
-						text-transform: uppercase;
-						font-weight: 700;
-						background: $red;
-						color: $white;
-						padding: 2px 1em;
-					}
-					.day {
-						order: 2;
-						font-size: 27px;
-						line-height: 1;
-						font-weight: 200;
-						padding: 5px 1em 0 1em;
-					}
-					.weekday_name {
-						order: 3;
-						font-weight: 500;
-						padding: 3px 1em;
-					}
-
-					.time {
-						order: 5;
-						padding: 2px 1em;
-						margin-top: 1px;
-						@include themify($themes) {
-							background: themed(  'textColor' );
-							color: themed( 'backgroundColor' );
-						}
-					}
-				}
 			}
+
 			h3 {
 				font-size: $font-size-md;
 				padding: 0 5%;
@@ -180,6 +183,7 @@
 				z-index: 9;
 			}
 		}
+
 		main,
 		footer {
 			padding: 1em 5%;
@@ -190,6 +194,66 @@
 				flex: 1;
 				text-align: center;
 				font-weight: 600;
+			}
+		}
+	}
+}
+.event_date {
+
+	@include themify($themes) {
+		background-color: themed( 'backgroundColor' );
+		box-shadow: themed( 'largeShadow');
+		border: 1px solid rgba( themed( 'textColor' ), 0.4 );
+		border-radius: 3px;
+	}
+
+	.event--past & {
+		opacity: 0.85;
+	}
+
+	time {
+		display: flex;
+		flex-direction: column;
+		align-items: stretch;
+
+		> * {
+			text-align: center;
+		}
+
+		.month {
+			order: 1;
+			font-size: 11px;
+			text-transform: uppercase;
+			font-weight: 700;
+			background: $red;
+			color: $white;
+			padding: 2px 1em;
+
+			.event--past & {
+				background: $grey-medium;
+			}
+
+		}
+		.day {
+			order: 2;
+			font-size: 27px;
+			line-height: 1;
+			font-weight: 200;
+			padding: 5px 1em 0 1em;
+		}
+		.weekday_name {
+			order: 3;
+			font-weight: 500;
+			padding: 3px 1em;
+		}
+
+		.time {
+			order: 5;
+			padding: 2px 1em;
+			margin-top: 1px;
+			@include themify($themes) {
+				background: themed(  'textColor' );
+				color: themed( 'backgroundColor' );
 			}
 		}
 	}

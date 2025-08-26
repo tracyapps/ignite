@@ -38,6 +38,13 @@
 
 }
 
+.max_text_width {
+	width: 90vw;
+	max-width: $max_body_text_width;
+	margin-left: auto;
+	margin-right: auto;
+}
+
 #main {
 
 	main.singular_page {
@@ -61,6 +68,12 @@
 		}
 	}
 }
+
+main.event_main,
+main.post_main {
+	display: flow-root;
+}
+
 
 .flex-row {
 	display: flex;
@@ -192,8 +205,9 @@ main.post_main {
 }
 
 main#main {
-	overflow-x: hidden;
-	max-width: 100vw;
+	//overflow-x: hidden;
+	max-width: calc( 100vw - 2px );
+	display: flow-root;
 
 	> p {
 		margin-left: auto;

@@ -195,7 +195,7 @@ function ITS_get_upcoming_events( $args = [] ) {
 }
 
 /**
- * helper to render event items
+ * helper to render event items (loop of events)
  *
  * @param $post_id
  * @param $args
@@ -283,13 +283,16 @@ function ITS_render_event_item( $post_id = null, $args = [] ) {
 				<div class="event_excerpt"><?php echo get_the_excerpt($post_id); ?></div>
 			<?php endif; ?>
 		</main>
+		<?php if( ! $is_past ) : ?>
 		<footer class="flex-row">
 			<?php if ( get_field('display_event_ticket_link', $post_id) && get_field('buy_tickets_link', $post_id) ): ?>
 				<a href="<?php echo esc_url(get_field('buy_tickets_link', $post_id)); ?>" class="primary_button">Buy Tickets</a>
-			<?php elseif ( get_field('display_event_signup_link', $post_id) && get_field('event_signup_link', $post_id) ): ?>
+			<?php endif;
+			if( get_field('display_event_signup_link', $post_id) && get_field('event_signup_link', $post_id) ): ?>
 				<a href="<?php echo esc_url(get_field('event_signup_link', $post_id)); ?>" class="primary_button">Sign Up</a>
 			<?php endif; ?>
 		</footer>
+		<?php endif; ?>
 
 
 	</article>
@@ -314,7 +317,7 @@ function ITS_render_news_and_events() {
 	$events_query = ITS_get_upcoming_events(['posts_per_page' => 5]);
 
 	?>
-	<div class="news-events-grid full_width">
+	<div class="news-events-grid two_column_container full_width">
 		<div class="news-col list_container">
 			<?php if ( $news_query->have_posts() ): ?>
 				<?php while ( $news_query->have_posts() ): $news_query->the_post(); ?>
@@ -338,7 +341,7 @@ function ITS_render_news_and_events() {
 			<?php endif; wp_reset_postdata(); ?>
 		</div>
 
-		<aside class="events-col list_container">
+		<aside class="events-col aside_list_container">
 			<h2>Upcoming Events</h2>
 			<?php if ( $events_query->have_posts() ): ?>
 				<?php while ( $events_query->have_posts() ): $events_query->the_post(); ?>
@@ -352,6 +355,93 @@ function ITS_render_news_and_events() {
 	<?php
 }
 
+
+/**
+ * helper to render event date/time portion (on event single page)
+ *
+ * @param $post_id
+ * @param $args
+ * @return void
+ */
+
+function ITS_render_event_item_date_time( $post_id = null, $args = [] ) {
+	if ( ! $post_id ) $post_id = get_the_ID();
+
+	$defaults = [
+		'show_image'   => true,
+		'show_excerpt' => true,
+	];
+	$args = wp_parse_args( $args, $defaults );
+
+	$start_date = get_field('event_start')['date'] ?? '';
+	$start_time = get_field('event_start')['time'] ?? '';
+	$end_date   = get_field('event_end')['date'] ?? '';
+	$end_time   = get_field('event_end')['time'] ?? '';
+
+	$is_past  = $end_date ? ( $end_date < date('Y-m-d') ) : ( $start_date < date('Y-m-d') );
+	$classes  = ['event-item'];
+	$classes[] = $is_past ? 'event--past' : 'event--upcoming';
+
+	if ( get_field('online_event') ) $classes[] = 'event--online';
+	if ( get_field('multi-day_event') ) $classes[] = 'event--multi-day';
+	if ( get_field('all_day_event') ) $classes[] = 'event--all-day';
+
+	$terms = wp_get_post_terms($post_id, ['category','post_tag','event-type']);
+	foreach( $terms as $term ) {
+		$classes[] = 'tax-' . sanitize_html_class($term->slug);
+	}
+
+	?>
+		<div class="event_day_time_container">
+			<?php if ( $start_date ): ?>
+				<div class="event_date">
+					<time datetime="<?php echo esc_attr($start_date); ?>">
+						<span class="weekday_name">
+							<?php
+							echo date_i18n('l', strtotime($start_date));
+							if( get_field('multi-day_event') ) :
+								echo ' - ' .  date_i18n('l', strtotime($end_date));
+							endif;
+							?>
+						</span>
+						<span class="month">
+							<?php echo date_i18n('M', strtotime($start_date)); ?> &nbsp; | &nbsp;
+							<?php echo date_i18n('Y', strtotime($start_date)); ?>
+						</span>
+						<span class="day">
+							<?php
+							echo date_i18n('d', strtotime($start_date));
+							if( get_field('multi-day_event') ) :
+								echo ' - ' .  date_i18n('d', strtotime($end_date));
+							endif;
+							?>
+						</span>
+						<?php
+						if( get_field('all_day_event') ) :
+							// do nothing
+						else :
+							?>
+							<span class="time">
+								<?php
+								if ($start_time) echo esc_html($start_time);
+								if ($end_time) echo ' - ' . esc_html($end_time);
+								?>
+							</span>
+						<?php endif; ?>
+					</time>
+				</div>
+			<?php endif; ?>
+
+			<?php if ( $args['show_image'] && has_post_thumbnail($post_id) ): ?>
+				<div class="event_featured_image"><?php echo get_the_post_thumbnail($post_id, 'medium'); ?></div>
+			<?php else : ?>
+				<div class="event_no_image"></div>
+			<?php endif; ?>
+			<h3><a href="<?php the_permalink($post_id); ?>"><?php echo get_the_title($post_id); ?></a></h3>
+		</div>
+
+	<?php
+}
 
 /**
  * Get events (smart start/end handling).
