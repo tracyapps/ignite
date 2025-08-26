@@ -177,20 +177,20 @@ function ITS_initialize_acf_blocks() {
 		  ),
 	  ));
 
-	  // display heros block
+	  // display heroes block
 	  acf_register_block_type(array(
-		  'name' => 'display-heros',
-		  'title' => 'Display Heros',
+		  'name' => 'display-heroes',
+		  'title' => 'Display Heroes',
 		  'active' => true,
-		  'description' => 'Display a grid of heros of the month, by year',
+		  'description' => 'Display a grid of heroes of the month, by year',
 		  'category' => 'ITS',
-		  'icon' => file_get_contents( get_template_directory() . '/acf-blocks/_block-assets/icon-display-heros.svg' ),
+		  'icon' => file_get_contents( get_template_directory() . '/acf-blocks/_block-assets/icon-display-heroes.svg' ),
 		  'keywords' => array(
 			  'content',
 			  'custom post',
 			  'hom',
-			  'heros',
-			  'heros of the month',
+			  'heroes',
+			  'heroes of the month',
 			  'ITS',
 		  ),
 		  'post_types' => array(
@@ -201,7 +201,7 @@ function ITS_initialize_acf_blocks() {
 		  'align' => 'full',
 		  'align_text' => '',
 		  'align_content' => 'top',
-		  'render_template' => get_template_directory() . '/acf-blocks/display-heros/display-heros.php',
+		  'render_template' => get_template_directory() . '/acf-blocks/display-heroes/display-heroes.php',
 		  'render_callback' => '',
 		  'enqueue_style' => '',
 		  'enqueue_script' => '',

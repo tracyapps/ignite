@@ -1,6 +1,6 @@
 <?php
 /**
- * Display Heros Block
+ * Display Heroes Block
  */
 
 // Support custom "anchor" values.
@@ -10,7 +10,7 @@ if ( ! empty( $block['anchor'] ) ) {
 }
 
 // Create class attribute allowing for custom "className" and "align" values.
-$class_names = 'display_heros_block';
+$class_names = 'display_heroes_block';
 if ( ! empty( $block['className'] ) ) {
 	$class_names .= ' ' . $block['className'];
 }

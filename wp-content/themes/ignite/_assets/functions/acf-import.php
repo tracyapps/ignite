@@ -4986,10 +4986,10 @@ if( function_exists('acf_add_local_field_group') ):
 		'acfe_note' => '',
 	) );
 
-	//***************************************	BLOCK: DISPLAY HEROS
+	//***************************************	BLOCK: DISPLAY HEROES
 	acf_add_local_field_group( array(
 		'key' => 'group_6892caa14d129',
-		'title' => 'Block : Display Heros',
+		'title' => 'Block : Display Heroes',
 		'fields' => array(
 			array(
 				'key' => 'field_68a80fd825a5a',
@@ -5184,7 +5184,7 @@ and before the image grid',
 				array(
 					'param' => 'block',
 					'operator' => '==',
-					'value' => 'acf/display-heros',
+					'value' => 'acf/display-heroes',
 				),
 			),
 		),
