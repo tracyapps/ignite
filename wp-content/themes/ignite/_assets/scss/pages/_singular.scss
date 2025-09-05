@@ -61,6 +61,15 @@ div.no_featured_image {
 }
 
 
+.singular_memorial {
+	img.memorial_headshot {
+		margin: -8em -2em 5em 2em;
+		transform: rotate(2deg);
+		min-width: 30vw;
+		max-width: 40%;
+	}
+}
+
 
 .post_date {
 	width: 90vw;
