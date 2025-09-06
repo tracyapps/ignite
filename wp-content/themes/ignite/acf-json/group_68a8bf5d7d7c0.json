@@ -704,12 +704,11 @@
     "description": "",
     "show_in_rest": 0,
     "acfe_autosync": [
-        "php",
         "json"
     ],
     "acfe_form": 0,
     "acfe_display_title": "",
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1755896642
+    "modified": 1757108908
 }

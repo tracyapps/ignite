@@ -499,3 +499,130 @@ function ITS_get_events( $args = [] ) {
 
 	return new WP_Query( $query_args );
 }
+
+
+
+/**
+ * Get sponsor levels ordered by custom taxonomy meta 'display_order'
+ *
+ * @return WP_Term[]
+ */
+function ITS_get_ordered_sponsor_levels() {
+	$terms = get_terms([
+		'taxonomy'   => 'sponsor-level',
+		'hide_empty' => false,
+	]);
+
+	if (empty($terms) || is_wp_error($terms)) {
+		return [];
+	}
+
+	usort($terms, function($a, $b) {
+		$order_a = (int) get_term_meta($a->term_id, 'display_order', true);
+		$order_b = (int) get_term_meta($b->term_id, 'display_order', true);
+		return $order_a <=> $order_b;
+	});
+
+	return $terms;
+}
+
+
+
+/**
+ * Get sponsors in a given sponsor-level term that are marked to display
+ *
+ * @param int $term_id
+ * @return WP_Post[]
+ */
+function ITS_get_sponsors_by_level($term_id) {
+	$args = [
+		'post_type'      => 'sponsor',
+		'posts_per_page' => 99,
+		'meta_query'     => [
+			[
+				'key'   => 'display_on_sponsors_page',
+				'value' => 1,
+			]
+		],
+		'tax_query' => [
+			[
+				'taxonomy' => 'sponsor-level',
+				'field'    => 'term_id',
+				'terms'    => $term_id,
+			]
+		],
+		'orderby' => 'title',
+		'order'   => 'ASC',
+	];
+	return get_posts($args);
+}
+
+/**
+ * Render all sponsor levels and their sponsors
+ */
+function ITS_render_all_sponsor_levels() {
+	$levels = ITS_get_ordered_sponsor_levels();
+
+	if (empty($levels)) {
+		echo '<p>No sponsors available.</p>';
+		return;
+	}
+
+	foreach ($levels as $level) {
+		ITS_render_sponsor_level($level);
+	}
+}
+
+/**
+ * Render a sponsor level section
+ *
+ * @param WP_Term $level
+ */
+function ITS_render_sponsor_level($level) {
+	$sponsors = ITS_get_sponsors_by_level($level->term_id);
+	if (empty($sponsors)) {
+		return;
+	}
+
+	get_template_part('template-parts/sponsor/level', null, [
+		'level'    => $level,
+		'sponsors' => $sponsors,
+	]);
+}
+
+
+
+/**
+ * Get sponsor(s) that are featured today
+ *
+ * Cached for the request/session to avoid looping sponsors repeatedly.
+ *
+ * @return WP_Post[]
+ */
+function ITS_get_featured_sponsors_today() {
+	$cache_key = 'ITS_featured_sponsors_today';
+	$cached = wp_cache_get($cache_key);
+
+	if ($cached !== false) {
+		return $cached;
+	}
+
+	$args = [
+		'post_type'      => 'sponsor',
+		'posts_per_page' => 99,
+		'meta_query'     => [
+			[
+				'key'     => 'display_dates',
+				'compare' => 'EXISTS',
+			]
+		]
+	];
+	$sponsors = get_posts($args);
+
+	$featured = array_filter($sponsors, 'ITS_is_sponsor_featured_today');
+
+	// Store in cache for the rest of this request
+	wp_cache_set($cache_key, $featured);
+
+	return $featured;
+}

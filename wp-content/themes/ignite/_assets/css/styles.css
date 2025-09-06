@@ -1556,6 +1556,69 @@ article.hom_single,
   font-weight: bold;
 }
 
+.sponsor_level {
+  width: 90vw;
+  margin: 3em auto;
+}
+.sponsor_level h2.sponsor_level_title {
+  position: relative;
+  overflow: hidden;
+  padding: 0.5em 1em;
+  border-radius: 7px;
+  margin: 1em 0;
+}
+.theme-light .sponsor_level h2.sponsor_level_title {
+  box-shadow: rgba(255, 255, 255, 0.91) 1px 1px 1px 0px inset, rgba(0, 0, 0, 0.25) 0px 30px 50px -20px, rgba(0, 0, 0, 0.43) 0px 10px 40px -20px;
+}
+.theme-dark .sponsor_level h2.sponsor_level_title {
+  box-shadow: rgba(100, 100, 100, 0.21) -1px -1px 1px 0px inset, rgba(0, 0, 0, 0.42) 0px 30px 50px -10px, rgba(0, 0, 0, 0.63) 0px 10px 40px -20px;
+}
+.sponsor_level h2.sponsor_level_title span {
+  position: relative;
+  display: block;
+  z-index: 999;
+}
+.sponsor_level h2.sponsor_level_title svg.title_background_texture {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  object-fit: cover;
+}
+.sponsor_level h2.sponsor_level_title.golf-sponsors {
+  background: #1c720f;
+  background-image: linear-gradient(to right, #0d8a22 0%, #2b7c1e 25%, #3eb02c 100%);
+  color: #e8e8e8;
+}
+.sponsor_level h2.sponsor_level_title.golf-sponsors svg.title_background_texture path {
+  stroke: #0f5b05;
+}
+.sponsor_level h2.sponsor_level_title.gold-sponsors {
+  background: #e1bc06;
+  background-image: linear-gradient(to right, #ffd944 0%, #e1bc06 25%, #b76e00 100%);
+  color: #000;
+}
+.sponsor_level h2.sponsor_level_title.gold-sponsors svg.title_background_texture path {
+  stroke: #ffffff;
+}
+.sponsor_level h2.sponsor_level_title.silver-sponsors {
+  background: #8c897b;
+  background-image: linear-gradient(to right, #524e4c 0%, #59584d 25%, #b6b5aa 100%);
+  color: #fffdfd;
+}
+.sponsor_level h2.sponsor_level_title.silver-sponsors svg.title_background_texture path {
+  stroke: #3f3737;
+}
+.sponsor_level h2.sponsor_level_title.bronze-sponsors {
+  background: #6c4119;
+  background-image: linear-gradient(to right, #5e4024 0%, #674b3c 25%, #a88060 100%);
+  color: #ffffff;
+}
+.sponsor_level h2.sponsor_level_title.bronze-sponsors svg.title_background_texture path {
+  stroke: #5e3221;
+}
+
 /*
 * header styles
 *

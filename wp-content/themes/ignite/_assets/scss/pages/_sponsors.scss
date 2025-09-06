@@ -1,0 +1,83 @@
+
+.sponsor_level {
+	width: 90vw;
+	margin: 3em auto;
+
+	h2.sponsor_level_title {
+		position: relative;
+		overflow: hidden;
+		padding: 0.5em 1em;
+		border-radius: 7px;
+		margin:1em 0;
+		@include themify($themes) {
+			box-shadow: themed( 'subtleShadow');
+		}
+
+		span {
+			position:relative;
+			display: block;
+			z-index: 999;
+		}
+
+		svg.title_background_texture {
+			position: absolute;
+			top:0;
+			left:0;
+			right:0;
+			bottom:0;
+			object-fit: cover;
+
+		}
+
+
+
+		&.golf-sponsors {
+			background: #1c720f;
+			background-image: linear-gradient( to right, #0d8a22 0%, #2b7c1e 25%, #3eb02c 100%);
+			color: #e8e8e8;
+
+			svg.title_background_texture {
+				path {
+					stroke: #0f5b05;
+				}
+			}
+		}
+
+		&.gold-sponsors {
+			background: #E1BC06FF;
+			background-image: linear-gradient( to right, #ffd944 0%, #E1BC06FF 25%, #b76e00 100%);
+			color: #000;
+
+			svg.title_background_texture {
+				path {
+					stroke: #ffffff;
+				}
+			}
+		}
+
+		&.silver-sponsors {
+			background: #8c897b;
+			background-image: linear-gradient( to right, #524e4c 0%, #59584d 25%, #b6b5aa 100%);
+			color: #fffdfd;
+
+			svg.title_background_texture {
+				path {
+					stroke: #3f3737;
+				}
+			}
+		}
+
+		&.bronze-sponsors {
+			background: #6c4119;
+			background-image: linear-gradient( to right, #5e4024 0%, #674b3c 25%, #a88060 100%);
+			color: #ffffff;
+
+			svg.title_background_texture {
+				path {
+					stroke: #5e3221;
+				}
+			}
+		}
+
+	}
+}

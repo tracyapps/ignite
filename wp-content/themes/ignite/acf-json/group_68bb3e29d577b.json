@@ -1,0 +1,189 @@
+{
+    "key": "group_68bb3e29d577b",
+    "title": "Sponsor Settings",
+    "fields": [
+        {
+            "key": "field_68bb4ebbe0ab2",
+            "label": "Display on Sponsors Page",
+            "name": "display_on_sponsors_page",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "style": "rounded",
+            "allow_in_bindings": 0,
+            "ui_on_text": "",
+            "ui_off_text": "",
+            "ui": 1
+        },
+        {
+            "key": "field_68bb542acf7c9",
+            "label": "Sponsor Level",
+            "name": "sponsor_level",
+            "aria-label": "",
+            "type": "taxonomy",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_68bb4ebbe0ab2",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "hide_field": "",
+            "hide_label": "",
+            "hide_instructions": "",
+            "hide_required": "",
+            "taxonomy": "sponsor-level",
+            "add_term": 0,
+            "save_terms": 1,
+            "load_terms": 1,
+            "return_format": "id",
+            "field_type": "select",
+            "max": "",
+            "allow_null": 1,
+            "acfe_bidirectional": {
+                "acfe_bidirectional_enabled": "1",
+                "acfe_bidirectional_related": [
+                    "field_68bb542acf7c9"
+                ]
+            },
+            "acfe_settings": "",
+            "acfe_validate": "",
+            "instruction_placement": "",
+            "acfe_permissions": "",
+            "allow_in_bindings": 0,
+            "bidirectional": 0,
+            "multiple": 0,
+            "bidirectional_target": [],
+            "min": ""
+        },
+        {
+            "key": "field_68bb3e2ab4eae",
+            "label": "Link",
+            "name": "link",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "To make the full \"banner\" area a link, add the URL here. Leave blank if you plan on adding links or buttons within the banner itself.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "allow_in_bindings": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_68bb3f59b4eaf",
+            "label": "Featured Sponsor Dates",
+            "name": "display_dates",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "If this sponsor will be a featured sponsor of the month, choose the date ranges that it will be featured. Leave blank if it will not be a featured sponsor.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "acfe_repeater_stylised_button": 1,
+            "layout": "block",
+            "pagination": 0,
+            "min": 1,
+            "max": 0,
+            "collapsed": "field_68bb4160b4eb3",
+            "button_label": "Add Range",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_68bb4160b4eb3",
+                    "label": "Featured Dates",
+                    "name": "feature_dates",
+                    "aria-label": "",
+                    "type": "acfe_date_range_picker",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "display_format": "F j, Y",
+                    "return_format": "Y-m-d",
+                    "first_day": 0,
+                    "placeholder": "",
+                    "separator": "-",
+                    "default_start": "",
+                    "default_end": "",
+                    "min_days": "",
+                    "max_days": "",
+                    "min_date": "",
+                    "max_date": "",
+                    "custom_ranges": "",
+                    "prepend": "",
+                    "append": "",
+                    "show_dropdowns": 1,
+                    "no_weekends": 0,
+                    "auto_close": 1,
+                    "allow_null": 1,
+                    "allow_in_bindings": 0,
+                    "parent_repeater": "field_68bb3f59b4eaf"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "sponsor"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "side",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "tooltip",
+    "hide_on_screen": [
+        "author",
+        "categories",
+        "publish_date",
+        "send-trackbacks",
+        "tags"
+    ],
+    "active": true,
+    "description": "",
+    "show_in_rest": 1,
+    "acfe_autosync": [
+        "json"
+    ],
+    "acfe_form": 1,
+    "acfe_display_title": "Sponsor Meta",
+    "acfe_permissions": "",
+    "acfe_meta": "",
+    "acfe_note": "",
+    "modified": 1757108265
+}

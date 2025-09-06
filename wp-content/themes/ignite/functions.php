@@ -1,6 +1,6 @@
 <?php
 /**
- * Bon Bon Belle functions and definitions
+ * Ignite The Spirit functions and definitions
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
@@ -208,4 +208,10 @@ require get_template_directory() . '/_assets/functions/woo.php';
  */
 require get_template_directory() . '/_assets/functions/block-mods.php';
 
+/**
+ * Debug tools
+ */
 
+if (WP_DEBUG) {
+	require get_template_directory() . '/_assets/functions/tad-debug-tools.php';
+}
