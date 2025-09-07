@@ -3569,7 +3569,8 @@ div.no_header + main.singular_page > section.slider_block .splide__slide__contai
   object-fit: cover;
 }
 
-.section_block {
+.section_block,
+.content_block {
   position: relative;
   overflow: hidden;
 }

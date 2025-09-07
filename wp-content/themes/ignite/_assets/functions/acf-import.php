@@ -1872,7 +1872,7 @@ if( function_exists('acf_add_local_field_group') ):
 							'overlay' => 'Overlay',
 							'multiply' => 'Multiply',
 							'darken' => 'Darken',
-							'color-burn: Color Burn' => 'color-burn: Color Burn',
+							'color-burn'  => 'Color Burn',
 							'plus-darker' => 'Plus Darker',
 							'lighten' => 'Lighten',
 							'screen' => 'Screen',
