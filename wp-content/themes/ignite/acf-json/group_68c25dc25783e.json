@@ -45,9 +45,9 @@
     "location": [
         [
             {
-                "param": "post_type",
+                "param": "block",
                 "operator": "==",
-                "value": "post"
+                "value": "acf\/sponsor-of-the-month"
             }
         ]
     ],
@@ -67,5 +67,5 @@
     "acfe_display_title": "",
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1757568821
+    "modified": 1757584651
 }

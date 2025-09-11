@@ -590,6 +590,33 @@ function ITS_render_sponsor_level($level) {
 	]);
 }
 
+/**
+ * Check if a sponsor should be featured today
+ *
+ * @param int $post_id
+ * @return bool
+ */
+function ITS_is_sponsor_featured_today($post_id) {
+	if (have_rows('display_dates', $post_id)) {
+		$today = new DateTime('now', new DateTimeZone('America/Chicago'));
+
+		while (have_rows('display_dates', $post_id)) {
+			the_row();
+			$start = get_sub_field('feature_dates')['start'] ?? null;
+			$end   = get_sub_field('feature_dates')['end'] ?? null;
+
+			if ($start && $end) {
+				$start_date = DateTime::createFromFormat('Y-m-d', $start, new DateTimeZone('America/Chicago'));
+				$end_date   = DateTime::createFromFormat('Y-m-d', $end, new DateTimeZone('America/Chicago'));
+
+				if ($start_date && $end_date && $today >= $start_date && $today <= $end_date) {
+					return true;
+				}
+			}
+		}
+	}
+	return false;
+}
 
 
 /**

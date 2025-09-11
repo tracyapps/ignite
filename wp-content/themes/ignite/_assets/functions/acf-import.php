@@ -5509,9 +5509,9 @@ and before the image grid',
 		'location' => array(
 			array(
 				array(
-					'param' => 'post_type',
+					'param' => 'block',
 					'operator' => '==',
-					'value' => 'post',
+					'value' => 'acf/sponsor-of-the-month',
 				),
 			),
 		),

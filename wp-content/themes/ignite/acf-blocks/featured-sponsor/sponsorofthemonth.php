@@ -13,3 +13,12 @@ if ( ! empty( $block['className'] ) ) {
 if ( ! empty( $block['align'] ) ) {
 	$class_names .= ' align' . $block['align'];
 }
+
+$featured = ITS_get_featured_sponsors_today();
+if ($featured) :
+	foreach ($featured as $sponsor) :
+		echo '<object>' . wp_kses_post( $sponsor->post_content) . '</object>';
+	endforeach;
+else :
+	// nothing to see here
+endif;
