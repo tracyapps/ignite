@@ -81,3 +81,26 @@
 
 	}
 }
+
+.sponsor-grid {
+	margin: -2.5em 3em 5em 3em;
+	background: $white;
+	border-radius: 7px;
+	padding: 3em;
+	display: grid;
+	grid-template-rows: masonry;
+	grid-template-columns: repeat(auto-fill, 380px);
+	grid-gap: 30px;
+
+	.sponsor {
+		border: 1px solid rgba( $darker, 0.6 );
+		padding: 1em;
+
+
+		figure {
+			height: 100%;
+			display: flex;
+			align-items: center;
+		}
+	}
+}

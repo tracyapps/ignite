@@ -1619,6 +1619,26 @@ article.hom_single,
   stroke: #5e3221;
 }
 
+.sponsor-grid {
+  margin: -2.5em 3em 5em 3em;
+  background: #ffffff;
+  border-radius: 7px;
+  padding: 3em;
+  display: grid;
+  grid-template-rows: masonry;
+  grid-template-columns: repeat(auto-fill, 380px);
+  grid-gap: 30px;
+}
+.sponsor-grid .sponsor {
+  border: 1px solid rgba(14, 14, 14, 0.6);
+  padding: 1em;
+}
+.sponsor-grid .sponsor figure {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
 /*
 * header styles
 *
@@ -3620,4 +3640,54 @@ div.no_header + main.singular_page > section.slider_block .splide__slide__contai
   border-top: 1px solid rgba(23, 23, 23, 0.6);
   border-left: 1px solid rgba(23, 23, 23, 0.3);
   box-shadow: rgba(100, 100, 100, 0.21) -1px -1px 1px 0px inset, rgba(0, 0, 0, 0.42) 0px 30px 50px -10px, rgba(0, 0, 0, 0.63) 0px 10px 40px -20px;
+}
+
+.events_block .event_day_time_container {
+  position: relative;
+  clear: both;
+  padding: 0 0 1em 0;
+  border-radius: 5px;
+  margin: 2em;
+}
+.theme-light .events_block .event_day_time_container {
+  box-shadow: rgba(255, 255, 255, 0.91) 1px 1px 1px 0px inset, rgba(0, 0, 0, 0.25) 0px 30px 50px -20px, rgba(0, 0, 0, 0.43) 0px 10px 40px -20px;
+}
+.theme-dark .events_block .event_day_time_container {
+  box-shadow: rgba(100, 100, 100, 0.21) -1px -1px 1px 0px inset, rgba(0, 0, 0, 0.42) 0px 30px 50px -10px, rgba(0, 0, 0, 0.63) 0px 10px 40px -20px;
+}
+.events_block .event_day_time_container .event_date {
+  float: right;
+  position: absolute;
+  z-index: 99;
+  right: -1em;
+  top: -1em;
+}
+.events_block .event_day_time_container .event_no_image {
+  aspect-ratio: 6/2.5;
+}
+.theme-light .events_block .event_day_time_container .event_no_image {
+  background: #f3f2f2;
+}
+.theme-dark .events_block .event_day_time_container .event_no_image {
+  background: #0e0e0e;
+}
+.events_block .event_day_time_container .event_featured_image {
+  aspect-ratio: 6/2.5;
+}
+.events_block .event_day_time_container .event_featured_image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.events_block .event_day_time_container h3 {
+  font-size: clamp(2rem, 0.44vi + 1.82rem, 2.67rem);
+  margin: 0;
+  padding: 1em 1em 0.6em 1em;
+}
+.events_block .list_container {
+  padding: 0 3em;
+}
+.events_block .list_container .event_day_time_container .event_no_image,
+.events_block .list_container .event_day_time_container .event_featured_image {
+  aspect-ratio: 7/1.5;
 }

@@ -83,7 +83,6 @@ function ITS_initialize_acf_blocks() {
 		  ),
 	  ));
 
-
 	  // display content block
 	  acf_register_block_type(array(
 		  'name' => 'display-content',
@@ -132,7 +131,6 @@ function ITS_initialize_acf_blocks() {
 	  ));
 
 	  // slider block
-
 	  acf_register_block_type(array(
 		  'name' => 'slider-block',
 		  'title' => 'Slider',
@@ -209,6 +207,101 @@ function ITS_initialize_acf_blocks() {
 		  'supports' => array(
 			  'anchor' => true,
 			  'align' => array(
+				  'wide',
+				  'full',
+			  ),
+			  'align_text' => false,
+			  'align_content' => false,
+			  'full_height' => false,
+			  'mode' => true,
+			  'multiple' => true,
+			  'example' => array(),
+			  'jsx' => false,
+		  ),
+		  'acfe_autosync' => array(
+			  'json',
+		  ),
+	  ));
+
+	  // display sponsor(s) of the month block
+	  acf_register_block_type(array(
+		  'name' => 'sponsor-of-the-month',
+		  'title' => 'Sponsor of the Month',
+		  'active' => true,
+		  'description' => 'Display the feature sponsor or sponsors of the month',
+		  'category' => 'ITS',
+		  'icon' => file_get_contents( get_template_directory() . '/acf-blocks/_block-assets/icon-featured-sponsor.svg' ),
+		  'keywords' => array(
+			  'featured sponsor',
+			  'sponsors',
+			  'sponsor of the month',
+			  'ITS',
+		  ),
+		  'post_types' => array(
+			  'post',
+			  'page',
+			  'hero',
+			  'event',
+		  ),
+		  'mode' => 'auto',
+		  'align' => 'wide',
+		  'align_text' => '',
+		  'align_content' => 'top',
+		  'render_template' => get_template_directory() . '/acf-blocks/featured-sponsor/sponsorofthemonth.php',
+		  'render_callback' => '',
+		  'enqueue_style' => '',
+		  'enqueue_script' => '',
+		  'enqueue_assets' => '',
+		  'supports' => array(
+			  'anchor' => true,
+			  'align' => false,
+			  'align_text' => false,
+			  'align_content' => false,
+			  'full_height' => false,
+			  'mode' => true,
+			  'multiple' => true,
+			  'example' => array(),
+			  'jsx' => false,
+		  ),
+		  'acfe_autosync' => array(
+			  'json',
+		  ),
+	  ));
+
+	  // display events block
+	  acf_register_block_type(array(
+		  'name' => 'display-events',
+		  'title' => 'Display Events',
+		  'active' => true,
+		  'description' => 'Display events, past or future',
+		  'category' => 'ITS',
+		  'icon' => file_get_contents( get_template_directory() . '/acf-blocks/_block-assets/icon-display-events.svg' ),
+		  'keywords' => array(
+			  'events',
+			  'upcoming events',
+			  'past events',
+			  'ITS',
+		  ),
+		  'post_types' => array(
+			  'post',
+			  'page',
+			  'hero',
+			  'event',
+		  ),
+		  'mode' => 'auto',
+		  'align' => 'wide',
+		  'align_text' => '',
+		  'align_content' => 'top',
+		  'render_template' => get_template_directory() . '/acf-blocks/display-events/display-events.php',
+		  'render_callback' => '',
+		  'enqueue_style' => '',
+		  'enqueue_script' => '',
+		  'enqueue_assets' => '',
+		  'supports' => array(
+			  'anchor' => true,
+			  'align' => array(
+				  'aside',
+				  'narrow',
 				  'wide',
 				  'full',
 			  ),

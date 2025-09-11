@@ -373,18 +373,18 @@ function ITS_render_event_item_date_time( $post_id = null, $args = [] ) {
 	];
 	$args = wp_parse_args( $args, $defaults );
 
-	$start_date = get_field('event_start')['date'] ?? '';
-	$start_time = get_field('event_start')['time'] ?? '';
-	$end_date   = get_field('event_end')['date'] ?? '';
-	$end_time   = get_field('event_end')['time'] ?? '';
+	$start_date = get_field('event_start', $post_id)['date'] ?? '';
+	$start_time = get_field('event_start', $post_id)['time'] ?? '';
+	$end_date   = get_field('event_end', $post_id)['date'] ?? '';
+	$end_time   = get_field('event_end', $post_id)['time'] ?? '';
 
 	$is_past  = $end_date ? ( $end_date < date('Y-m-d') ) : ( $start_date < date('Y-m-d') );
 	$classes  = ['event-item'];
 	$classes[] = $is_past ? 'event--past' : 'event--upcoming';
 
-	if ( get_field('online_event') ) $classes[] = 'event--online';
-	if ( get_field('multi-day_event') ) $classes[] = 'event--multi-day';
-	if ( get_field('all_day_event') ) $classes[] = 'event--all-day';
+	if ( get_field('online_event', $post_id) ) $classes[] = 'event--online';
+	if ( get_field('multi-day_event', $post_id) ) $classes[] = 'event--multi-day';
+	if ( get_field('all_day_event', $post_id) ) $classes[] = 'event--all-day';
 
 	$terms = wp_get_post_terms($post_id, ['category','post_tag','event-type']);
 	foreach( $terms as $term ) {
@@ -399,7 +399,7 @@ function ITS_render_event_item_date_time( $post_id = null, $args = [] ) {
 						<span class="weekday_name">
 							<?php
 							echo date_i18n('l', strtotime($start_date));
-							if( get_field('multi-day_event') ) :
+							if( get_field('multi-day_event', $post_id) ) :
 								echo ' - ' .  date_i18n('l', strtotime($end_date));
 							endif;
 							?>
@@ -411,13 +411,13 @@ function ITS_render_event_item_date_time( $post_id = null, $args = [] ) {
 						<span class="day">
 							<?php
 							echo date_i18n('d', strtotime($start_date));
-							if( get_field('multi-day_event') ) :
+							if( get_field('multi-day_event', $post_id) ) :
 								echo ' - ' .  date_i18n('d', strtotime($end_date));
 							endif;
 							?>
 						</span>
 						<?php
-						if( get_field('all_day_event') ) :
+						if( get_field('all_day_event', $post_id) ) :
 							// do nothing
 						else :
 							?>

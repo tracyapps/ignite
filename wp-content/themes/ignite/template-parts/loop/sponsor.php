@@ -77,9 +77,19 @@ if (!$level || empty($sponsors)) {
 				</g></svg>
 	</h2>
 	<div class="sponsor-grid">
-		<?php foreach ($sponsors as $sponsor) : ?>
+		<?php foreach ($sponsors as $sponsor) :
+
+			$sponsor_id = $sponsor->ID;
+			$before_sponsor = '';
+			$after_sponsor = '';
+
+		if( get_field( 'link', $sponsor_id ) ) {
+			$before_sponsor = '<a href="' . esc_url( get_field( 'link', $sponsor_id ) ) . '"><object>';
+			$after_sponsor = '</object></a>';
+		}
+			?>
 		<article class="sponsor">
-			<?php echo wp_kses_post( $sponsor->post_content); ?>
+			<?php echo $before_sponsor . wp_kses_post( $sponsor->post_content) . $after_sponsor; ?>
 		</article>
 		<?php endforeach; ?>
 	</div>
