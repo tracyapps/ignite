@@ -71,10 +71,12 @@ function ITS_display_heroes_by_calendar_year( $year_term_id = null, $exclude_pos
 		}
 		$year_name = $year_terms[0]->name;
 		$year_term_id = $year_terms[0]->term_id;
+		$year_slug = $year_terms[0]->slug;
 	} else {
 
 		$year_terms = get_term_by('term_id', $year_term_id, 'calendar-year');
 		$year_name = $year_terms->name;
+		$year_slug = $year_terms->slug;
 	}
 
 	if ( !$exclude_post_id ) {
@@ -82,12 +84,13 @@ function ITS_display_heroes_by_calendar_year( $year_term_id = null, $exclude_pos
 	}
 
 	// default heading text, paragraph text
-	$heading_text = '<h2>Heroes of ' . esc_html( $year_name ) . '</h2>';
+	$back_to_link = '<span class="subhead"><a href="/heroes/' . esc_html( $year_slug ) . '">&laquo; Back to ' . esc_html( $year_name ) . '</a></span>';
+	$heading_text = '<h2>Heroes of ' . esc_html( $year_name ) . '<br />' . $back_to_link . '</h2>';
 	$added_paragraph_text = '';
 
 	// if overrides exist...
 	if( $title_override ) {
-		$heading_text = '<h2>' . $title_override . '</h2>';
+		$heading_text = '<h2>' . $title_override . '<br />' . $back_to_link .  '</h2>';
 	}
 
 	if( $paragraph_text ) {

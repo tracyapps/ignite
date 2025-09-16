@@ -258,3 +258,36 @@
 		}
 	}
 }
+
+/**
+memorial wall (archive)
+ */
+
+.memorial_wall {
+	grid-gap: 20px;
+
+	.framed {
+		padding: 1em;
+		border-radius: 4px;
+		@include themify($themes) {
+			border: 1px solid rgba( themed('textColor'), 0.15 );
+			background: themed('backgroundColor');
+			box-shadow: themed( 'subtleShadow');
+		}
+	}
+
+	object.group_container {
+		position: relative;
+
+		img {
+			@include themify($themes) {
+				border-bottom: 1px solid rgba( themed('textColor'), 0.25 );
+				box-shadow: themed( 'insetShadow');
+			}
+		}
+		h3 {
+			font-size: $font-size-md;
+			text-align: center;
+		}
+	}
+}

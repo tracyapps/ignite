@@ -17,7 +17,14 @@ if ( ! empty( $block['align'] ) ) {
 $featured = ITS_get_featured_sponsors_today();
 if ($featured) :
 	foreach ($featured as $sponsor) :
-		echo '<object>' . wp_kses_post( $sponsor->post_content) . '</object>';
+		$sponsor_id = $sponsor->ID;
+		$before_sponsor = '';
+		$after_sponsor = '';
+		if( get_field( 'link', $sponsor_id ) ) {
+			$before_sponsor = '<a href="' . esc_url( get_field( 'link', $sponsor_id ) ) . '">';
+			$after_sponsor = '</a>';
+		}
+		echo $before_sponsor . '<object class="ad_container">' . apply_filters('the_content', $sponsor->post_content) . '</object>' . $after_sponsor;
 	endforeach;
 else :
 	// nothing to see here

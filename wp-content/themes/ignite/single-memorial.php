@@ -24,6 +24,9 @@ get_header();
 			endwhile;
 			?>
 
+			<div class="back_link wide_width">
+				<a href="/memorial/">&laquo; Back to Memorial Wall</a>
+			</div>
 		</main><!-- #main -->
 	</section><!-- #primary -->
 

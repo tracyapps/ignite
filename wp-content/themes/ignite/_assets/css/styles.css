@@ -161,7 +161,7 @@ a.primary_button:visited {
   margin-left: 0.5em;
   z-index: 9;
   text-decoration: none;
-  text-shadow: rgba(0, 0, 0, 0.019) 2px 2px 6px 0px inset, rgba(0, 0, 0, 0.09) -1px -1px 6px 1px inset, rgba(0, 0, 0, 0.45) 0 -1px 1px;
+  text-shadow: rgba(0, 0, 0, 0.29) 2px 2px 6px 0px inset, rgba(0, 0, 0, 0.94) 5px 1px 5px 10px inset, rgba(0, 0, 0, 0.5) 0 -1px 1px;
 }
 .theme-light input[type=submit],
 .theme-light .button_primary,
@@ -329,6 +329,7 @@ h6 {
 .subhead {
   display: block;
   font-size: clamp(1.28rem, 0.15vi + 1.22rem, 1.5rem);
+  padding-top: 2em;
 }
 
 .fade-bottom {
@@ -963,16 +964,16 @@ div.no_header {
   padding-top: 15cqw;
 }
 
-div.no_featured_image {
+.no_featured_image {
   padding-top: 16cqw;
 }
-.theme-light div.no_featured_image {
+.theme-light .no_featured_image {
   background-image: linear-gradient(#f3f2f2 58%, transparent 90%);
 }
-.theme-dark div.no_featured_image {
+.theme-dark .no_featured_image {
   background-image: linear-gradient(#0e0e0e 58%, transparent 90%);
 }
-div.no_featured_image.memorial_page h1 {
+.no_featured_image.memorial_page h1 {
   padding-right: 30%;
 }
 
@@ -1267,6 +1268,42 @@ div.no_featured_image.memorial_page h1 {
 }
 
 /**
+memorial wall (archive)
+ */
+.memorial_wall {
+  grid-gap: 20px;
+}
+.memorial_wall .framed {
+  padding: 1em;
+  border-radius: 4px;
+}
+.theme-light .memorial_wall .framed {
+  border: 1px solid rgba(23, 23, 23, 0.15);
+  background: #ffffff;
+  box-shadow: rgba(255, 255, 255, 0.91) 1px 1px 1px 0px inset, rgba(0, 0, 0, 0.25) 0px 30px 50px -20px, rgba(0, 0, 0, 0.43) 0px 10px 40px -20px;
+}
+.theme-dark .memorial_wall .framed {
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: #171717;
+  box-shadow: rgba(100, 100, 100, 0.21) -1px -1px 1px 0px inset, rgba(0, 0, 0, 0.42) 0px 30px 50px -10px, rgba(0, 0, 0, 0.63) 0px 10px 40px -20px;
+}
+.memorial_wall object.group_container {
+  position: relative;
+}
+.theme-light .memorial_wall object.group_container img {
+  border-bottom: 1px solid rgba(23, 23, 23, 0.25);
+  box-shadow: rgba(0, 0, 0, 0.29) 2px 2px 6px 0px inset, rgba(0, 0, 0, 0.94) 5px 1px 5px 10px inset, rgba(0, 0, 0, 0.5) 0 -1px 1px;
+}
+.theme-dark .memorial_wall object.group_container img {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: rgba(0, 0, 0, 0.29) 2px 2px 6px 0px inset, rgba(0, 0, 0, 0.94) 5px 1px 5px 10px inset, rgba(0, 0, 0, 0.5) 0 -1px 1px;
+}
+.memorial_wall object.group_container h3 {
+  font-size: clamp(2rem, 0.44vi + 1.82rem, 2.67rem);
+  text-align: center;
+}
+
+/**
 * home, or page for posts
 * displaying news/posts and events in 2 columns
  */
@@ -1309,6 +1346,7 @@ article.hom_single,
   z-index: 9999;
 }
 
+.hom_archive,
 .hom_header {
   margin-top: 6cqw;
   margin-bottom: 2em;
@@ -1316,21 +1354,26 @@ article.hom_single,
   margin-right: auto;
   width: 90vw;
 }
+.theme-light .hom_archive h1.hom_name,
 .theme-light .hom_header h1.hom_name {
   text-shadow: 0 0 50px #ffffff, 0 0 70px #ffffff, 1px 1px 20px #ffffff, -1px -1px 20px #ffffff;
   border-bottom: 1px solid rgba(23, 23, 23, 0.5);
 }
+.theme-dark .hom_archive h1.hom_name,
 .theme-dark .hom_header h1.hom_name {
   text-shadow: 0 0 50px #171717, 0 0 70px #171717, 1px 1px 20px #171717, -1px -1px 20px #171717;
   border-bottom: 1px solid rgba(255, 255, 255, 0.5);
 }
+.hom_archive .hom_title,
 .hom_header .hom_title {
   font-weight: 800;
   font-size: 1.3em;
 }
+.theme-light .hom_archive .hom_title,
 .theme-light .hom_header .hom_title {
   color: #E82D2A;
 }
+.theme-dark .hom_archive .hom_title,
 .theme-dark .hom_header .hom_title {
   color: #FEED45;
 }
@@ -2891,13 +2934,13 @@ input[type=text], input[type=tel], input[type=number], input[type=password], inp
   color: #171717;
   border: 1px solid rgba(255, 255, 255, 0.95);
   background: rgba(243, 242, 242, 0.7);
-  box-shadow: rgba(0, 0, 0, 0.019) 2px 2px 6px 0px inset, rgba(0, 0, 0, 0.09) -1px -1px 6px 1px inset, rgba(0, 0, 0, 0.45) 0 -1px 1px;
+  box-shadow: rgba(0, 0, 0, 0.29) 2px 2px 6px 0px inset, rgba(0, 0, 0, 0.94) 5px 1px 5px 10px inset, rgba(0, 0, 0, 0.5) 0 -1px 1px;
 }
 .theme-dark input[type=text], .theme-dark input[type=tel], .theme-dark input[type=number], .theme-dark input[type=password], .theme-dark input[type=url], .theme-dark input[type=email], .theme-dark input[type=search] {
   color: #ffffff;
   border: 1px solid rgba(35.75, 35.75, 35.75, 0.95);
   background: rgba(0, 0, 0, 0.7);
-  box-shadow: rgba(0, 0, 0, 0.019) 2px 2px 6px 0px inset, rgba(0, 0, 0, 0.09) -1px -1px 6px 1px inset, rgba(0, 0, 0, 0.45) 0 -1px 1px;
+  box-shadow: rgba(0, 0, 0, 0.29) 2px 2px 6px 0px inset, rgba(0, 0, 0, 0.94) 5px 1px 5px 10px inset, rgba(0, 0, 0, 0.5) 0 -1px 1px;
 }
 .theme-light input[type=text]:hover, .theme-light input[type=text]:target, .theme-light input[type=text]:active, .theme-light input[type=tel]:hover, .theme-light input[type=tel]:target, .theme-light input[type=tel]:active, .theme-light input[type=number]:hover, .theme-light input[type=number]:target, .theme-light input[type=number]:active, .theme-light input[type=password]:hover, .theme-light input[type=password]:target, .theme-light input[type=password]:active, .theme-light input[type=url]:hover, .theme-light input[type=url]:target, .theme-light input[type=url]:active, .theme-light input[type=email]:hover, .theme-light input[type=email]:target, .theme-light input[type=email]:active, .theme-light input[type=search]:hover, .theme-light input[type=search]:target, .theme-light input[type=search]:active {
   border: 1px solid rgba(38, 38, 38, 0.95);
@@ -2930,13 +2973,13 @@ select {
   color: #171717;
   border: 1px solid rgba(255, 255, 255, 0.95);
   background: rgba(243, 242, 242, 0.7);
-  box-shadow: rgba(0, 0, 0, 0.019) 2px 2px 6px 0px inset, rgba(0, 0, 0, 0.09) -1px -1px 6px 1px inset, rgba(0, 0, 0, 0.45) 0 -1px 1px;
+  box-shadow: rgba(0, 0, 0, 0.29) 2px 2px 6px 0px inset, rgba(0, 0, 0, 0.94) 5px 1px 5px 10px inset, rgba(0, 0, 0, 0.5) 0 -1px 1px;
 }
 .theme-dark select {
   color: #ffffff;
   border: 1px solid rgba(35.75, 35.75, 35.75, 0.95);
   background: rgba(0, 0, 0, 0.7);
-  box-shadow: rgba(0, 0, 0, 0.019) 2px 2px 6px 0px inset, rgba(0, 0, 0, 0.09) -1px -1px 6px 1px inset, rgba(0, 0, 0, 0.45) 0 -1px 1px;
+  box-shadow: rgba(0, 0, 0, 0.29) 2px 2px 6px 0px inset, rgba(0, 0, 0, 0.94) 5px 1px 5px 10px inset, rgba(0, 0, 0, 0.5) 0 -1px 1px;
 }
 
 textarea {
@@ -2955,13 +2998,13 @@ textarea {
   color: #171717;
   border: 1px solid rgba(255, 255, 255, 0.95);
   background: rgba(243, 242, 242, 0.7);
-  box-shadow: rgba(0, 0, 0, 0.019) 2px 2px 6px 0px inset, rgba(0, 0, 0, 0.09) -1px -1px 6px 1px inset, rgba(0, 0, 0, 0.45) 0 -1px 1px;
+  box-shadow: rgba(0, 0, 0, 0.29) 2px 2px 6px 0px inset, rgba(0, 0, 0, 0.94) 5px 1px 5px 10px inset, rgba(0, 0, 0, 0.5) 0 -1px 1px;
 }
 .theme-dark textarea {
   color: #ffffff;
   border: 1px solid rgba(35.75, 35.75, 35.75, 0.95);
   background: rgba(0, 0, 0, 0.7);
-  box-shadow: rgba(0, 0, 0, 0.019) 2px 2px 6px 0px inset, rgba(0, 0, 0, 0.09) -1px -1px 6px 1px inset, rgba(0, 0, 0, 0.45) 0 -1px 1px;
+  box-shadow: rgba(0, 0, 0, 0.29) 2px 2px 6px 0px inset, rgba(0, 0, 0, 0.94) 5px 1px 5px 10px inset, rgba(0, 0, 0, 0.5) 0 -1px 1px;
 }
 
 label {

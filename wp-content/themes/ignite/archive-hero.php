@@ -51,7 +51,7 @@ add_action('pre_get_posts', function($query) {
 					// Get hero posts for this month + year
 					$heroes = new WP_Query([
 						'post_type' => 'hero',
-						'posts_per_page' => -1,
+						'posts_per_page' => 25,
 						'tax_query' => [
 							'relation' => 'AND',
 							[

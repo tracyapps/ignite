@@ -47,7 +47,7 @@ div.no_header {
 		padding-top: calc(0.15 * 100cqw);
 	}
 }
-div.no_featured_image {
+.no_featured_image {
 	padding-top: calc(0.16 * 100cqw);
 	@include themify($themes) {
 		background-image: linear-gradient( themed( 'subtleBackgroundColor' ) 58%, transparent 90%);
