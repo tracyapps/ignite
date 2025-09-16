@@ -172,7 +172,7 @@ a.primary_button:visited {
 .theme-light .wp-block-button__link:visited,
 .theme-light a.primary_button,
 .theme-light a.primary_button:visited {
-  color: #000000;
+  color: #000000 !important;
   background-color: #FEED45;
   border: 2px solid transparent;
   box-shadow: rgba(255, 255, 255, 0.91) 1px 1px 1px 0px inset, rgba(0, 0, 0, 0.25) 0px 30px 50px -20px, rgba(0, 0, 0, 0.43) 0px 10px 40px -20px;
@@ -186,7 +186,7 @@ a.primary_button:visited {
 .theme-dark .wp-block-button__link:visited,
 .theme-dark a.primary_button,
 .theme-dark a.primary_button:visited {
-  color: #000000;
+  color: #000000 !important;
   background-color: #FEED45;
   border: 2px solid transparent;
   box-shadow: rgba(100, 100, 100, 0.21) -1px -1px 1px 0px inset, rgba(0, 0, 0, 0.42) 0px 30px 50px -10px, rgba(0, 0, 0, 0.63) 0px 10px 40px -20px;
@@ -208,7 +208,7 @@ a.primary_button:visited {
 .theme-light a.primary_button:focus,
 .theme-light a.primary_button:visited:hover,
 .theme-light a.primary_button:visited:focus {
-  color: #ffffff;
+  color: #ffffff !important;
   background-color: #980200;
   border: 2px solid #C3C3C3;
   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.15);
@@ -230,7 +230,7 @@ a.primary_button:visited {
 .theme-dark a.primary_button:focus,
 .theme-dark a.primary_button:visited:hover,
 .theme-dark a.primary_button:visited:focus {
-  color: #ffffff;
+  color: #ffffff !important;
   background-color: #980200;
   border: 2px solid #C3C3C3;
   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.55);

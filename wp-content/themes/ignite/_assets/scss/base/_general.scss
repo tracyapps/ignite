@@ -126,7 +126,7 @@ a.primary_button:visited {
 	text-shadow: $subtle_inset_light;
 
 	@include themify($themes) {
-		color: themed('primaryButtonTextColor');
+		color: themed('primaryButtonTextColor') !important;
 		background-color: themed('primaryButtonBGColor');
 		border: themed('primaryButtonBorder');
 		box-shadow: themed( 'subtleShadow' );
@@ -136,7 +136,7 @@ a.primary_button:visited {
 	&:hover,
 	&:focus {
 		@include themify($themes) {
-			color: themed('primaryButtonTextHoverColor');
+			color: themed('primaryButtonTextHoverColor') !important;
 			background-color: themed('primaryButtonBGHoverColor');
 			border: themed('primaryButtonHoverBorder');
 			box-shadow: themed( 'normalShadow' );
