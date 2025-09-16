@@ -83,14 +83,17 @@ function ITS_display_heroes_by_calendar_year( $year_term_id = null, $exclude_pos
 		$exclude_post_id = get_the_ID();
 	}
 
-	// default heading text, paragraph text
-	$back_to_link = '<span class="subhead"><a href="/heroes/' . esc_html( $year_slug ) . '">&laquo; Back to ' . esc_html( $year_name ) . '</a></span>';
-	$heading_text = '<h2>Heroes of ' . esc_html( $year_name ) . '<br />' . $back_to_link . '</h2>';
+	// default heading text, paragraph text, and back link on hero singular pages
+
+	$back_to_link = ( 'hero' == get_post_type() ) ? '<span class="subhead"><a href="/heroes/' . esc_html( $year_slug ) . '">&laquo; Back to ' . esc_html( $year_name ) . '</a></span>' : '';
+
+	//$back_to_link = '<span class="subhead"><a href="/heroes/' . esc_html( $year_slug ) . '">&laquo; Back to ' . esc_html( $year_name ) . '</a></span>';
+	$heading_text = '<h2>Heroes of ' . esc_html( $year_name ) . $back_to_link . '</h2>';
 	$added_paragraph_text = '';
 
 	// if overrides exist...
 	if( $title_override ) {
-		$heading_text = '<h2>' . $title_override . '<br />' . $back_to_link .  '</h2>';
+		$heading_text = '<h2>' . $title_override . $back_to_link .  '</h2>';
 	}
 
 	if( $paragraph_text ) {
