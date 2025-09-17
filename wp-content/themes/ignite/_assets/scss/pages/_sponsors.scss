@@ -88,9 +88,11 @@
 	border-radius: 7px;
 	padding: 3em;
 	display: grid;
-	grid-template-rows: masonry;
-	grid-template-columns: repeat(auto-fill, 380px);
-	grid-gap: 30px;
+	//grid-template-rows: masonry;
+	grid-template-rows: repeat(auto-fill, minmax(150px, 1fr));
+	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+	grid-gap: 20px;
+	grid-auto-flow: row;
 
 	.sponsor {
 		border: 1px solid rgba( $darker, 0.6 );
