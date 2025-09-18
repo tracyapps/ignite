@@ -603,21 +603,23 @@ function ITS_render_sponsor_level($level) {
  * @return bool
  */
 function ITS_is_sponsor_featured_today($post_id) {
-	if (have_rows('display_dates', $post_id)) {
-		$today = new DateTime('now', new DateTimeZone('America/Chicago'));
+	$dates = get_field('display_dates', $post_id);
+	if (empty($dates)) {
+		return false;
+	}
 
-		while (have_rows('display_dates', $post_id)) {
-			the_row();
-			$start = get_sub_field('feature_dates')['start'] ?? null;
-			$end   = get_sub_field('feature_dates')['end'] ?? null;
+	$today = new DateTime('now', new DateTimeZone('America/Chicago'));
 
-			if ($start && $end) {
-				$start_date = DateTime::createFromFormat('Y-m-d', $start, new DateTimeZone('America/Chicago'));
-				$end_date   = DateTime::createFromFormat('Y-m-d', $end, new DateTimeZone('America/Chicago'));
+	foreach ($dates as $row) {
+		$start = $row['feature_dates']['start'] ?? null;
+		$end   = $row['feature_dates']['end'] ?? null;
 
-				if ($start_date && $end_date && $today >= $start_date && $today <= $end_date) {
-					return true;
-				}
+		if ($start && $end) {
+			$start_date = DateTime::createFromFormat('Y-m-d', $start, new DateTimeZone('America/Chicago'));
+			$end_date   = DateTime::createFromFormat('Y-m-d', $end, new DateTimeZone('America/Chicago'));
+
+			if ($start_date && $end_date && $today >= $start_date && $today <= $end_date) {
+				return true;
 			}
 		}
 	}
@@ -628,34 +630,17 @@ function ITS_is_sponsor_featured_today($post_id) {
 /**
  * Get sponsor(s) that are featured today
  *
- * Cached for the request/session to avoid looping sponsors repeatedly.
- *
  * @return WP_Post[]
  */
 function ITS_get_featured_sponsors_today() {
-	$cache_key = 'ITS_featured_sponsors_today';
-	$cached = wp_cache_get($cache_key);
-
-	if ($cached !== false) {
-		return $cached;
-	}
-
 	$args = [
 		'post_type'      => 'sponsor',
 		'posts_per_page' => 99,
-		'meta_query'     => [
-			[
-				'key'     => 'display_dates',
-				'compare' => 'EXISTS',
-			]
-		]
+		
 	];
 	$sponsors = get_posts($args);
 
 	$featured = array_filter($sponsors, 'ITS_is_sponsor_featured_today');
-
-	// Store in cache for the rest of this request
-	wp_cache_set($cache_key, $featured);
 
 	return $featured;
 }

@@ -10,9 +10,6 @@ $class_names = 'featured_sponsor';
 if ( ! empty( $block['className'] ) ) {
 	$class_names .= ' ' . $block['className'];
 }
-if ( ! empty( $block['align'] ) ) {
-	$class_names .= ' align' . $block['align'];
-}
 
 $featured = ITS_get_featured_sponsors_today();
 if ($featured) :
@@ -24,8 +21,6 @@ if ($featured) :
 			$before_sponsor = '<a href="' . esc_url( get_field( 'link', $sponsor_id ) ) . '">';
 			$after_sponsor = '</a>';
 		}
-		echo $before_sponsor . '<object class="ad_container">' . apply_filters('the_content', $sponsor->post_content) . '</object>' . $after_sponsor;
+		echo $before_sponsor . '<object class="SOM_container">' . wp_kses_post($sponsor->post_content) . '</object>' . $after_sponsor;
 	endforeach;
-else :
-	// nothing to see here
 endif;
