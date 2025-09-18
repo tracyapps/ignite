@@ -17,10 +17,11 @@ if ($featured) :
 		$sponsor_id = $sponsor->ID;
 		$before_sponsor = '';
 		$after_sponsor = '';
+		$sponsor_content = $sponsor->post_content;
 		if( get_field( 'link', $sponsor_id ) ) {
 			$before_sponsor = '<a href="' . esc_url( get_field( 'link', $sponsor_id ) ) . '">';
 			$after_sponsor = '</a>';
 		}
-		echo $before_sponsor . '<object class="SOM_container">' . wp_kses_post($sponsor->post_content) . '</object>' . $after_sponsor;
+		echo apply_filters( 'the_content', wp_kses_post( $sponsor_content ) );
 	endforeach;
 endif;
