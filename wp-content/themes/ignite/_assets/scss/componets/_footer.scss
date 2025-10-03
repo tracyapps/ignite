@@ -34,11 +34,33 @@ footer.site_footer {
 			width: 100%;
 			opacity: 0.9;
 		}
+
+		.footer_links {
+			display: flex;
+			justify-content: space-evenly;
+			align-items: center;
+			h6 {
+				flex: none;
+			}
+			.chapter {
+				text-transform: uppercase;
+				margin: 0 0.5em;
+				flex: auto;
+
+				display: flex;
+				flex-direction: column;
+
+				img {
+					max-height: 10vw;
+				}
+			}
+		}
 	}
 
 	#footer-social-links {
-		margin: 3em 0 0 0;
+		margin: 0 0 0 20%;
 		padding: 0;
+		flex: 1;
 		list-style: none;
 		display: flex;
 		flex-wrap: wrap;

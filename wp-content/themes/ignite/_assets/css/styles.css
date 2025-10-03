@@ -2273,9 +2273,28 @@ footer.site_footer .footer_info .footer_text {
   width: 100%;
   opacity: 0.9;
 }
+footer.site_footer .footer_info .footer_links {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+footer.site_footer .footer_info .footer_links h6 {
+  flex: none;
+}
+footer.site_footer .footer_info .footer_links .chapter {
+  text-transform: uppercase;
+  margin: 0 0.5em;
+  flex: auto;
+  display: flex;
+  flex-direction: column;
+}
+footer.site_footer .footer_info .footer_links .chapter img {
+  max-height: 10vw;
+}
 footer.site_footer #footer-social-links {
-  margin: 3em 0 0 0;
+  margin: 0 0 0 20%;
   padding: 0;
+  flex: 1;
   list-style: none;
   display: flex;
   flex-wrap: wrap;
