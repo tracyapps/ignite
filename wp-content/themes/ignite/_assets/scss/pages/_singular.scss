@@ -41,14 +41,14 @@ div.page_featured_image {
 }
 
 div.no_header {
-	padding-top: calc(0.18 * 100cqw);
+	padding-top: var( --mask-foot-size );
 
 	.home.page-home & {
-		padding-top: calc(0.15 * 100cqw);
+		padding-top: var( --mask-foot-size );
 	}
 }
 .no_featured_image {
-	padding-top: calc(0.16 * 100cqw);
+	padding-top: calc( var( --mask-foot-size ) * 2 );
 	@include themify($themes) {
 		background-image: linear-gradient( themed( 'subtleBackgroundColor' ) 58%, transparent 90%);
 	}
