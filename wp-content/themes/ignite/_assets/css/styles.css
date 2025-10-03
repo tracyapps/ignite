@@ -1351,14 +1351,14 @@ memorial wall (archive)
 
 article.hom_single,
 .hom_archive {
-  padding-top: 9cqw;
+  padding-top: var(--mask-foot-size);
+  margin-top: 2em;
 }
 
 .hom_featured_image {
   position: relative;
   float: right;
-  margin-right: -3%;
-  margin-left: 0.3em;
+  margin: calc(var(--mask-foot-size) * -2.5) -1em 0 0.3em;
   max-height: 100vh;
   max-width: 47%;
   z-index: 9999;
@@ -1366,7 +1366,7 @@ article.hom_single,
 
 .hom_archive,
 .hom_header {
-  margin-top: 6cqw;
+  padding-top: 1em;
   margin-bottom: 2em;
   margin-left: auto;
   margin-right: auto;

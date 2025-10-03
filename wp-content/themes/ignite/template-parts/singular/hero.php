@@ -42,7 +42,7 @@ $subhead_text = ! empty( get_field( 'top_banner_text', get_the_ID() ) ) ? esc_ht
 		}
 		?>
 
-
+	<?php echo ITS_display_featured_sponsors_today(); ?>
 
 	<?php ITS_display_heroes_by_calendar_year(); ?>
 

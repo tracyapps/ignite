@@ -645,3 +645,24 @@ function ITS_get_featured_sponsors_today() {
 
 	return $featured;
 }
+
+function ITS_display_featured_sponsors_today() {
+	$featured = ITS_get_featured_sponsors_today();
+	$output = '';
+
+	if ($featured) :
+		foreach ($featured as $sponsor) :
+			$sponsor_id = $sponsor->ID;
+			$before_sponsor = '';
+			$after_sponsor = '';
+			$sponsor_content = $sponsor->post_content;
+			if( get_field( 'link', $sponsor_id ) ) {
+				$before_sponsor = '<a href="' . esc_url( get_field( 'link', $sponsor_id ) ) . '">';
+				$after_sponsor = '</a>';
+			}
+			$output .= apply_filters( 'the_content', wp_kses_post( $sponsor_content ) );
+		endforeach;
+	endif;
+
+	return $output;
+}
