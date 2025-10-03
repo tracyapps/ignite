@@ -242,6 +242,14 @@ a.primary_button:visited {
   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.55);
 }
 
+.button_fullwidth,
+a.button_fullwidth,
+a.button_fullwidth:visited {
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+}
+
 .secondary_button,
 a.secondary_button,
 a.secondary_button:visited,

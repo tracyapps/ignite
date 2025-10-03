@@ -143,6 +143,13 @@ a.primary_button:visited {
 		}
 	}
 }
+.button_fullwidth,
+a.button_fullwidth,
+a.button_fullwidth:visited {
+	width: 100%;
+	text-align: center;
+	font-weight: bold;
+}
 
 .secondary_button,
 a.secondary_button,

@@ -353,6 +353,7 @@ function ITS_render_news_and_events() {
 				<?php while ( $events_query->have_posts() ): $events_query->the_post(); ?>
 					<?php ITS_render_event_item(); ?>
 				<?php endwhile; ?>
+			<a href="/events/" class="button button_primary button_fullwidth">All Events &raquo;</a>
 			<?php else: ?>
 				<p>No upcoming events.</p>
 			<?php endif; wp_reset_postdata(); ?>
