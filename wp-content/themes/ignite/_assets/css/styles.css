@@ -1021,6 +1021,10 @@ div.no_header {
   width: 30%;
 }
 
+div[id^=paypal-form-fields-container] .item-header {
+  display: block !important;
+}
+
 /**
 
  */

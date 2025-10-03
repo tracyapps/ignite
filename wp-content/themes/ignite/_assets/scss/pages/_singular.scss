@@ -105,3 +105,11 @@ div.no_header {
 		width: 30%;
 	}
 }
+
+// STORE page (basic overrides for paypal code)
+
+div[id^="paypal-form-fields-container"] {
+	.item-header {
+		display: block !important;
+	}
+}
