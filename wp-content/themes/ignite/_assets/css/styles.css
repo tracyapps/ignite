@@ -1832,7 +1832,7 @@ article.hom_single,
 }
 @media (max-width: 900px) {
   .site_main_header .logo-spacer {
-    min-width: 10px;
+    min-width: 80px;
   }
 }
 
