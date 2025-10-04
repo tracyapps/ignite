@@ -20,18 +20,25 @@
 	position: relative;
 	padding-right: 10px;
 
+	@include tablet-up {
+		@include themify($themes) {
+			background-image: linear-gradient( to right, transparent 50%, themed( 'utilityNavBGColor' ) 90% );
+		}
 
-	@include themify($themes) {
-		background-image: linear-gradient( to right, transparent 50%, themed( 'utilityNavBGColor' ) 90% );
 	}
-
 	.smaller & {
 		@include themify($themes) {
-
 			background: rgba( themed( 'utilityNavBGColor' ), 0.8);
 			backdrop-filter: blur(8px);
 		}
 	}
+	@include tablet-down {
+		@include themify($themes) {
+			background: rgba( themed( 'utilityNavBGColor' ), 0.9);
+			backdrop-filter: blur(8px);
+		}
+	}
+
 
 	a,
 	a:visited {
@@ -302,11 +309,11 @@ header.site_main_header {
 	@include tablet-down {
 		.header_center {
 			position: absolute;
-			top: 0;
+			top: 0vh;
 			right: 0;
-			height: calc( 100vh - 90px );
+		//	height: calc( 100vh - 90px );
 			width: 60vw;
-			min-width: min(390px, 95%);
+		//	min-width: min(390px, 95%);
 			z-index: 9999;
 			display: flex;
 			flex-direction: column;
@@ -316,15 +323,13 @@ header.site_main_header {
 		//	transform: translateX( 150% );
 			transition: transform 300ms ease-in-out;
 			display: none;
+			background: rgba($dark, 0.95);
+			backdrop-filter: blur(8px);
+
 			@include themify($themes) {
-				background: themed('backgroundColor');
 				box-shadow: themed('activeShadow');
 			}
 
-			@include phone-landscape {
-				margin-top: 55px;
-				height: calc( 100vh - 55px );
-			}
 			.main_nav_is_open & {
 				transform: translateX( 0% );
 
@@ -363,12 +368,9 @@ header.site_main_header {
 						text-decoration: none;
 						display: block;
 						line-height: 1.1;
-
-						@include themify($themes) {
-							border-top: 1px solid themed('backgroundColor');
-							border-bottom: 1px solid rgba( themed('textColor'), 0.14 );
-							color: themed('mainNavLinkColor');
-						}
+						border-top: 1px solid $dark;
+						border-bottom: 1px solid rgba( $white, 0.3 );
+						color: $white;
 
 
 					}

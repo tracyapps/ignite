@@ -112,9 +112,10 @@ $golden-large:	63.8%;
 
 // CSS vars
 :root {
-	--mask-head-size: calc(0.005 * 100cqw);
-	--mask-foot-size: calc(0.040 * 100cqw);
+	--mask-head-size: calc(0.015 * 100cqw);
+	--mask-foot-size: calc(0.040 * 80cqw);
 	--mask-foot-size-small: 0;
+
 }
 
 /*

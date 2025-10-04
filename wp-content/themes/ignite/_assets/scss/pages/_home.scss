@@ -30,4 +30,15 @@ body.home.page-home {
 			margin-top: -0.5em;
 		}
 	}
+
+	@include phone-only {
+		display: block;
+
+		.news-col,
+		.events-col {
+			padding: 0;
+			margin: 1em auto 5em auto;
+			width: 90vw;
+		}
+	}
 }

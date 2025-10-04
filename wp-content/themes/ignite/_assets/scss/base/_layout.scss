@@ -181,6 +181,10 @@ main.post_main {
 	grid-template-columns: repeat(auto-fill, minmax( 350px, 1fr ));
 	grid-gap: 1em;
 
+	@include phone-only {
+		grid-template-columns: repeat(auto-fill, minmax( 95%, 1fr ));
+	}
+
 	.card {
 		container-type: inline-size;
 	}

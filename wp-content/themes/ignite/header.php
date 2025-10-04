@@ -131,7 +131,6 @@
 
 		<div id="site_utility_bar" class="flex-row box-wrap">
 
-
 				<nav id="utility_navigation">
 					<?php
 					$utilityNavProps =  array(
@@ -181,9 +180,9 @@
 
 			<div class="header_center box-wrap">
 				<nav id="site_main_nav" class="main_nav_container">
-					<div class="mobile_search_container mobile_only">
-						<?php get_template_part( 'template-parts/components/mobile-search-bar' ); ?>
-					</div>
+					<!--<div class="mobile_search_container mobile_only">
+						<?php /*get_template_part( 'template-parts/components/mobile-search-bar' ); */?>
+					</div>-->
 					<?php
 						$navProps =  array(
 						'theme_location' => 'main-nav',
@@ -211,7 +210,26 @@
 			</div>
 		</div>
 
-
+		<button id="menu_toggle_button" class="menu mobile_menu_only">
+			<svg
+					x="0" y="0" viewBox="0 0 40 40">
+				<path class="menu_line top_line"
+					  stroke-linecap="round"
+					  stroke-linejoin="round"
+					  d="m 15 10
+								l 20 0"/>
+				<path class="menu_line middle_line"
+					  stroke-linecap="round"
+					  stroke-linejoin="round"
+					  d="m 10 20
+								l 25 0"/>
+				<path class="menu_line bottom_line"
+					  stroke-linecap="round"
+					  stroke-linejoin="round"
+					  d="m 5 30
+								l 30 0"/>
+			</svg>
+		</button>
 	</header>
 
 	<div id="content">

@@ -1,7 +1,10 @@
 
 article.hom_single,
 .hom_archive {
-	padding-top: var( --mask-foot-size );
+	@include tablet-up {
+		padding-top: var( --mask-foot-size );
+	}
+
 	margin-top: 2em;
 }
 
@@ -13,6 +16,11 @@ article.hom_single,
 	max-height: 100vh;
 	max-width: 47%;
 	z-index: 9999;
+
+	@include tablet-down {
+		z-index: -1;
+		margin: -3em -2em 4em -20%;
+	}
 }
 
 .hom_archive,
@@ -21,7 +29,7 @@ article.hom_single,
 	margin-bottom: 2em;
 	margin-left: auto;
 	margin-right: auto;
-	width: 90vw;
+	width: 90%;
 
 	h1.hom_name {
 		@include themify($themes) {
@@ -42,6 +50,15 @@ article.hom_single,
 
 		@include themify($themes) {
 			color: themed( 'linkColor' );
+		}
+	}
+
+	@include tablet-down {
+		padding-top: 2em;
+
+		h1.hom_name {
+			font-size: $font-size-xl;
+
 		}
 	}
 }
@@ -168,6 +185,16 @@ article.hom_single,
 	grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
 	justify-items: center;
 	margin: 1em 3em 5em 3em;
+
+	@include phone-only {
+		margin: 1em 1em 5em 1em;
+		grid-template-columns: repeat(auto-fit, minmax(150px, 50%));
+
+		.hom_thumbnail_image {
+			width: 150px;
+			height: 150px;
+		}
+	}
 }
 .hom_thumbnail_image {
 	width: 200px;
@@ -251,6 +278,10 @@ article.hom_single,
 		width: 50%;
 		height: 40%;
 		overflow: hidden;
+
+		@include phone-only {
+			font-size: 1.2em;
+		}
 
 		span {
 			transform: rotate(-38deg);

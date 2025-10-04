@@ -79,6 +79,28 @@
 			}
 		}
 
+		@include phone-only {
+			margin-bottom:1em;
+
+			.post_featured_image {
+				max-width: 35%;
+
+				img {
+					margin:4px;
+					padding: 5px;
+				}
+			}
+			.post_excerpt_container {
+				padding: 1em;
+
+				p {
+					font-size: $font-size-sm;
+				}
+				.post_meta {
+					font-size: $font-size-xs;
+				}
+			}
+		}
 	}
 
 	article.event-item {

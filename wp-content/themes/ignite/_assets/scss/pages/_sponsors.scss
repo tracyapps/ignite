@@ -88,11 +88,15 @@
 	border-radius: 7px;
 	padding: 3em;
 	display: grid;
-	//grid-template-rows: masonry;
 	grid-template-rows: repeat(auto-fill, minmax(150px, 1fr));
 	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 	grid-gap: 20px;
 	grid-auto-flow: row;
+
+	@include phone-only {
+		margin: -2.5em 1.5em 3em 1.5em;
+		padding: 2em 1em 1em 1em;
+	}
 
 	.sponsor {
 		border: 1px solid rgba( $darker, 0.6 );

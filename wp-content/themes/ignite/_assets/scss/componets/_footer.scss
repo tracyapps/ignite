@@ -7,6 +7,10 @@ footer.site_footer {
 		box-shadow: themed('activeShadow');
 	}
 
+	@include phone-only {
+		padding: 0.4em 2em 2em 2em;
+	}
+
 	a,
 	a:visited {
 		font-weight: 700;
@@ -24,8 +28,8 @@ footer.site_footer {
 	}
 
 	.footer_info {
-		padding: 2em;
-		width: 94vw;
+		padding: 1.5em;
+		max-width: 94vw;
 		margin: 2em auto;
 		font-size: $font-size-sm;
 
@@ -33,6 +37,18 @@ footer.site_footer {
 			display: block;
 			width: 100%;
 			opacity: 0.9;
+
+			@include phone-only {
+				.flex-row {
+					display: block;
+
+
+					> * {
+						padding-bottom: 2em;
+						text-align: left;
+					}
+				}
+			}
 		}
 
 		.footer_links {
@@ -41,6 +57,7 @@ footer.site_footer {
 			align-items: center;
 			h6 {
 				flex: none;
+
 			}
 			.chapter {
 				text-transform: uppercase;
@@ -52,6 +69,20 @@ footer.site_footer {
 
 				img {
 					max-height: 10vw;
+				}
+			}
+
+			@include tablet-down {
+				flex-wrap: wrap;
+
+				h6 {
+					width:100%;
+					text-align: left;
+					margin-bottom:3px;
+				}
+
+				.chapter {
+					margin: 0 0.2em;
 				}
 			}
 		}
@@ -66,6 +97,18 @@ footer.site_footer {
 		flex-wrap: wrap;
 		align-items: center;
 		justify-content: flex-end;
+
+		@include tablet-down {
+			margin: 3em 0 0 0;
+			padding-top: 1em;
+			flex-wrap: nowrap;
+			flex-basis: 100%;
+			justify-content: center;
+
+			@include themify($themes) {
+				border-top: 1px solid rgba( themed('footerTextColor'), 0.25 );
+			}
+		}
 
 		li,
 		a {
@@ -128,13 +171,21 @@ footer.site_footer {
 				box-shadow: themed('subtleShadow');
 			}
 
+			@include phone-only {
+				flex-wrap: wrap;
+			}
 			li {
 				margin: 0 1em;
+
+				@include phone-only {
+					margin: 0.5em 0.2em;
+				}
 			}
 			a {
 				padding: 0.5em 1em;
 				text-transform: uppercase;
 				font-size: $font-size-sm;
+				line-height: 1.1;
 			}
 		}
 	}
