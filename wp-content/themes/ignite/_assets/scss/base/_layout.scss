@@ -45,6 +45,12 @@
 	margin-right: auto;
 }
 
+.align_top {
+	align-items: flex-start;
+}
+.align_bottom {
+	align-items: flex-end;
+}
 #main {
 
 	main.singular_page {

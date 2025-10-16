@@ -117,6 +117,7 @@ input[type="submit"],
 .wp-block-button__link:visited,
 a.primary_button,
 a.primary_button:visited {
+	white-space: normal;
 	display: inline-block;
 	border-radius: 3px;
 	position: relative;

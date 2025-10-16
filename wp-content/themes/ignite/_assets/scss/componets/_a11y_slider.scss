@@ -90,3 +90,20 @@ https://splidejs.com/
 		}
 	}
 }
+
+// force mobile height to break set height if content is longer
+
+@include phone-only {
+	#content {
+		#main {
+			section.splide.slider_block,
+			.splide__track,
+			.splide__slide__container {
+				height: auto !important;
+				min-height: 100% !important;
+
+				padding-bottom: 2em;
+			}
+		}
+	}
+}

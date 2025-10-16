@@ -1,3 +1,8 @@
+if ("ontouchstart" in window || navigator.maxTouchPoints > 0) {
+// touch screen
+} else {
+
+
 
 document.addEventListener('DOMContentLoaded', () => {
 	const logo = document.querySelector('#ITS-logo');
@@ -49,3 +54,5 @@ document.addEventListener('DOMContentLoaded', () => {
 		setTimeout(() => logo.style.transition = '', 600);
 	});
 });
+
+}

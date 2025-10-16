@@ -161,6 +161,7 @@ input[type=submit],
 .wp-block-button__link:visited,
 a.primary_button,
 a.primary_button:visited {
+  white-space: normal;
   display: inline-block;
   border-radius: 3px;
   position: relative;
@@ -529,6 +530,14 @@ h6 {
   max-width: 910px;
   margin-left: auto;
   margin-right: auto;
+}
+
+.align_top {
+  align-items: flex-start;
+}
+
+.align_bottom {
+  align-items: flex-end;
 }
 
 #main main.singular_page > p,
@@ -1832,7 +1841,7 @@ article.hom_single,
 }
 @media (max-width: 900px) {
   .site_main_header .logo-spacer {
-    min-width: 80px;
+    min-width: 90px;
   }
 }
 
@@ -1927,6 +1936,10 @@ article.hom_single,
 @media (max-width: 600px) {
   #ITS_MAIN_LOGO {
     min-width: 24vw;
+  }
+  #ITS_MAIN_LOGO a,
+  #ITS_MAIN_LOGO a:visited {
+    display: block;
   }
 }
 .smaller #ITS_MAIN_LOGO {
@@ -3617,6 +3630,15 @@ https://splidejs.com/
   color: #ffffff;
 }
 
+@media (max-width: 600px) {
+  #content #main section.splide.slider_block,
+  #content #main .splide__track,
+  #content #main .splide__slide__container {
+    height: auto !important;
+    min-height: 100% !important;
+    padding-bottom: 2em;
+  }
+}
 body .has-x-large-font-size,
 #content .has-x-large-font-size {
   font-size: clamp(3.13rem, 1.07vi + 2.7rem, 4.74rem) !important;
